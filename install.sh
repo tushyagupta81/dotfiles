@@ -11,7 +11,7 @@
 dotfiledir="${HOME}/dotfiles"
 
 # list of files/folders to symlink in ${homedir}
-files=(zshrc zprofile bashrc bash_profile aliases)
+files=(zshrc zprofile bashrc bash_profile aliases p10k.zsh)
 
 # change to the dotfiles directory
 echo "Changing to the ${dotfiledir} directory"
@@ -34,5 +34,8 @@ done
 
 # Run the Neovim Script
 ./nvim.sh
+
+# Run the terminal Script
+./terminal.sh
 
 echo "Installation Complete!"

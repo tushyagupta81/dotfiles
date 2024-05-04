@@ -6,3 +6,4 @@ if [ -x "/opt/homebrew/bin/brew" ] && [[ ":$path:" != *":/opt/homebrew/bin:"* ]]
 fi
 
 cp ./nvim ~/.config
+cp ./scripts ~/.config

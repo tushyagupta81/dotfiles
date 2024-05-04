@@ -46,6 +46,8 @@ packages=(
     "tmux"
     "gcc"
     "nvm"
+    "lazygit"
+    "zoxide"
 )
 
 # Loop over the array to install each application.
