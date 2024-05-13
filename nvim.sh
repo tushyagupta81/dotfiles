@@ -5,6 +5,6 @@ if [ -x "/opt/homebrew/bin/brew" ] && [[ ":$path:" != *":/opt/homebrew/bin:"* ]]
     export path="/opt/homebrew/bin:$path"
 fi
 
-cp -r ./nvim ~/.config
-cp -r ./scripts ~/.config
-cp -r ./newsboat ~/.config
+ln -sf ./nvim ~/.config/.nvim
+ln -sf ./scripts ~/.config/.scripts
+ln -sf ./newsboat ~/.config/.newsboat

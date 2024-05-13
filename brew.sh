@@ -21,7 +21,7 @@ if ! command -v brew &>/dev/null; then
     # exit 1
     test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
     test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-    echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.bashrc
+    echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.zshrc
 fi
 
 # Update Homebrew and Upgrade any already-installed formulae
