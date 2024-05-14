@@ -4,6 +4,11 @@ tmux new-session "ide"
 tmux split-window -h -l 70%
 tmux split-window -h -l 35%
 tmux split-window -v -l 50%
+if [ -d .git ]; then
+    tmux new-window
+    tmux send-keys 'lazygit' C-m
+    tmux selectw -t 0
+fi;
 tmux selectp -t 1
 tmux send-keys 'nvim .' C-m
 tmux a -t "ide" 

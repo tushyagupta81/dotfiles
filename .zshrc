@@ -113,6 +113,23 @@ source $ZSH/oh-my-zsh.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 source ~/.aliases
 eval "$(zoxide init zsh)"
+
+# Check for linux
+# unameOut="$(uname -s)"
+# case "${unameOut}" in
+#     Linux*)     machine="Linux";;
+#     Darwin*)    machine="Mac";;
+#     CYGWIN*)    machine="Cygwin";;
+#     MINGW*)     machine="MinGw";;
+#     MSYS_NT*)   machine="Git";;
+#     *)          machine="UNKNOWN:${unameOut}"
+# esac
+#
+# if ["$(machine)" = "Linux" ]; then
+#     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# f
+if [[ "$OSTYPE" =~ ^linux ]]; then
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi

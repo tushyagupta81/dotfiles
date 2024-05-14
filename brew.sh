@@ -106,16 +106,17 @@ apps=(
     "anaconda"
     "whatsapp"
 )
-
-# Loop over the array to install each application.
-for app in "${apps[@]}"; do
-    if brew list --cask | grep -q "^$app\$"; then
-        echo "$app is already installed. Skipping..."
-    else
-        echo "Installing $app..."
-        brew install --cask "$app"
-    fi
-done
+if [[ "$OSTYPE" =~ ^linux ]]; then
+    # Loop over the array to install each application.
+    for app in "${apps[@]}"; do
+        if brew list --cask | grep -q "^$app\$"; then
+            echo "$app is already installed. Skipping..."
+        else
+            echo "Installing $app..."
+            brew install --cask "$app"
+        fi
+    done
+fi
 
 # Install Source Code Pro Font
 # Tap the Homebrew font cask repository if not already tapped
@@ -142,7 +143,9 @@ fi
 # Update and clean up again for safe measure
 brew update
 brew upgrade
-brew upgrade --cask
+if [[ "$OSTYPE" =~ ^linux ]]; then
+    brew upgrade --cask
+fi
 brew cleanup
 
 echo "Sign in to Google Chrome. Press enter to continue..."
@@ -158,4 +161,4 @@ read
 # read
 
 # echo "Import your Rectangle settings located in ~/dotfiles/settings/RectangleConfig.json. Press enter to continue..."
-read
+# read
