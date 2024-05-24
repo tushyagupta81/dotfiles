@@ -114,7 +114,6 @@ source $ZSH/oh-my-zsh.sh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 source ~/.aliases
-eval "$(zoxide init zsh)"
 
 # Check for linux
 # unameOut="$(uname -s)"
@@ -133,3 +132,5 @@ eval "$(zoxide init zsh)"
 if [[ "$OSTYPE" =~ ^linux ]]; then
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
+
+eval "$(zoxide init zsh)"
