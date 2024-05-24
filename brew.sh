@@ -106,7 +106,7 @@ apps=(
     "anaconda"
     "whatsapp"
 )
-if [[ "$OSTYPE" =~ ^linux ]]; then
+if [[ "$OSTYPE" = "darwin"* ]]; then
     # Loop over the array to install each application.
     for app in "${apps[@]}"; do
         if brew list --cask | grep -q "^$app\$"; then

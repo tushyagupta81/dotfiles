@@ -38,4 +38,8 @@ done
 # Run the terminal Script
 ./terminal.sh
 
+if [["$OSTYPE" == "linux-gnu"]]; then
+    ./linux.sh
+fi
+
 echo "Installation Complete!"
