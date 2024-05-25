@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 ssh-keygen -t ed25519 -C "tushya007@gmail.com"
 
 eval "$(ssh-agent -s)"
