@@ -51,6 +51,7 @@ packages=(
     "nvm"
     "lazygit"
     "zoxide"
+    "miniconda"
 )
 
 # Loop over the array to install each application.
