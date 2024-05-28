@@ -4,3 +4,4 @@ export PATH=~/.config/scripts:$PATH
 
 alias workspace='cd ~/Desktop/Programs'
 alias n='newsboat'
+alias jn='jupyter notebook'

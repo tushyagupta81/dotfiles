@@ -21,6 +21,7 @@ return {
                 disable = {
                     'cpp',
                     'c',
+                    'html',
                 }
             },
 
