@@ -42,6 +42,7 @@ packages=(
     "node"
     "newsboat"
     "btop"
+    "mysql"
     "ripgrep"
     "gcc"
     "mpv"
@@ -104,7 +105,6 @@ apps=(
     # "rectangle"
     "postman"
     "docker"
-    "anaconda"
     "whatsapp"
 )
 if [[ "$OSTYPE" == "darwin"* ]]; then

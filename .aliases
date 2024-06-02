@@ -5,3 +5,6 @@ export PATH=~/.config/scripts:$PATH
 alias workspace='cd ~/Desktop/Programs'
 alias n='newsboat'
 alias jn='jupyter notebook'
+
+alias smysql='brew services run mysql'
+alias qmysql='brew services stop mysql'
