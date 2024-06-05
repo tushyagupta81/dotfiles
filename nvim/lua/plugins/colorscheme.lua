@@ -1,13 +1,27 @@
+-- return {
+--     'catppuccin/nvim',
+--     name = 'catppuccin',
+--     priority = 1000,
+--     config = function()
+--         require('catppuccin').setup({
+--             transparent_background = true,
+--         })
+--         vim.cmd.colorscheme "catppuccin-mocha"
+--     end
+-- }
+
 return {
-    'catppuccin/nvim',
-    name = 'catppuccin',
-    priority = 1000,
-    config = function()
-        require('catppuccin').setup({
-            transparent_background = true,
-        })
-        vim.cmd.colorscheme "catppuccin-mocha"
-    end
+  'rose-pine/neovim',
+  name = "rose-pine",
+  config = function()
+    require("rose-pine").setup({
+      styles = {
+        italic = false,
+        transparency = true
+      },
+    })
+    vim.cmd("colorscheme rose-pine-moon")
+  end
 }
 
 -- return{
