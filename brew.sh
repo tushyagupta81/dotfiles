@@ -55,8 +55,10 @@ packages=(
     "luarocks"
     "lazygit"
     "zoxide"
-    "miniconda"
+    "fzf"
 )
+
+zsh ./conda.sh
 
 # Loop over the array to install each application.
 for package in "${packages[@]}"; do
@@ -109,6 +111,7 @@ apps=(
     # "rectangle"
     "postman"
     "docker"
+    "miniconda"
     "whatsapp"
 )
 if [[ "$OSTYPE" == "darwin"* ]]; then
@@ -121,23 +124,23 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
             brew install --cask "$app"
         fi
     done
+
+    # Install Source Code Pro Font
+    # Tap the Homebrew font cask repository if not already tapped
+    brew tap | grep -q "^homebrew/cask-fonts$" || brew tap homebrew/cask-fonts
+    
+    # Define the font name
+    font_name="font-source-code-pro"
+    
+    # Check if the font is already installed
+    if brew list --cask | grep -q "^$font_name\$"; then
+        echo "$font_name is already installed. Skipping..."
+    else
+        echo "Installing $font_name..."
+        brew install --cask "$font_name"
+    fi
+
 fi
-
-# Install Source Code Pro Font
-# Tap the Homebrew font cask repository if not already tapped
-brew tap | grep -q "^homebrew/cask-fonts$" || brew tap homebrew/cask-fonts
-
-# Define the font name
-font_name="font-source-code-pro"
-
-# Check if the font is already installed
-if brew list --cask | grep -q "^$font_name\$"; then
-    echo "$font_name is already installed. Skipping..."
-else
-    echo "Installing $font_name..."
-    brew install --cask "$font_name"
-fi
-
 # Once font is installed, Import your Terminal Profile
 # echo "Import your terminal settings..."
 # echo "Terminal -> Settings -> Profiles -> Import..."
@@ -153,14 +156,14 @@ if [[ "$OSTYPE" =~ ^linux ]]; then
 fi
 brew cleanup
 
-echo "Sign in to Google Chrome. Press enter to continue..."
-read
-
-echo "Sign in to Spotify. Press enter to continue..."
-read
-
-echo "Sign in to Discord. Press enter to continue..."
-read
+# echo "Sign in to Google Chrome. Press enter to continue..."
+# read
+#
+# echo "Sign in to Spotify. Press enter to continue..."
+# read
+#
+# echo "Sign in to Discord. Press enter to continue..."
+# read
 
 # echo "Open Rectangle and give it necessary permissions. Press enter to continue..."
 # read

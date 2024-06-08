@@ -149,7 +149,7 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-HISTSIZE=5000
+HISTSIZE=10000
 HISTFILE=~/.zsh_history
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
