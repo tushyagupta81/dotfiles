@@ -11,7 +11,7 @@
 dotfiledir="${HOME}/dotfiles"
 
 # list of files/folders to symlink in ${homedir}
-files=(zprofile bashrc bash_profile aliases p10k.zsh tmux.conf)
+files=(zprofile bashrc bash_profile aliases p10k.zsh tmux.conf wezterm.lua)
 
 # change to the dotfiles directory
 echo "Changing to the ${dotfiledir} directory"
@@ -19,8 +19,8 @@ cd "${dotfiledir}" || exit
 
 # create symlinks (will overwrite old dotfiles)
 for file in "${files[@]}"; do
-    echo "Creating symlink to $file in home directory."
-    ln -sf "${dotfiledir}/.${file}" "${HOME}/.${file}"
+  echo "Creating symlink to $file in home directory."
+  ln -sf "${dotfiledir}/.${file}" "${HOME}/.${file}"
 done
 
 # Run the MacOS Script
@@ -39,7 +39,7 @@ done
 ./terminal.sh
 
 if [["$OSTYPE" == "linux-gnu"]]; then
-    ./linux.sh
+  ./linux.sh
 fi
 
 echo "Installation Complete!"

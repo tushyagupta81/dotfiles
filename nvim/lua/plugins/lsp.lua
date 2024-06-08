@@ -3,6 +3,7 @@ return {
 	dependencies = {
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-path",
@@ -46,7 +47,7 @@ return {
 				"emmet_language_server",
 				"eslint",
 				"pylsp",
-				"ast_grep",
+				-- "ast_grep",
 			},
 			handlers = {
 				function(server_name) -- default handler (optional)
@@ -70,7 +71,16 @@ return {
 				end,
 			},
 		})
-
+		require("mason-tool-installer").setup({
+			ensure_installed = {
+				"prettier", -- prettier formatter
+				"stylua", -- lua formatter
+				"isort", -- python formatter
+				"black", -- python formatter
+				"pylint",
+				"eslint_d",
+			},
+		})
 		require("luasnip.loaders.from_vscode").lazy_load()
 		local cmp_select = { behavior = cmp.SelectBehavior.Select }
 

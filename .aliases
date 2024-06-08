@@ -8,3 +8,5 @@ alias jn='jupyter notebook'
 
 alias smysql='brew services run mysql'
 alias qmysql='brew services stop mysql'
+
+alias c="clear"

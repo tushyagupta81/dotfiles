@@ -112,7 +112,6 @@ source $ZSH/oh-my-zsh.sh
 # source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 source ~/.aliases
 
 # Check for linux
@@ -162,4 +161,16 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
-export PATH=${PATH}:/usr/local/mysql/bin/
+# To customize prompt, run `p10k configure` or edit ~/dotfiles/.p10k.zsh.
+# [[ ! -f ~/dotfiles/.p10k.zsh ]] || source ~/dotfiles/.p10k.zsh
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+bindkey '^[[A' history-search-backward
+bindkey '^[[B' history-search-forward
+
+# thefuck alias
+eval $(thefuck --alias)
+eval $(thefuck --alias fk)
+# ---- Eza (better ls) -----
+
+alias ls="eza --icons=always"
