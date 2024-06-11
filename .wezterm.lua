@@ -50,7 +50,7 @@ M.get_wallpaper = function(dir)
 		repeat_y = "Repeat",
 		opacity = 1,
 		hsb = {
-			brightness = 0.06,
+			brightness = 0.02,
 			hue = 1.0,
 			saturation = 1.0,
 		},
