@@ -2,7 +2,13 @@ alias nv="nvim"
 alias nconfig="cd ~/.config/nvim"
 export PATH=~/.config/scripts:$PATH
 
-alias workspace='cd ~/Desktop/Programs'
+if [ $OSTYPE = linux-gnu ]
+then
+  alias workspace='cd ~/../../mnt/c/Users/Tushya/Desktop/All\ Programs'
+else
+  alias workspace='cd ~/Desktop/Programs'
+fi
+
 alias n='newsboat'
 alias jn='jupyter notebook'
 

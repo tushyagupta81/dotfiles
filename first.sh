@@ -38,7 +38,7 @@ done
 # Run the terminal Script
 ./terminal.sh
 
-if [["$OSTYPE" == "linux-gnu"]]; then
+if [["$OSTYPE" =~ ^linux]]; then
   ./linux.sh
 fi
 
