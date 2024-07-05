@@ -43,11 +43,12 @@ return {
 			require("mason-lspconfig").setup({
 				ensure_installed = {
 					"lua_ls",
-					-- "rust_analyzer",
+					"rust_analyzer",
 					"tsserver",
 					"emmet_language_server",
 					"eslint",
 					"pylsp",
+					"emmet_ls",
 					-- "ast_grep",
 				},
 				handlers = {
@@ -67,6 +68,23 @@ return {
 										globals = { "vim", "it", "describe", "before_each", "after_each" },
 									},
 								},
+							},
+						})
+					end,
+					["emmet_language_server"] = function()
+						local lspconfig = require("lspconfig")
+						lspconfig.emmet_language_server.setup({
+							filetypes = {
+								"css",
+								"eruby",
+								"html",
+								"javascript",
+								"javascriptreact",
+								"less",
+								"sass",
+								"scss",
+								"pug",
+								"typescriptreact",
 							},
 						})
 					end,
@@ -148,6 +166,7 @@ return {
 					graphql = { "prettier" },
 					liquid = { "prettier" },
 					lua = { "stylua" },
+					-- rust = { "rustfmt" },
 					python = { "isort", "black" },
 				},
 				format_on_save = {
@@ -182,6 +201,16 @@ return {
 				-- lua = { "luacheck" },
 			}
 
+			lint.linters.eslint_d.args = {
+				"--no-warn-ignored", -- <-- this is the key argument
+				"--format",
+				"json",
+				"--stdin",
+				"--stdin-filename",
+				function()
+					return vim.api.nvim_buf_get_name(0)
+				end,
+			}
 			local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 
 			vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
