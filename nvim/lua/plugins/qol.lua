@@ -166,4 +166,36 @@ return {
 			})
 		end,
 	},
+	{
+		"akinsho/bufferline.nvim",
+		version = "*",
+		dependencies = "nvim-tree/nvim-web-devicons",
+		config = function()
+			local bufferline = require("bufferline")
+			bufferline.setup({
+				options = {
+					diagnostics = "nvim_lsp",
+					diagnostics_indicator = function(count, level)
+						local icon = level:match("error") and " " or ""
+						return icon .. " " .. count
+					end,
+					style_preset = {
+						bufferline.style_preset.minimal,
+					},
+					numbers = "ordinal",
+				},
+			})
+			vim.keymap.set("n", "]q", ":BufferLineCycleNext<CR>", { noremap = true, silent = true })
+			vim.keymap.set("n", "[q", ":BufferLineCyclePrev<CR>", { noremap = true, silent = true })
+		end,
+	},
+	{
+		"roobert/tailwindcss-colorizer-cmp.nvim",
+		-- optionally, override the default options:
+		config = function()
+			require("tailwindcss-colorizer-cmp").setup({
+				color_square_width = 2,
+			})
+		end,
+	},
 }

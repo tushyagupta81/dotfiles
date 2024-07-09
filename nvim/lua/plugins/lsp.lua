@@ -49,6 +49,7 @@ return {
 					"eslint",
 					"pylsp",
 					"emmet_ls",
+					"tailwindcss",
 					-- "ast_grep",
 				},
 				handlers = {
@@ -126,6 +127,9 @@ return {
 				}, {
 					{ name = "buffer" },
 				}),
+				formatting = {
+					format = require("tailwindcss-colorizer-cmp").formatter,
+				},
 			})
 
 			vim.diagnostic.config({
