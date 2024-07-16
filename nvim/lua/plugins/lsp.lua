@@ -21,6 +21,35 @@ return {
 		},
 
 		config = function()
+			-- 1. find venv folder in current dir or 1 level deeper (venv/ or proj/venv)
+			local function find_venv(start_path) -- Finds the venv folder required for LSP
+				-- Check current directory (if venv folder is at root)
+				local venv_path = start_path .. "/venv"
+				if vim.fn.isdirectory(venv_path) == 1 then
+					return venv_path
+				end
+				-- Check one level deeper (e.g if venv is in proj/venv)
+				local handle = vim.loop.fs_scandir(start_path)
+				if handle then
+					while true do
+						local name, type = vim.loop.fs_scandir_next(handle)
+						if not name then
+							break
+						end
+						if type == "directory" then
+							venv_path = start_path .. "/" .. name .. "/venv"
+							if vim.fn.isdirectory(venv_path) == 1 then
+								return venv_path
+							end
+						end
+					end
+				end
+
+				return nil
+			end
+
+			local lspconfig = require("lspconfig")
+
 			local cmp = require("cmp")
 			local cmp_lsp = require("cmp_nvim_lsp")
 			local capabilities = vim.tbl_deep_extend(
@@ -29,6 +58,34 @@ return {
 				vim.lsp.protocol.make_client_capabilities(),
 				cmp_lsp.default_capabilities()
 			)
+			-- 2. If the venv is found during init, reload LSP with venv vars set
+			local pyright_restarted = false
+
+			lspconfig.pyright.setup({
+				capabilities = capabilities,
+				on_init = function(client)
+					if not pyright_restarted then -- Only proceed if we haven't restarted yet
+						local cwd = vim.fn.getcwd()
+						local venv_path = find_venv(cwd)
+						if venv_path then
+							print("Venv folder found: " .. venv_path)
+							vim.env.VIRTUAL_ENV = venv_path
+							vim.env.PATH = venv_path .. "/bin:" .. vim.env.PATH
+
+							-- Set the flag to true
+							pyright_restarted = true
+
+							vim.schedule(function()
+								vim.cmd("LspRestart pyright")
+								print("Pyright restarted with new venv settings")
+							end)
+						else
+							print("No venv folder found in or one level below current directory: " .. cwd)
+						end
+					end
+					return true
+				end,
+			})
 
 			require("fidget").setup({})
 			require("mason").setup({
@@ -47,7 +104,7 @@ return {
 					"tsserver",
 					"emmet_language_server",
 					"eslint",
-					"pylsp",
+					"pyright",
 					"emmet_ls",
 					"tailwindcss",
 					-- "ast_grep",
@@ -60,7 +117,6 @@ return {
 					end,
 
 					["lua_ls"] = function()
-						local lspconfig = require("lspconfig")
 						lspconfig.lua_ls.setup({
 							capabilities = capabilities,
 							settings = {
@@ -73,7 +129,6 @@ return {
 						})
 					end,
 					["emmet_language_server"] = function()
-						local lspconfig = require("lspconfig")
 						lspconfig.emmet_language_server.setup({
 							filetypes = {
 								"css",
@@ -97,7 +152,8 @@ return {
 					"stylua", -- lua formatter
 					"isort", -- python formatter
 					"black", -- python formatter
-					"pylint",
+					"ruff", -- python linter
+					"flake8", -- python linter
 					"eslint_d",
 				},
 			})
@@ -110,10 +166,10 @@ return {
 						require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
 					end,
 				},
-				-- window = {
-				-- 	completion = cmp.config.window.bordered(),
-				-- 	documentation = cmp.config.window.bordered(),
-				-- },
+				window = {
+					completion = cmp.config.window.bordered(),
+					documentation = cmp.config.window.bordered(),
+				},
 				mapping = cmp.mapping.preset.insert({
 					["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
 					["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
@@ -171,7 +227,7 @@ return {
 					liquid = { "prettier" },
 					lua = { "stylua" },
 					-- rust = { "rustfmt" },
-					python = { "isort", "black" },
+					python = { "black", "isort" },
 				},
 				format_on_save = {
 					lsp_fallback = true,
@@ -201,7 +257,7 @@ return {
 				javascriptreact = { "eslint_d" },
 				typescriptreact = { "eslint_d" },
 				svelte = { "eslint_d" },
-				python = { "pylint" },
+				python = { "flake8", "ruff" },
 				-- lua = { "luacheck" },
 			}
 
@@ -214,6 +270,28 @@ return {
 				function()
 					return vim.api.nvim_buf_get_name(0)
 				end,
+			}
+
+			local pattern = "[^:]+:(%d+):(%d+):(%w+):(.+)"
+			local groups = { "lnum", "col", "code", "message" }
+			lint.linters.flake8 = {
+				cmd = "flake8",
+				stdin = true,
+				args = {
+					"--no-warn-ignored", -- <-- this is the key argument
+					"--format=%(path)s:%(row)d:%(col)d:%(code)s:%(text)s",
+					"--no-show-source",
+					"--stdin-display-name",
+					function()
+						return vim.api.nvim_buf_get_name(0)
+					end,
+					"-",
+				},
+				ignore_exitcode = true,
+				parser = require("lint.parser").from_pattern(pattern, groups, nil, {
+					["source"] = "flake8",
+					["severity"] = vim.diagnostic.severity.WARN,
+				}),
 			}
 			local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 

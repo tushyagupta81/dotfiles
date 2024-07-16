@@ -1,6 +1,5 @@
 -- List of plugins
 -- "ThePrimeagen/harpoon",
--- "folke/which-key.nvim",
 -- "mbbill/undotree",
 -- "nvim-lualine/lualine.nvim",
 -- "RRethy/vim-illuminate",
@@ -9,6 +8,8 @@
 -- "lukas-reineke/indent-blankline.nvim",
 -- "windwp/nvim-autopairs",
 -- "folke/noice.nvim"
+-- "roobert/tailwindcss-colorizer-cmp.nvim"
+-- "akinsho/bufferline.nvim"
 
 return {
 	{
@@ -83,22 +84,6 @@ return {
 
 		config = function()
 			vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
-		end,
-	},
-	{ -- Useful plugin to show you pending keybinds.
-		"folke/which-key.nvim",
-		event = "VimEnter", -- Sets the loading event to 'VimEnter'
-		config = function() -- This is the function that runs, AFTER loading
-			require("which-key").setup()
-
-			-- Document existing key chains
-			require("which-key").register({
-				["<leader>c"] = { name = "[C]ode", _ = "which_key_ignore" },
-				["<leader>d"] = { name = "[D]ocument", _ = "which_key_ignore" },
-				["<leader>r"] = { name = "[R]ename", _ = "which_key_ignore" },
-				["<leader>s"] = { name = "[S]earch", _ = "which_key_ignore" },
-				["<leader>w"] = { name = "[W]orkspace", _ = "which_key_ignore" },
-			})
 		end,
 	},
 	{
@@ -183,10 +168,23 @@ return {
 						bufferline.style_preset.minimal,
 					},
 					numbers = "ordinal",
+					groups = {
+						items = {
+							require("bufferline.groups").builtin.pinned:with({ icon = "" }),
+						},
+					},
+					show_buffer_close_icons = false,
+					show_close_icon = false,
+					hover = {
+						enabled = true,
+						delay = 200,
+						reveal = { "close" },
+					},
 				},
 			})
-			vim.keymap.set("n", "]q", ":BufferLineCycleNext<CR>", { noremap = true, silent = true })
-			vim.keymap.set("n", "[q", ":BufferLineCyclePrev<CR>", { noremap = true, silent = true })
+			vim.keymap.set("n", "<Tab>", ":BufferLineCycleNext<CR>", { noremap = true, silent = true })
+			vim.keymap.set("n", "<S-Tab>", ":BufferLineCyclePrev<CR>", { noremap = true, silent = true })
+			vim.keymap.set("n", "<leader>pin", ":BufferLineTogglePin<CR>", { noremap = true, silent = true })
 		end,
 	},
 	{
