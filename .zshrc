@@ -174,3 +174,5 @@ eval $(thefuck --alias fk)
 # ---- Eza (better ls) -----
 
 alias ls="eza --icons=always"
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+

@@ -3,7 +3,7 @@
 tmux new-session "ide"
 tmux split-window -h -l 70%
 tmux split-window -h -l 35%
-tmux split-window -v -l 50%
+# tmux split-window -v -l 50%
 if [ -d .git ]; then
     tmux new-window
     tmux send-keys 'lazygit' C-m
