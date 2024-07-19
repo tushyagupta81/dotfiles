@@ -44,6 +44,20 @@ return { -- Collection of various small independent plugins/modules
 
 					-- Highlight hex color strings (`#rrggbb`) using that color
 					hex_color = hipatterns.gen_highlighter.hex_color(),
+
+					hsl_color = {
+						pattern = "hsl%(%d+,? %d+%%?,? %d+%%?%)",
+						group = function(_, match)
+							local utils = require("plugins.utils.hsl")
+							--- @type string, string, string
+							local nh, ns, nl = match:match("hsl%((%d+),? (%d+)%%?,? (%d+)%%?%)")
+							--- @type number?, number?, number?
+							local h, s, l = tonumber(nh), tonumber(ns), tonumber(nl)
+							--- @type string
+							local hex_color = utils.hslToHex(h, s, l)
+							return hipatterns.compute_hex_color_group(hex_color, "bg")
+						end,
+					},
 				},
 			})
 
