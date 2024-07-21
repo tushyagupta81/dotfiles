@@ -149,6 +149,13 @@ return {
 					lsp_doc_border = false, -- add a border to hover docs and signature help
 				},
 			})
+			require("notify").setup({
+				timeout = 200,
+				background_color = "transparent",
+				top_down = false,
+				render = "minimal",
+				stages = "fade",
+			})
 		end,
 	},
 	{

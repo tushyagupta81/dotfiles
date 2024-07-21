@@ -54,6 +54,7 @@ return { -- Collection of various small independent plugins/modules
 							--- @type number?, number?, number?
 							local h, s, l = tonumber(nh), tonumber(ns), tonumber(nl)
 							--- @type string
+							---@diagnostic disable-next-line: param-type-mismatch
 							local hex_color = utils.hslToHex(h, s, l)
 							return hipatterns.compute_hex_color_group(hex_color, "bg")
 						end,
@@ -88,7 +89,7 @@ return { -- Collection of various small independent plugins/modules
 				mappings = {
 					close = "q",
 					go_in = "l",
-					go_in_plus = "L",
+					go_in_plus = "<CR>",
 					go_out = "h",
 					go_out_plus = "H",
 					reset = "<BS>",
@@ -108,7 +109,7 @@ return { -- Collection of various small independent plugins/modules
 					-- Width of non-focused window
 					width_nofocus = 25,
 					-- Width of preview window
-					width_preview = 50,
+					width_preview = 40,
 				},
 			})
 			vim.keymap.set("n", "-", ":lua MiniFiles.open()<CR>")
