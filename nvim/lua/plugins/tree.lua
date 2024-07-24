@@ -7,53 +7,29 @@ return {
 				signcolumn = "yes",
 				width = 35,
 			},
+			ui = {
+				confirm = {
+					remove = true,
+					trash = true,
+					default_yes = true,
+				},
+			},
+			update_focused_file = {
+				enable = true,
+			},
 			renderer = {
 				indent_markers = {
 					enable = true,
-					inline_arrows = true,
-					icons = {
-						corner = "└",
-						edge = "│",
-						item = "│",
-						bottom = "─",
-						none = " ",
-					},
 				},
 				icons = {
 					web_devicons = {
-						file = {
-							enable = true,
-							color = true,
-						},
 						folder = {
 							enable = true,
-							color = true,
 						},
 					},
 					glyphs = {
-						default = "",
-						symlink = "",
-						bookmark = "󰆤",
-						modified = "●",
-						hidden = "󰜌",
-						folder = {
-							arrow_closed = "",
-							arrow_open = "",
-							default = "",
-							open = "",
-							empty = "",
-							empty_open = "",
-							symlink = "",
-							symlink_open = "",
-						},
 						git = {
-							unstaged = "~",
-							staged = "✓",
-							unmerged = "",
-							renamed = "➜",
-							untracked = "★",
-							deleted = "",
-							ignored = "◌",
+							unstaged = "[+]",
 						},
 					},
 				},
@@ -62,25 +38,10 @@ return {
 				enable = true,
 				show_on_dirs = true,
 				show_on_open_dirs = false,
-				disable_for_dirs = {},
-				timeout = 400,
-				cygwin_support = false,
 			},
 			diagnostics = {
 				enable = true,
 				show_on_dirs = false,
-				show_on_open_dirs = true,
-				debounce_delay = 50,
-				severity = {
-					min = vim.diagnostic.severity.HINT,
-					max = vim.diagnostic.severity.ERROR,
-				},
-				icons = {
-					hint = "",
-					info = "",
-					warning = "",
-					error = "",
-				},
 			},
 			modified = {
 				enable = true,

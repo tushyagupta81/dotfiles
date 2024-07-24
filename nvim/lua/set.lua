@@ -29,4 +29,5 @@ vim.opt.updatetime = 50
 vim.opt.cursorline = true
 
 vim.opt.hlsearch = true
-vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+
+vim.cmd("set hidden")
