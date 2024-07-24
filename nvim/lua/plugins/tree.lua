@@ -1,105 +1,103 @@
 return {
-	"nvim-tree/nvim-tree.lua",
-	config = function()
-		require("nvim-tree").setup({
-			view = {
-				side = "right",
-				signcolumn = "yes",
-				width = 35,
+	"nvim-neo-tree/neo-tree.nvim",
+	branch = "v3.x",
+	dependencies = {
+		"nvim-lua/plenary.nvim",
+		"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+		"MunifTanjim/nui.nvim",
+		-- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+	},
+	opts = {
+		-- If a user has a sources list it will replace this one.
+		-- Only sources listed here will be loaded.
+		-- You can also add an external source by adding it's name to this list.
+		-- The name used here must be the same name you would use in a require() call.
+		sources = {
+			"filesystem",
+			"git_status",
+			-- "document_symbols",
+		},
+		add_blank_line_at_top = false, -- Add a blank line at the top of the tree.
+		close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
+		source_selector = {
+			statusline = true, -- toggle to show selector on statusline
+		},
+		window = { -- see https://github.com/MunifTanjim/nui.nvim/tree/main/lua/nui/popup for
+			-- possible options. These can also be functions that return these options.
+			position = "right", -- left, right, top, bottom, float, current
+			width = 35, -- applies to left and right positions
+			height = 15, -- applies to top and bottom positions
+			mapping_options = {
+				noremap = true,
+				nowait = true,
 			},
-			ui = {
-				confirm = {
-					remove = true,
-					trash = true,
-					default_yes = true,
-				},
-			},
-			update_focused_file = {
-				enable = true,
-			},
-			renderer = {
-				indent_markers = {
-					enable = true,
-				},
-				icons = {
-					web_devicons = {
-						folder = {
-							enable = true,
-						},
-					},
-					glyphs = {
-						git = {
-							unstaged = "[+]",
-						},
-					},
-				},
-			},
-			git = {
-				enable = true,
-				show_on_dirs = true,
-				show_on_open_dirs = false,
-			},
-			diagnostics = {
-				enable = true,
-				show_on_dirs = false,
-			},
-			modified = {
-				enable = true,
-				show_on_dirs = true,
-				show_on_open_dirs = true,
-			},
-		})
-		vim.keymap.set("n", "-", "<CMD>NvimTreeFocus<CR>")
-	end,
+		},
+	},
+	vim.keymap.set("n", "-", "<CMD>Neotree reveal right<CR>"),
 }
+
 -- return {
--- 	"nvim-neo-tree/neo-tree.nvim",
--- 	branch = "v3.x",
--- 	dependencies = {
--- 		"nvim-lua/plenary.nvim",
--- 		"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
--- 		"MunifTanjim/nui.nvim",
--- 		-- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
--- 	},
--- 	opts = {
--- 		-- If a user has a sources list it will replace this one.
--- 		-- Only sources listed here will be loaded.
--- 		-- You can also add an external source by adding it's name to this list.
--- 		-- The name used here must be the same name you would use in a require() call.
--- 		sources = {
--- 			"filesystem",
--- 			"git_status",
--- 			-- "document_symbols",
--- 		},
--- 		add_blank_line_at_top = false, -- Add a blank line at the top of the tree.
--- 		close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
--- 		source_selector = {
--- 			statusline = true, -- toggle to show selector on statusline
--- 		},
--- 		default_component_configs = {
--- 			icon = {
--- 				-- folder_closed = "",
--- 				-- folder_open = "",
--- 				-- folder_empty = "󰉖",
--- 				-- folder_empty_open = "󰷏",
--- 				-- The next two settings are only a fallback, if you use nvim-web-devicons and configure default icons there
--- 				-- then these will never be used.
--- 				default = "*",
--- 				highlight = "NeoTreeFileIcon",
+-- 	"nvim-tree/nvim-tree.lua",
+-- 	config = function()
+-- 		local nvim_tree = require("nvim-tree")
+-- 		nvim_tree.setup({
+-- 			view = {
+-- 				mappings = {
+-- 					list = {
+-- 						{ key = "-", action = "" },
+-- 					},
+-- 				},
+-- 				side = "right",
+-- 				signcolumn = "yes",
+-- 				width = 35,
 -- 			},
--- 		},
--- 		window = { -- see https://github.com/MunifTanjim/nui.nvim/tree/main/lua/nui/popup for
--- 			-- possible options. These can also be functions that return these options.
--- 			position = "right", -- left, right, top, bottom, float, current
--- 			width = 40, -- applies to left and right positions
--- 			height = 15, -- applies to top and bottom positions
--- 			mapping_options = {
--- 				noremap = true,
--- 				nowait = true,
+-- 			mappings = {
+-- 				custom_only = true,
 -- 			},
--- 		},
--- 	},
--- 	vim.keymap.set("n", "-", "<CMD>Neotree<CR>"),
+-- 			ui = {
+-- 				confirm = {
+-- 					remove = true,
+-- 					trash = true,
+-- 					default_yes = true,
+-- 				},
+-- 			},
+-- 			update_focused_file = {
+-- 				enable = true,
+-- 			},
+-- 			renderer = {
+-- 				indent_markers = {
+-- 					enable = true,
+-- 				},
+-- 				icons = {
+-- 					web_devicons = {
+-- 						folder = {
+-- 							enable = true,
+-- 						},
+-- 					},
+-- 					glyphs = {
+-- 						git = {
+-- 							unstaged = "[+]",
+-- 						},
+-- 					},
+-- 				},
+-- 			},
+-- 			git = {
+-- 				enable = true,
+-- 				show_on_dirs = true,
+-- 				show_on_open_dirs = false,
+-- 			},
+-- 			diagnostics = {
+-- 				enable = true,
+-- 				show_on_dirs = false,
+-- 			},
+-- 			modified = {
+-- 				enable = true,
+-- 				show_on_dirs = true,
+-- 				show_on_open_dirs = true,
+-- 			},
+-- 		})
+-- 		vim.keymap.set("n", "-", "<CMD>NvimTreeFocus<CR>")
+-- 	end,
 -- }
 
 -- return {
