@@ -1,0 +1,163 @@
+return {
+	"nvim-tree/nvim-tree.lua",
+	config = function()
+		require("nvim-tree").setup({
+			view = {
+				side = "right",
+				signcolumn = "yes",
+				width = 35,
+			},
+			renderer = {
+				indent_markers = {
+					enable = true,
+					inline_arrows = true,
+					icons = {
+						corner = "└",
+						edge = "│",
+						item = "│",
+						bottom = "─",
+						none = " ",
+					},
+				},
+				icons = {
+					web_devicons = {
+						file = {
+							enable = true,
+							color = true,
+						},
+						folder = {
+							enable = true,
+							color = true,
+						},
+					},
+					glyphs = {
+						default = "",
+						symlink = "",
+						bookmark = "󰆤",
+						modified = "●",
+						hidden = "󰜌",
+						folder = {
+							arrow_closed = "",
+							arrow_open = "",
+							default = "",
+							open = "",
+							empty = "",
+							empty_open = "",
+							symlink = "",
+							symlink_open = "",
+						},
+						git = {
+							unstaged = "~",
+							staged = "✓",
+							unmerged = "",
+							renamed = "➜",
+							untracked = "★",
+							deleted = "",
+							ignored = "◌",
+						},
+					},
+				},
+			},
+			git = {
+				enable = true,
+				show_on_dirs = true,
+				show_on_open_dirs = false,
+				disable_for_dirs = {},
+				timeout = 400,
+				cygwin_support = false,
+			},
+			diagnostics = {
+				enable = true,
+				show_on_dirs = false,
+				show_on_open_dirs = true,
+				debounce_delay = 50,
+				severity = {
+					min = vim.diagnostic.severity.HINT,
+					max = vim.diagnostic.severity.ERROR,
+				},
+				icons = {
+					hint = "",
+					info = "",
+					warning = "",
+					error = "",
+				},
+			},
+			modified = {
+				enable = true,
+				show_on_dirs = true,
+				show_on_open_dirs = true,
+			},
+		})
+		vim.keymap.set("n", "-", "<CMD>NvimTreeFocus<CR>")
+	end,
+}
+-- return {
+-- 	"nvim-neo-tree/neo-tree.nvim",
+-- 	branch = "v3.x",
+-- 	dependencies = {
+-- 		"nvim-lua/plenary.nvim",
+-- 		"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+-- 		"MunifTanjim/nui.nvim",
+-- 		-- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+-- 	},
+-- 	opts = {
+-- 		-- If a user has a sources list it will replace this one.
+-- 		-- Only sources listed here will be loaded.
+-- 		-- You can also add an external source by adding it's name to this list.
+-- 		-- The name used here must be the same name you would use in a require() call.
+-- 		sources = {
+-- 			"filesystem",
+-- 			"git_status",
+-- 			-- "document_symbols",
+-- 		},
+-- 		add_blank_line_at_top = false, -- Add a blank line at the top of the tree.
+-- 		close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
+-- 		source_selector = {
+-- 			statusline = true, -- toggle to show selector on statusline
+-- 		},
+-- 		default_component_configs = {
+-- 			icon = {
+-- 				-- folder_closed = "",
+-- 				-- folder_open = "",
+-- 				-- folder_empty = "󰉖",
+-- 				-- folder_empty_open = "󰷏",
+-- 				-- The next two settings are only a fallback, if you use nvim-web-devicons and configure default icons there
+-- 				-- then these will never be used.
+-- 				default = "*",
+-- 				highlight = "NeoTreeFileIcon",
+-- 			},
+-- 		},
+-- 		window = { -- see https://github.com/MunifTanjim/nui.nvim/tree/main/lua/nui/popup for
+-- 			-- possible options. These can also be functions that return these options.
+-- 			position = "right", -- left, right, top, bottom, float, current
+-- 			width = 40, -- applies to left and right positions
+-- 			height = 15, -- applies to top and bottom positions
+-- 			mapping_options = {
+-- 				noremap = true,
+-- 				nowait = true,
+-- 			},
+-- 		},
+-- 	},
+-- 	vim.keymap.set("n", "-", "<CMD>Neotree<CR>"),
+-- }
+
+-- return {
+-- "stevearc/oil.nvim",
+-- dependencies = { "nvim-tree/nvim-web-devicons" },
+-- config = function()
+-- 	require("oil").setup({
+-- 		keymaps = {
+-- 			["<C-h>"] = false,
+-- 			["<C-l>"] = false,
+-- 			["<C-j>"] = false,
+-- 			["<C-k>"] = false,
+-- 			["<leader>-"] = "actions.refresh",
+-- 		},
+-- 		view_options = {
+-- 			-- Show files and directories that start with "."
+-- 			show_hidden = true,
+-- 		},
+-- 	})
+-- 	vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+-- end,
+-- }

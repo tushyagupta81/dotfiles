@@ -81,40 +81,40 @@ return { -- Collection of various small independent plugins/modules
 			end
 		end,
 	},
-	{
-		"echasnovski/mini.files",
-		version = false,
-		config = function()
-			require("mini.files").setup({
-				mappings = {
-					close = "q",
-					go_in = "l",
-					go_in_plus = "<CR>",
-					go_out = "h",
-					go_out_plus = "H",
-					reset = "<BS>",
-					reveal_cwd = "@",
-					show_help = "g?",
-					synchronize = "=",
-					trim_left = "<",
-					trim_right = ">",
-				},
-				windows = {
-					-- Maximum number of windows to show side by side
-					max_number = math.huge,
-					-- Whether to show preview of file/directory under cursor
-					preview = true,
-					-- Width of focused window
-					width_focus = 50,
-					-- Width of non-focused window
-					width_nofocus = 25,
-					-- Width of preview window
-					width_preview = 40,
-				},
-			})
-			vim.keymap.set("n", "-", ":lua MiniFiles.open()<CR>")
-		end,
-	},
+	-- {
+	-- 	"echasnovski/mini.files",
+	-- 	version = false,
+	-- 	config = function()
+	-- 		require("mini.files").setup({
+	-- 			mappings = {
+	-- 				close = "q",
+	-- 				go_in = "l",
+	-- 				go_in_plus = "<CR>",
+	-- 				go_out = "h",
+	-- 				go_out_plus = "H",
+	-- 				reset = "<BS>",
+	-- 				reveal_cwd = "@",
+	-- 				show_help = "g?",
+	-- 				synchronize = "=",
+	-- 				trim_left = "<",
+	-- 				trim_right = ">",
+	-- 			},
+	-- 			windows = {
+	-- 				-- Maximum number of windows to show side by side
+	-- 				max_number = math.huge,
+	-- 				-- Whether to show preview of file/directory under cursor
+	-- 				preview = true,
+	-- 				-- Width of focused window
+	-- 				width_focus = 50,
+	-- 				-- Width of non-focused window
+	-- 				width_nofocus = 25,
+	-- 				-- Width of preview window
+	-- 				width_preview = 40,
+	-- 			},
+	-- 		})
+	-- 		vim.keymap.set("n", "-", ":lua MiniFiles.open()<CR>")
+	-- 	end,
+	-- },
 	-- {
 	-- 	"echasnovski/mini.map",
 	-- 	version = false,
