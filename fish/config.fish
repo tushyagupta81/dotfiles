@@ -3,6 +3,8 @@ if status is-interactive
 end
 # ~/.config/fish/config.fish
 
+set fish_greeting
+
 starship init fish | source
 
 thefuck --alias | source
@@ -12,6 +14,7 @@ alias ls "eza --icons=always"
 alias nv "nvim"
 alias nconfig "cd ~/.config/nvim"
 
+alias l "ls -la"
 alias workspace 'cd ~/Desktop/Programs'
 alias n 'newsboat'
 alias jn 'jupyter notebook'
