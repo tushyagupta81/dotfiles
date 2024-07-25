@@ -1,0 +1,22 @@
+if status is-interactive
+    # Commands to run in interactive sessions can go here
+end
+# ~/.config/fish/config.fish
+
+starship init fish | source
+
+thefuck --alias | source
+zoxide init fish --cmd cd | source
+
+alias ls "eza --icons=always"
+alias nv "nvim"
+alias nconfig "cd ~/.config/nvim"
+
+alias workspace 'cd ~/Desktop/Programs'
+alias n 'newsboat'
+alias jn 'jupyter notebook'
+alias smysql 'brew services run mysql'
+alias qmysql 'brew services stop mysql'
+alias c "clear"
+alias enva "source venv/bin/activate"
+alias envd "deactivate"

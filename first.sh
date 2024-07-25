@@ -11,7 +11,8 @@
 dotfiledir="${HOME}/dotfiles"
 
 # list of files/folders to symlink in ${homedir}
-files=(zprofile bashrc bash_profile aliases p10k.zsh tmux.conf wezterm.lua)
+# files=(zprofile bashrc bash_profile aliases p10k.zsh tmux.conf wezterm.lua)
+files=(wezterm.lua)
 
 # change to the dotfiles directory
 echo "Changing to the ${dotfiledir} directory"
@@ -23,6 +24,10 @@ for file in "${files[@]}"; do
   ln -sf "${dotfiledir}/.${file}" "${HOME}/.${file}"
 done
 
+if [["$OSTYPE" =~ ^linux]]; then
+  ./linux.sh
+fi
+
 # Run the MacOS Script
 # ./macOS.sh
 
@@ -30,16 +35,12 @@ done
 ./brew.sh
 
 # Run VS Code Script
-./vscode.sh
+# ./vscode.sh
 
 # Run the Neovim Script
 ./nvim.sh
 
 # Run the terminal Script
 ./terminal.sh
-
-if [["$OSTYPE" =~ ^linux]]; then
-  ./linux.sh
-fi
 
 echo "Installation Complete!"

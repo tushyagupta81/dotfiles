@@ -56,9 +56,11 @@ packages=(
     "lazygit"
     "zoxide"
     "fzf"
+    "fish"
+    "starship"
 )
 
-zsh ./conda.sh
+# zsh ./conda.sh
 
 # Loop over the array to install each application.
 for package in "${packages[@]}"; do
@@ -71,10 +73,12 @@ for package in "${packages[@]}"; do
 done
 
 # Add the Homebrew zsh to allowed shells
-echo "Changing default shell to Homebrew zsh"
-echo "$(brew --prefix)/bin/zsh" | sudo tee -a /etc/shells >/dev/null
+echo "Changing default shell to Homebrew fish"
+fish
+fish_add_path /opt/homebrew/bin
+echo "$(brew --prefix)/bin/fish" | sudo tee -a /etc/shells >/dev/null
 # Set the Homebrew zsh as default shell
-chsh -s "$(brew --prefix)/bin/zsh"
+chsh -s "$(brew --prefix)/bin/fish"
 
 # Git config name
 echo "Please enter your FULL NAME for Git configuration:"
@@ -92,12 +96,12 @@ $(brew --prefix)/bin/git config --global user.email "$git_user_email"
 # $(brew --prefix)/bin/python3 -m venv "${HOME}/tutorial"
 
 # Install Prettier, which I use in both VS Code and Sublime Text
-$(brew --prefix)/bin/npm install --global prettier
+# $(brew --prefix)/bin/npm install --global prettier
 
 # Define an array of applications to install using Homebrew Cask.
 apps=(
-    "google-chrome"
-    # "firefox"
+    # "google-chrome"
+    "firefox"
     # "brave-browser"
     # "sublime-text"
     "visual-studio-code"
@@ -151,9 +155,7 @@ fi
 # Update and clean up again for safe measure
 brew update
 brew upgrade
-if [[ "$OSTYPE" =~ ^linux ]]; then
-    brew upgrade --cask
-fi
+brew upgrade --cask
 brew cleanup
 
 # echo "Sign in to Google Chrome. Press enter to continue..."
