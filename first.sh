@@ -39,9 +39,7 @@ fi
 # ./vscode.sh
 
 # Run the Neovim Script
-./nvim.sh
+# ./nvim.sh
 
 # Run the terminal Script
-./terminal.sh
-
-echo "Installation Complete!"
+# ./terminal.sh
