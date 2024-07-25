@@ -27,7 +27,9 @@ fi
 # Update Homebrew and Upgrade any already-installed formulae
 brew update
 brew upgrade
-brew upgrade --cask
+if [[ "$OSTYPE" != "linux-gnu" ]]; then
+  brew upgrade --cask
+fi
 brew cleanup
 
 # Define an array of packages to install using Homebrew.
@@ -37,26 +39,20 @@ packages=(
     "zsh"
     "eza"
     "git"
-    "tree"
-    "pylint"
-    "black"
     "node"
     "newsboat"
     "btop"
     "mysql"
     "ripgrep"
     "thefuck"
-    "gcc"
     "mpv"
     "neovim"
-    "tmux"
     "gcc"
     "nvm"
     "luarocks"
     "lazygit"
     "zoxide"
     "fzf"
-    "fish"
     "starship"
 )
 
@@ -73,12 +69,10 @@ for package in "${packages[@]}"; do
 done
 
 # Add the Homebrew zsh to allowed shells
-echo "Changing default shell to Homebrew fish"
-fish
-fish_add_path /opt/homebrew/bin
-echo "$(brew --prefix)/bin/fish" | sudo tee -a /etc/shells >/dev/null
+echo "Changing default shell to Homebrew zsh"
+echo "$(brew --prefix)/bin/zsh" | sudo tee -a /etc/shells >/dev/null
 # Set the Homebrew zsh as default shell
-chsh -s "$(brew --prefix)/bin/fish"
+chsh -s "$(brew --prefix)/bin/zsh"
 
 # Git config name
 echo "Please enter your FULL NAME for Git configuration:"
@@ -96,12 +90,12 @@ $(brew --prefix)/bin/git config --global user.email "$git_user_email"
 # $(brew --prefix)/bin/python3 -m venv "${HOME}/tutorial"
 
 # Install Prettier, which I use in both VS Code and Sublime Text
-# $(brew --prefix)/bin/npm install --global prettier
+$(brew --prefix)/bin/npm install --global prettier
 
 # Define an array of applications to install using Homebrew Cask.
 apps=(
-    # "google-chrome"
-    "firefox"
+    "google-chrome"
+    # "firefox"
     # "brave-browser"
     # "sublime-text"
     "visual-studio-code"
@@ -155,7 +149,9 @@ fi
 # Update and clean up again for safe measure
 brew update
 brew upgrade
-brew upgrade --cask
+if [[ "$OSTYPE" != "linux-gnu" ]]; then
+    brew upgrade --cask
+fi
 brew cleanup
 
 # echo "Sign in to Google Chrome. Press enter to continue..."

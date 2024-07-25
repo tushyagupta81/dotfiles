@@ -24,7 +24,7 @@ for file in "${files[@]}"; do
   ln -sf "${dotfiledir}/.${file}" "${HOME}/.${file}"
 done
 
-if [["$OSTYPE" =~ ^linux]]; then
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
   ./linux.sh
 fi
 
@@ -33,6 +33,7 @@ fi
 
 # Run the Homebrew Script
 ./brew.sh
+# ./nix.sh
 
 # Run VS Code Script
 # ./vscode.sh
