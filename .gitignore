@@ -1,5 +1,6 @@
 # Compiled Python files
 *.pyc
+*undodir
 
 # Folder view configuration files
 .DS_Store
