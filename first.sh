@@ -32,14 +32,14 @@ fi
 # ./macOS.sh
 
 # Run the Homebrew Script
-# ./brew.sh
-./nix.sh
+./brew.sh
+# ./nix.sh
 
 # Run VS Code Script
 # ./vscode.sh
 
 # Run the Neovim Script
-# ./nvim.sh
+./nvim.sh
 
 # Run the terminal Script
-# ./terminal.sh
+./terminal.sh
