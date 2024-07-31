@@ -28,18 +28,12 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
   ./linux.sh
 fi
 
-# Run the MacOS Script
-# ./macOS.sh
-
 # Run the Homebrew Script
 ./brew.sh
 # ./nix.sh
-
-# Run VS Code Script
-# ./vscode.sh
 
 # Run the Neovim Script
 ./nvim.sh
 
 # Run the terminal Script
-./terminal.sh
+# ./terminal.sh

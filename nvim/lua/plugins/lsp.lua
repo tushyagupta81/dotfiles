@@ -155,7 +155,6 @@ return {
 				"ruff", -- python linter
 				"flake8", -- python linter
 				"eslint_d",
-				"bacon",
 				-- "rustfmt",
 			},
 		})

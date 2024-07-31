@@ -2,26 +2,26 @@
 
 # Install Homebrew if it isn't already installed
 if ! command -v brew &>/dev/null; then
-    echo "Homebrew not installed. Installing Homebrew."
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  echo "Homebrew not installed. Installing Homebrew."
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
     # Attempt to set up Homebrew PATH automatically for this session
     if [ -x "/opt/homebrew/bin/brew" ]; then
-        # For Apple Silicon Macs
-        echo "Configuring Homebrew in PATH for Apple Silicon Mac..."
-        export PATH="/opt/homebrew/bin:$PATH"
+      # For Apple Silicon Macs
+      echo "Configuring Homebrew in PATH for Apple Silicon Mac..."
+      export PATH="/opt/homebrew/bin:$PATH"
     fi
-else
+  else
     echo "Homebrew is already installed."
 fi
 
 # Verify brew is now accessible
 if ! command -v brew &>/dev/null; then
-    # echo "Failed to configure Homebrew in PATH. Please add Homebrew to your PATH manually."
-    # exit 1
-    test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
-    test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-    echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.zshrc
+  # echo "Failed to configure Homebrew in PATH. Please add Homebrew to your PATH manually."
+  # exit 1
+  test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
+  test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+  echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.zshrc
 fi
 
 # Update Homebrew and Upgrade any already-installed formulae
@@ -34,46 +34,49 @@ brew cleanup
 
 # Define an array of packages to install using Homebrew.
 packages=(
-    "python"
-    "bash"
-    "zsh"
-    "fastfetch"
-    "eza"
-    "git"
-    "node"
-    "newsboat"
-    "btop"
-    "mysql"
-    "ripgrep"
-    "thefuck"
-    "mpv"
-    "neovim"
-    "gcc"
-    "nvm"
-    "luarocks"
-    "lazygit"
-    "zoxide"
-    "fzf"
-    "starship"
+  "python"
+  "fish"
+  "fastfetch"
+  "eza"
+  "git"
+  "node"
+  "newsboat"
+  "btop"
+  "mysql"
+  "ripgrep"
+  "thefuck"
+  "mpv"
+  "neovim"
+  "gcc"
+  "nvm"
+  "luarocks"
+  "lazygit"
+  "zoxide"
+  "fzf"
+  "starship"
 )
-
-# zsh ./conda.sh
 
 # Loop over the array to install each application.
 for package in "${packages[@]}"; do
-    if brew list --formula | grep -q "^$package\$"; then
-        echo "$package is already installed. Skipping..."
-    else
-        echo "Installing $package..."
-        brew install "$package"
-    fi
+  if brew list --formula | grep -q "^$package\$"; then
+    echo "$package is already installed. Skipping..."
+  else
+    echo "Installing $package..."
+    brew install "$package"
+  fi
 done
 
-# Add the Homebrew zsh to allowed shells
-echo "Changing default shell to Homebrew zsh"
-echo "$(brew --prefix)/bin/zsh" | sudo tee -a /etc/shells >/dev/null
-# Set the Homebrew zsh as default shell
-chsh -s "$(brew --prefix)/bin/zsh"
+# # Add the Homebrew zsh to allowed shells
+# echo "Changing default shell to Homebrew zsh"
+# echo "$(brew --prefix)/bin/zsh" | sudo tee -a /etc/shells >/dev/null
+# # Set the Homebrew zsh as default shell
+# chsh -s "$(brew --prefix)/bin/zsh"
+
+# Add the Homebrew fish to allowed shells
+echo "Changing default shell to Homebrew fish"
+echo "$(brew --prefix)/bin/fish" | sudo tee -a /etc/shells >/dev/null
+# Set the Homebrew fish as default shell
+chsh -s "$(brew --prefix)/bin/fish"
 
 # Git config name
 echo "Please enter your FULL NAME for Git configuration:"
@@ -91,52 +94,54 @@ $(brew --prefix)/bin/git config --global user.email "$git_user_email"
 # $(brew --prefix)/bin/python3 -m venv "${HOME}/tutorial"
 
 # Install Prettier, which I use in both VS Code and Sublime Text
-$(brew --prefix)/bin/npm install --global prettier
+# $(brew --prefix)/bin/npm install --global prettier
+
+echo "Installing rust"
+curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
 
 # Define an array of applications to install using Homebrew Cask.
 apps=(
-    "google-chrome"
-    # "firefox"
-    # "brave-browser"
-    # "sublime-text"
-    "visual-studio-code"
-    # "virtualbox"
-    "spotify"
-    "discord"
-    "wezterm"
-    # "google-drive"
-    # "gimp"
-    # "vlc"
-    # "rectangle"
-    "postman"
-    "docker"
-    "miniconda"
-    "whatsapp"
+  "google-chrome"
+  # "firefox"
+  # "brave-browser"
+  # "sublime-text"
+  "visual-studio-code"
+  # "virtualbox"
+  "spotify"
+  "discord"
+  "wezterm"
+  # "google-drive"
+  # "gimp"
+  # "vlc"
+  # "rectangle"
+  "postman"
+  "docker"
+  "whatsapp"
 )
 if [[ "$OSTYPE" == "darwin"* ]]; then
-    # Loop over the array to install each application.
-    for app in "${apps[@]}"; do
-        if brew list --cask | grep -q "^$app\$"; then
-            echo "$app is already installed. Skipping..."
-        else
-            echo "Installing $app..."
-            brew install --cask "$app"
-        fi
-    done
+  # Loop over the array to install each application.
+  for app in "${apps[@]}"; do
+    if brew list --cask | grep -q "^$app\$"; then
+      echo "$app is already installed. Skipping..."
+    else
+      echo "Installing $app..."
+      brew install --cask "$app"
+    fi
+  done
 
     # Install Source Code Pro Font
     # Tap the Homebrew font cask repository if not already tapped
     brew tap | grep -q "^homebrew/cask-fonts$" || brew tap homebrew/cask-fonts
-    
+
     # Define the font name
     font_name="font-source-code-pro"
-    
+
     # Check if the font is already installed
     if brew list --cask | grep -q "^$font_name\$"; then
-        echo "$font_name is already installed. Skipping..."
+      echo "$font_name is already installed. Skipping..."
     else
-        echo "Installing $font_name..."
-        brew install --cask "$font_name"
+      echo "Installing $font_name..."
+      brew install --cask "$font_name"
     fi
 
 fi
@@ -151,7 +156,7 @@ fi
 brew update
 brew upgrade
 if [[ "$OSTYPE" != "linux-gnu" ]]; then
-    brew upgrade --cask
+  brew upgrade --cask
 fi
 brew cleanup
 
