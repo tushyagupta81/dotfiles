@@ -49,6 +49,8 @@ alias c="clear"
 alias enva="source venv/bin/activate"
 alias envd="deactivate"
 
+fastfetch -c ~/dotfiles/fastfetch_conf.jsonc
+
 # Plugins
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

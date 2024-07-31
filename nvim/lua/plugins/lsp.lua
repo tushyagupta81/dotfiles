@@ -155,6 +155,8 @@ return {
 				"ruff", -- python linter
 				"flake8", -- python linter
 				"eslint_d",
+				"bacon",
+				-- "rustfmt",
 			},
 		})
 		require("luasnip.loaders.from_vscode").lazy_load()

@@ -37,6 +37,7 @@ packages=(
     "python"
     "bash"
     "zsh"
+    "fastfetch"
     "eza"
     "git"
     "node"
