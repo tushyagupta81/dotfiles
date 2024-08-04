@@ -155,6 +155,7 @@ return {
 				"ruff", -- python linter
 				"flake8", -- python linter
 				"eslint_d",
+				"clang-format",
 				-- "rustfmt",
 			},
 		})

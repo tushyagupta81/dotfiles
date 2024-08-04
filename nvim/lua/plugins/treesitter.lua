@@ -27,7 +27,6 @@ return {
 			indent = {
 				enable = true,
 				disable = {
-					"cpp",
 					"c",
 					"html",
 				},

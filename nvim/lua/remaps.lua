@@ -38,3 +38,5 @@ vim.keymap.set("n", "<leader>wqa", ":wa<CR>:qa<CR>", { noremap = true, silent = 
 
 vim.keymap.set("n", "<C-w>+", [[<cmd>horizontal resize +2<cr>]])
 vim.keymap.set("n", "<C-w>-", [[<cmd>horizontal resize -2<cr>]])
+
+vim.keymap.set("n", ";", "$")

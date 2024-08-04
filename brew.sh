@@ -36,6 +36,7 @@ brew cleanup
 packages=(
   "python"
   "fish"
+  "pnpm"
   "fastfetch"
   "eza"
   "git"

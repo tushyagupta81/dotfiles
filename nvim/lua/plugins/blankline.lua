@@ -6,6 +6,7 @@ return {
 		local highlight = {
 			-- "CursorColumn",
 			"Whitespace",
+			"NonText",
 		}
 		require("ibl").setup({
 			indent = { highlight = highlight },
@@ -13,7 +14,7 @@ return {
 				highlight = highlight,
 				remove_blankline_trail = false,
 			},
-			scope = { enabled = false },
+			scope = { enabled = true, highlight = { "Function", "Label" } },
 		})
 	end,
 }

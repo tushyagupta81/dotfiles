@@ -15,15 +15,24 @@ return {
 			-- lua = { "luacheck" },
 		}
 
-		lint.linters.eslint_d.args = {
-			"--no-warn-ignored", -- <-- this is the key argument
-			"--format",
-			"json",
-			"--stdin",
-			"--stdin-filename",
-			function()
-				return vim.api.nvim_buf_get_name(0)
+		lint.linters.eslint_d = {
+			-- From nvim-lint README
+			cmd = function()
+				local local_binary = vim.fn.fnamemodify("./node_modules/.bin/" .. "eslint_d", ":p")
+				return vim.loop.fs_stat(local_binary) and local_binary or "eslint_d"
 			end,
+			-- ^ this was directly copied from nvim-lint README
+
+			args = {
+				"--no-warn-ignored", -- <-- this is the key argument
+				"--format",
+				"json",
+				"--stdin",
+				"--stdin-filename",
+				function()
+					return vim.api.nvim_buf_get_name(0)
+				end,
+			},
 		}
 
 		local pattern = "[^:]+:(%d+):(%d+):(%w+):(.+)"
@@ -47,6 +56,7 @@ return {
 				["severity"] = vim.diagnostic.severity.WARN,
 			}),
 		}
+
 		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 
 		vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
