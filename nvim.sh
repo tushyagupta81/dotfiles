@@ -14,4 +14,4 @@ ln -sf ~/dotfiles/newsboat ~/.config
 ln -sf ~/dotfiles/fish ~/.config
 ln -sf ~/dotfiles/starship.toml ~/.config
 
-newsboat -C=~/.config/newsboat/config -u=~/.config/newsboat/urls
+# newsboat -C=~/.config/newsboat/config -u=~/.config/newsboat/urls
