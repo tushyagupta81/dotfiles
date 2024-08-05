@@ -3,7 +3,7 @@ return {
 	version = "*",
 	config = function()
 		require("toggleterm").setup({
-			open_mapping = "C-`", -- or { [[<c-\>]], [[<c-¥>]] } if you also use a Japanese keyboard.
+			open_mapping = [[<C-`>]], -- or { [[<c-\>]], [[<c-¥>]] } if you also use a Japanese keyboard.
 			direction = "horizontal",
 			close_on_exit = true, -- close the terminal window when the process exits
 			float_opts = {
