@@ -3,6 +3,8 @@ set fish_greeting
 
 source "$HOME/.cargo/env.fish"
 
+fish_add_path "$HOME/dotfiles/scripts"
+
 alias ls "eza --icons=always"
 alias nv "nvim"
 alias nconfig "cd ~/.config/nvim"
@@ -36,14 +38,14 @@ else if test -d /opt/homebrew
   /opt/homebrew/bin/brew shellenv | source
 end
 
-if not set -q NVIM
+if not set -q NVIM | not set -q $TMUX
   command fastfetch -c ~/dotfiles/fastfetch_conf.jsonc;
 end
 
+starship init fish | source
+thefuck --alias | source
+zoxide init fish --cmd cd | source
+
 if status is-interactive
   # Commands to run in interactive sessions can go here
-  starship init fish | source
-  thefuck --alias | source
-  zoxide init fish --cmd cd | source
 end
-
