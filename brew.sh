@@ -100,6 +100,10 @@ $(brew --prefix)/bin/git config --global user.email "$git_user_email"
 
 echo "Installing rust"
 curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
+echo "Installing tmux plugin manager"
+# Installing tmux plugin manager
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 
 # Define an array of applications to install using Homebrew Cask.
 apps=(
