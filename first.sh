@@ -12,7 +12,7 @@ dotfiledir="${HOME}/dotfiles"
 
 # list of files/folders to symlink in ${homedir}
 # files=(zprofile bashrc bash_profile aliases p10k.zsh tmux.conf wezterm.lua)
-files=(wezterm.lua tmux.conf)
+files=(wezterm.lua tmux.conf zshrc)
 
 # change to the dotfiles directory
 echo "Changing to the ${dotfiledir} directory"
