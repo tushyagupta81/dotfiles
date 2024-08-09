@@ -17,7 +17,7 @@ alias jn 'jupyter notebook'
 alias smysql 'brew services run mysql'
 alias qmysql 'brew services stop mysql'
 alias c "clear"
-alias enva ". venv/bin/activate"
+alias enva ". venv/bin/activate.fish"
 alias envd "deactivate"
 
 if test -d /home/linuxbrew/.linuxbrew
