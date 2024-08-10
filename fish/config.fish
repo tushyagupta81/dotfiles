@@ -10,7 +10,7 @@ alias nv "nvim"
 alias nconfig "cd ~/.config/nvim"
 
 alias l "ls -la"
-alias lt "ls -T -L=2"
+alias lt "ls -Ta -L=2"
 alias workspace 'cd ~/programs'
 alias n 'newsboat'
 alias jn 'jupyter notebook'
