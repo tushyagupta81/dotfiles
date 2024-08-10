@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-ssh-keygen -t ed25519 -C "tushya007@gmail.com"
+ssh-keygen -t ed25519 -C "tushyagupta81@gmail.com"
 
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519
