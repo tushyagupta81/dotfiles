@@ -39,7 +39,7 @@ else if test -d /opt/homebrew
   /opt/homebrew/bin/brew shellenv | source
 end
 
-if not set -q NVIM | not set -q $TMUX
+if not set -q TMUX
   command fastfetch -c ~/dotfiles/fastfetch_conf.jsonc;
 end
 
