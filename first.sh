@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 ############################
 # This script creates symlinks from the home directory to any desired dotfiles in $HOME/dotfiles
 # And also installs MacOS Software
@@ -12,7 +12,7 @@ dotfiledir="${HOME}/dotfiles"
 
 # list of files/folders to symlink in ${homedir}
 # files=(zprofile bashrc bash_profile aliases p10k.zsh tmux.conf wezterm.lua)
-files=(wezterm.lua tmux.conf zshrc)
+files=(wezterm.lua tmux.conf bashrc)
 
 # change to the dotfiles directory
 echo "Changing to the ${dotfiledir} directory"

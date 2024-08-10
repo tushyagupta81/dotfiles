@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
   sh <(curl -L https://nixos.org/nix/install) --daemon

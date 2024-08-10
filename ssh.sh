@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
 ssh-keygen -t ed25519 -C "tushya007@gmail.com"
 
