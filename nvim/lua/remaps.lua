@@ -39,4 +39,7 @@ vim.keymap.set("n", "<leader>wqa", ":wa<CR>:qa<CR>", { noremap = true, silent = 
 vim.keymap.set("n", "<C-w>+", [[<cmd>horizontal resize +2<cr>]])
 vim.keymap.set("n", "<C-w>-", [[<cmd>horizontal resize -2<cr>]])
 
-vim.keymap.set("n", ";", "$")
+vim.keymap.set({ "n", "v" }, ";", "$")
+
+-- <C-r><C-w> gets the curret word under cursor
+vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gc<Left><Left><Left>]])

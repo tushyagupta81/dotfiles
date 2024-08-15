@@ -9,14 +9,12 @@ return {
 		"hrsh7th/cmp-path",
 		"hrsh7th/cmp-cmdline",
 		"hrsh7th/nvim-cmp",
-		{
-			"L3MON4D3/LuaSnip",
-			dependencies = {
-				"rafamadriz/friendly-snippets",
-			},
-		},
+		"rafamadriz/friendly-snippets",
+		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
 		"j-hui/fidget.nvim",
+		"luckasRanarison/tailwind-tools.nvim",
+		"onsails/lspkind-nvim",
 	},
 
 	config = function()
@@ -190,7 +188,10 @@ return {
 				{ name = "buffer" },
 			}),
 			formatting = {
-				format = require("tailwindcss-colorizer-cmp").formatter,
+				-- format = require("tailwindcss-colorizer-cmp").formatter,
+				format = require("lspkind").cmp_format({
+					before = require("tailwind-tools.cmp").lspkind_format,
+				}),
 			},
 		})
 

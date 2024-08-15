@@ -11,13 +11,15 @@ alias nconfig "cd ~/.config/nvim"
 
 alias l "ls -la"
 alias lt "ls -Ta -L=2"
-alias workspace 'cd ~/programs'
+alias ws 'cd ~/programs'
 alias n 'newsboat'
-alias jn 'jupyter notebook'
+alias jl 'jupyter lab'
 alias smysql 'brew services run mysql'
 alias qmysql 'brew services stop mysql'
+alias sjl 'brew services run jupyterlab'
+alias qjl 'brew services stop jupyterlab'
 alias c "clear"
-alias enva ". venv/bin/activate.fish"
+alias enva ". .venv/bin/activate.fish"
 alias envd "deactivate"
 
 if test -d /home/linuxbrew/.linuxbrew

@@ -37,6 +37,7 @@ packages=(
   "python"
   "fish"
   "pnpm"
+  "jupyterlab"
   "tmux"
   "fastfetch"
   "eza"
