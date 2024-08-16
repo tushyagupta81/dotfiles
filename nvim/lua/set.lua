@@ -32,3 +32,5 @@ vim.opt.hlsearch = true
 
 vim.opt.hidden = true
 vim.opt.cmdheight = 0
+
+vim.opt.laststatus = 3

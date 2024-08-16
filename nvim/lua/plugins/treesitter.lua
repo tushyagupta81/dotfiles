@@ -15,6 +15,13 @@ return {
 				"bash",
 				"html",
 				"python",
+				"cpp",
+				"css",
+				"fish",
+				"gitignore",
+				"http",
+				"rust",
+				"sql",
 			},
 
 			-- Install parsers synchronously (only applied to `ensure_installed`)

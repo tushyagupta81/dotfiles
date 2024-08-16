@@ -76,6 +76,14 @@ done
 # # Set the Homebrew zsh as default shell
 # chsh -s "$(brew --prefix)/bin/zsh"
 
+# NOTE done by mason-nvim-dap now
+# install debugpy for nvim-dap-py
+# mkdir ~/.virtualenvs
+# cd ~/.virtualenvs
+# python3 -m venv debugpy
+# debugpy/bin/python3 -m pip install debugpy
+# cd ~/dotfiles
+
 # Add the Homebrew fish to allowed shells
 echo "Changing default shell to Homebrew fish"
 echo "$(brew --prefix)/bin/fish" | sudo tee -a /etc/shells >/dev/null

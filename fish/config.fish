@@ -5,12 +5,12 @@ source "$HOME/.cargo/env.fish"
 
 fish_add_path "$HOME/dotfiles/scripts"
 
-abbr --add ls eza --icons=always
-abbr --add nv nvim
-abbr --add nconfig cd ~/.config/nvim
+alias ls "eza --icons=always"
+alias l "eza --icons=always -la"
+alias lt "eza --icons=always -Ta -L=2"
+alias nv "nvim"
 
-abbr --add l eza --icons=always -la
-abbr --add lt eza --icons=always -Ta -L=2
+abbr --add nconfig cd ~/.config/nvim
 abbr --add ws cd ~/programs
 abbr --add n newsboat
 abbr --add jl jupyter lab
@@ -47,15 +47,15 @@ else if test -d /opt/homebrew
   /opt/homebrew/bin/brew shellenv | source
 end
 
+starship init fish | source
+thefuck --alias | source
+zoxide init fish --cmd cd | source
+
 if status --is-login
   if not set -q TMUX
     command fastfetch -c ~/dotfiles/fastfetch_conf.jsonc;
   end
 end
-
-starship init fish | source
-thefuck --alias | source
-zoxide init fish --cmd cd | source
 
 if status is-interactive
   # Commands to run in interactive sessions can go here
