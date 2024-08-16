@@ -36,4 +36,4 @@ fi
 ./nvim.sh
 
 # Run the terminal Script
-# ./terminal.sh
+./terminal.sh

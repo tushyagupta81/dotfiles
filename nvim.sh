@@ -14,4 +14,7 @@ ln -sf ~/dotfiles/newsboat ~/.config
 ln -sf ~/dotfiles/fish ~/.config
 ln -sf ~/dotfiles/starship.toml ~/.config
 
+rm -rf ~/.jupyter
+ln -sf ~/dotfiles/.jupyter ~
+
 # newsboat -C=~/.config/newsboat/config -u=~/.config/newsboat/urls

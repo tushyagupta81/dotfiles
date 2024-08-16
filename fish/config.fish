@@ -5,22 +5,27 @@ source "$HOME/.cargo/env.fish"
 
 fish_add_path "$HOME/dotfiles/scripts"
 
-alias ls "eza --icons=always"
-alias nv "nvim"
-alias nconfig "cd ~/.config/nvim"
+abbr --add ls eza --icons=always
+abbr --add nv nvim
+abbr --add nconfig cd ~/.config/nvim
 
-alias l "ls -la"
-alias lt "ls -Ta -L=2"
-alias ws 'cd ~/programs'
-alias n 'newsboat'
-alias jl 'jupyter lab'
-alias smysql 'brew services run mysql'
-alias qmysql 'brew services stop mysql'
-alias sjl 'brew services run jupyterlab'
-alias qjl 'brew services stop jupyterlab'
-alias c "clear"
-alias enva ". .venv/bin/activate.fish"
-alias envd "deactivate"
+abbr --add l eza --icons=always -la
+abbr --add lt eza --icons=always -Ta -L=2
+abbr --add ws cd ~/programs
+abbr --add n newsboat
+abbr --add jl jupyter lab
+abbr --add smysql brew services run mysql
+abbr --add qmysql brew services stop mysql
+abbr --add sjl brew services run jupyterlab
+abbr --add qjl brew services stop jupyterlab
+abbr --add c clear
+abbr --add enva . .venv/bin/activate.fish
+abbr --add envd deactivate
+abbr --add pre fzf --preview=\"bat --color=always {}\"
+
+abbr --add gs git status
+abbr --add ga git add
+abbr --add gp git push
 
 if test -d /home/linuxbrew/.linuxbrew
   # Homebrew is installed on Linux
@@ -41,8 +46,10 @@ else if test -d /opt/homebrew
   /opt/homebrew/bin/brew shellenv | source
 end
 
-if not set -q TMUX
-  command fastfetch -c ~/dotfiles/fastfetch_conf.jsonc;
+if status --is-login
+  if not set -q TMUX
+    command fastfetch -c ~/dotfiles/fastfetch_conf.jsonc;
+  end
 end
 
 starship init fish | source
