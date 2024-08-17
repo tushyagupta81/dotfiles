@@ -5,7 +5,7 @@ fish_color_comment '#F98017'
 fish_color_cwd '#6BBC00'
 fish_color_cwd_root '#FF1F2A'
 fish_color_end '#1A8A81'
-fish_color_error '#D81E28'
+fish_color_error '#FF0A72'
 fish_color_escape brcyan
 fish_color_history_current --bold
 fish_color_host '#A7A7A7'
