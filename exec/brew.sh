@@ -15,15 +15,6 @@ if ! command -v brew &>/dev/null; then
     echo "Homebrew is already installed."
 fi
 
-# Verify brew is now accessible
-if ! command -v brew &>/dev/null; then
-  # echo "Failed to configure Homebrew in PATH. Please add Homebrew to your PATH manually."
-  # exit 1
-  test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
-  test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-  echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.zshrc
-fi
-
 # Update Homebrew and Upgrade any already-installed formulae
 brew update
 brew upgrade
@@ -38,7 +29,6 @@ packages=(
   "fish"
   "pnpm"
   "bat"
-  # "jupyterlab"
   "tmux"
   "fastfetch"
   "eza"
@@ -52,7 +42,6 @@ packages=(
   "mpv"
   "neovim"
   "gcc"
-  "nvm"
   "luarocks"
   "lazygit"
   "zoxide"
@@ -69,20 +58,6 @@ for package in "${packages[@]}"; do
     brew install "$package"
   fi
 done
-
-# # Add the Homebrew zsh to allowed shells
-# echo "Changing default shell to Homebrew zsh"
-# echo "$(brew --prefix)/bin/zsh" | sudo tee -a /etc/shells >/dev/null
-# # Set the Homebrew zsh as default shell
-# chsh -s "$(brew --prefix)/bin/zsh"
-
-# NOTE done by mason-nvim-dap now
-# install debugpy for nvim-dap-py
-# mkdir ~/.virtualenvs
-# cd ~/.virtualenvs
-# python3 -m venv debugpy
-# debugpy/bin/python3 -m pip install debugpy
-# cd ~/dotfiles
 
 # Add the Homebrew fish to allowed shells
 echo "Changing default shell to Homebrew fish"
@@ -102,23 +77,18 @@ read git_user_email
 $(brew --prefix)/bin/git config --global user.name "$git_user_name"
 $(brew --prefix)/bin/git config --global user.email "$git_user_email"
 
-# Create the tutorial virtual environment I use frequently
-# $(brew --prefix)/bin/python3 -m venv "${HOME}/tutorial"
-
-# Install Prettier, which I use in both VS Code and Sublime Text
-# $(brew --prefix)/bin/npm install --global prettier
-
 echo "Installing rust"
 curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
+
 echo "Installing tmux plugin manager"
-# Installing tmux plugin manager
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
+fish utils/install-nvm.sh
 
 # Define an array of applications to install using Homebrew Cask.
 apps=(
-  "google-chrome"
-  # "firefox"
+  # "google-chrome"
+  "firefox"
   # "brave-browser"
   # "sublime-text"
   "visual-studio-code"
@@ -159,14 +129,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
       echo "Installing $font_name..."
       brew install --cask "$font_name"
     fi
-
 fi
-# Once font is installed, Import your Terminal Profile
-# echo "Import your terminal settings..."
-# echo "Terminal -> Settings -> Profiles -> Import..."
-# echo "Import from ${HOME}/dotfiles/settings/Pro.terminal"
-# echo "Press enter to continue..."
-# read
 
 # Update and clean up again for safe measure
 brew update
@@ -175,18 +138,3 @@ if [[ "$OSTYPE" != "linux-gnu" ]]; then
   brew upgrade --cask
 fi
 brew cleanup
-
-# echo "Sign in to Google Chrome. Press enter to continue..."
-# read
-#
-# echo "Sign in to Spotify. Press enter to continue..."
-# read
-#
-# echo "Sign in to Discord. Press enter to continue..."
-# read
-
-# echo "Open Rectangle and give it necessary permissions. Press enter to continue..."
-# read
-
-# echo "Import your Rectangle settings located in ~/dotfiles/settings/RectangleConfig.json. Press enter to continue..."
-# read

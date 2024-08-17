@@ -7,6 +7,7 @@ fi
 
 rm -rf ~/.config
 mkdir ~/.config
+mkdir ~/.nvm
 
 ln -sf ~/dotfiles/nvim ~/.config
 ln -sf ~/dotfiles/scripts ~/.config

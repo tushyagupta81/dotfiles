@@ -1,12 +1,4 @@
 #!/usr/bin/env bash
-############################
-# This script creates symlinks from the home directory to any desired dotfiles in $HOME/dotfiles
-# And also installs MacOS Software
-# And also installs Homebrew Packages and Casks (Apps)
-# And also sets up VS Code
-# And also sets up Sublime Text
-############################
-
 # dotfiles directory
 dotfiledir="${HOME}/dotfiles"
 
@@ -29,11 +21,11 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 fi
 
 # Run the Homebrew Script
-./brew.sh
+./exec/brew.sh
 # ./nix.sh
 
 # Run the Neovim Script
-./nvim.sh
+./exec/nvim.sh
 
 # Run the terminal Script
-./terminal.sh
+./exec/terminal.sh
