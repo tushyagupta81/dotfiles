@@ -17,15 +17,15 @@ for file in "${files[@]}"; do
 done
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-  ./linux.sh
+  ~/dotfiles/exec/linux.sh
 fi
 
 # Run the Homebrew Script
-./exec/brew.sh
+~/dotfiles/exec/brew.sh
 # ./nix.sh
 
 # Run the Neovim Script
-./exec/nvim.sh
+~/dotfiles/exec/nvim.sh
 
 # Run the terminal Script
-./exec/terminal.sh
+~/dotfiles/exec/terminal.sh
