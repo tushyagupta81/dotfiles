@@ -4,6 +4,7 @@ set fish_greeting
 source "$HOME/.cargo/env.fish"
 
 fish_add_path "$HOME/dotfiles/scripts"
+fish_config theme choose vibrant
 
 alias ls "eza --icons=always"
 alias l "eza --icons=always -la"
