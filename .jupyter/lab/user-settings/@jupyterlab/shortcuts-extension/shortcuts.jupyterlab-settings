@@ -21,6 +21,9 @@
     // mathjax:clipboard
     // mathjax:scale
     // router:tree
+    // apputils:load-statedb
+    // apputils:reset
+    // apputils:reset-on-load
     // apputils:activate-command-palette
     // apputils:print
     // codemirror:delete-line
@@ -37,6 +40,7 @@
     // running:kernel-new-notebook
     // running:kernel-open-session
     // running:kernel-shut-down
+    // docmanager:clear-recents
     // apputils:change-theme
     // apputils:change-light-theme
     // apputils:change-dark-theme
@@ -81,7 +85,27 @@
     // inline-completer:previous
     // inline-completer:accept
     // inline-completer:invoke
-    // lsp:completer-about-themes
+    // property-inspector:show-panel
+    // extensionmanager:show-panel
+    // extensionmanager:toggle
+    // help:open
+    // htmlviewer:trust-html
+    // imageviewer:zoom-in
+    // imageviewer:zoom-out
+    // imageviewer:reset-image
+    // imageviewer:rotate-clockwise
+    // imageviewer:rotate-counterclockwise
+    // imageviewer:flip-horizontal
+    // imageviewer:flip-vertical
+    // imageviewer:invert-colors
+    // pluginmanager:open
+    // pluginmanager:refresh
+    // running:show-panel
+    // toc:display-h1-numbering
+    // toc:display-numbering
+    // toc:display-outputs-numbering
+    // toc:show-panel
+    // toc:toggle-collapse
     // apputils:notify
     // apputils:update-notification
     // apputils:dismiss-notification
@@ -120,40 +144,6 @@
     // tabsmenu:open
     // helpmenu:open
     // mainmenu:open-first
-    // lsp:rename-symbol
-    // mermaid:copy-source
-    // apputils:load-statedb
-    // apputils:reset
-    // apputils:reset-on-load
-    // docmanager:clear-recents
-    // property-inspector:show-panel
-    // csv:go-to-line
-    // tsv:go-to-line
-    // extensionmanager:show-panel
-    // extensionmanager:toggle
-    // help:open
-    // help:licenses
-    // help:licenses-refresh
-    // help:license-report
-    // htmlviewer:trust-html
-    // imageviewer:zoom-in
-    // imageviewer:zoom-out
-    // imageviewer:reset-image
-    // imageviewer:rotate-clockwise
-    // imageviewer:rotate-counterclockwise
-    // imageviewer:flip-horizontal
-    // imageviewer:flip-vertical
-    // imageviewer:invert-colors
-    // pluginmanager:open
-    // pluginmanager:refresh
-    // running:show-panel
-    // toc:display-h1-numbering
-    // toc:display-numbering
-    // toc:display-outputs-numbering
-    // toc:show-panel
-    // toc:toggle-collapse
-    // lsp:show-diagnostics-panel
-    // rendermime:handle-local-link
     // docmanager:clone
     // docmanager:rename
     // docmanager:duplicate
@@ -171,20 +161,17 @@
     // docmanager:download
     // docmanager:open-browser-tab
     // running:show-modal
-    // logconsole:open
-    // logconsole:add-checkpoint
-    // logconsole:clear
-    // logconsole:set-level
-    // markdownviewer:open
-    // markdownviewer:edit
-    // settingeditor:open-json
-    // settingeditor:revert
-    // settingeditor:save
+    // mermaid:copy-source
+    // csv:go-to-line
+    // tsv:go-to-line
+    // help:licenses
+    // help:licenses-refresh
+    // help:license-report
     // filebrowser:share-main
     // filebrowser:download
     // filebrowser:copy-download-link
     // filebrowser:open-browser-tab
-    // settingeditor:open
+    // rendermime:handle-local-link
     // workspace-ui:open
     // workspace-ui:delete
     // workspace-ui:create-new
@@ -197,7 +184,15 @@
     // workspace-ui:save
     // launcher:create
     // filebrowser:open-url
-    // notebook:create-new
+    // logconsole:open
+    // logconsole:add-checkpoint
+    // logconsole:clear
+    // logconsole:set-level
+    // markdownviewer:open
+    // markdownviewer:edit
+    // settingeditor:open-json
+    // settingeditor:revert
+    // settingeditor:save
     // inspector:open
     // inspector:close
     // inspector:toggle
@@ -210,6 +205,8 @@
     // terminal:increase-font
     // terminal:decrease-font
     // terminal:set-theme
+    // notebook:create-new
+    // settingeditor:open
     // notebook:toggle-autoclosing-brackets
     // notebook:set-side-by-side-ratio
     // notebook:run-cell-and-select-next
@@ -355,14 +352,12 @@
     // fileeditor:select-all
     // code-viewer:open
     // tooltip:launch-console
+    // @jupyter-widgets/jupyterlab-manager:saveWidgetState
     // completer:invoke-file
     // completer:select-file
     // tooltip:launch-file
     // jupyterlab-vim:toggle
     // vim:enter-normal-mode
-    // lsp:jump-to-definition
-    // lsp:jump-to-reference
-    // lsp:jump-back
     // debugger:restart-debug
     // debugger:open-source
     // debugger:inspect-variable
@@ -425,5 +420,51 @@
     // sidebar:switch
     // 
     // List of keyboard shortcuts:
-    "shortcuts": []
+    "shortcuts": [
+        {
+            "command": "inline-completer:next",
+            "selector": ".jp-mod-completer-enabled",
+            "disabled": true,
+            "keys": [
+                "Alt ]"
+            ]
+        },
+        {
+            "command": "inline-completer:next",
+            "selector": ".jp-mod-completer-enabled",
+            "keys": [
+                "Alt N"
+            ]
+        },
+        {
+            "command": "inline-completer:previous",
+            "selector": ".jp-mod-completer-enabled",
+            "disabled": true,
+            "keys": [
+                "Alt ["
+            ]
+        },
+        {
+            "command": "inline-completer:previous",
+            "selector": ".jp-mod-completer-enabled",
+            "keys": [
+                "Alt P"
+            ]
+        },
+        {
+            "command": "inline-completer:accept",
+            "selector": ".jp-mod-inline-completer-active",
+            "disabled": true,
+            "keys": [
+                "Alt End"
+            ]
+        },
+        {
+            "command": "inline-completer:accept",
+            "selector": ".jp-mod-inline-completer-active",
+            "keys": [
+                "Alt Enter"
+            ]
+        }
+    ]
 }
