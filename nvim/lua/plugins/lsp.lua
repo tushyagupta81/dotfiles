@@ -16,7 +16,7 @@ return {
 		"luckasRanarison/tailwind-tools.nvim",
 		"onsails/lspkind-nvim",
 	},
-
+	event = "VeryLazy",
 	config = function()
 		-- 1. find venv folder in current dir or 1 level deeper (venv/ or proj/venv)
 		local function find_venv(start_path) -- Finds the venv folder required for LSP
