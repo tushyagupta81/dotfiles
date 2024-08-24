@@ -58,7 +58,7 @@ symbol = " "
 detect_extensions = ['cpp']
 symbol = "󰙲 "
 format = 'via $symbol($version(-$name) )'
-command = [['g++', '--version']]
+command = 'g++ --version'
 
 [conda]
 symbol = " "
