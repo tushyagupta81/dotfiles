@@ -22,7 +22,7 @@ error_symbol = "[❯](bold red)"
 
 [cmd_duration]
 min_time = 5000
-format = 'underwent [$duration](bold yellow)'
+format = '[$duration](bold yellow)'
 
 [directory]
 truncate_to_repo = true
@@ -31,7 +31,7 @@ truncation_symbol = '…/'
 
 [git_branch]
 style = "bold blue"
-symbol = '[](bold red) '
+symbol = '[](bold green) '
 
 [git_state]
 disabled = false
