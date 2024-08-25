@@ -20,6 +20,7 @@ abbr --add qmysql brew services stop mysql
 abbr --add sjl brew services run jupyterlab
 abbr --add qjl brew services stop jupyterlab
 abbr --add c clear
+abbr --add cd.. cd ..
 abbr --add enva . .venv/bin/activate.fish
 abbr --add envd deactivate
 abbr --add pre fzf --preview=\"bat --color=always {}\"
@@ -28,6 +29,7 @@ abbr --add gs git status
 abbr --add ga git add
 abbr --add gp git push
 abbr --add gc git commit -m
+abbr --add gr git add .\;git commit -m
 
 if test -d /home/linuxbrew/.linuxbrew
   set -gx HOMEBREW_PREFIX "/home/linuxbrew/.linuxbrew"
