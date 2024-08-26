@@ -48,6 +48,8 @@ set -gx INFOPATH "$HOMEBREW_PREFIX/share/info" $INFOPATH
 $HOMEBREW_PREFIX/bin/brew shellenv | source
 
 starship init fish | source
+# set -gx STARSHIP_LOG "error"
+
 thefuck --alias | source
 zoxide init fish --cmd cd | source
 
