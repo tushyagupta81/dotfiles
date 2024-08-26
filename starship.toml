@@ -26,8 +26,8 @@ truncation_symbol = '…/'
 
 [git_branch]
 disabled = false
-style = "bold green"
-symbol = '[]($style) '
+style = "bold blue"
+symbol = '[](green) '
 
 [git_commit]
 disabled = false
@@ -41,6 +41,9 @@ style = "bold purple"
 disabled = false
 ignore_submodules = true
 format = '[+$added]($added_style)/[-$deleted]($deleted_style) '
+
+[git_status]
+format = '([$all_status$ahead_behind]($style) )'
 
 [aws]
 symbol = "  "
