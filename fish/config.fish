@@ -22,6 +22,7 @@ abbr --add qjl brew services stop jupyterlab
 abbr --add c clear
 abbr --add cd.. cd ..
 abbr --add enva . .venv/bin/activate.fish
+abbr --add envc python3 -m venv .venv
 abbr --add envd deactivate
 abbr --add pre fzf --preview=\"bat --color=always {}\"
 
@@ -48,8 +49,6 @@ set -gx INFOPATH "$HOMEBREW_PREFIX/share/info" $INFOPATH
 $HOMEBREW_PREFIX/bin/brew shellenv | source
 
 starship init fish | source
-# set -gx STARSHIP_LOG "error"
-
 thefuck --alias | source
 zoxide init fish --cmd cd | source
 
