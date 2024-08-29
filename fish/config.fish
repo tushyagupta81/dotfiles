@@ -10,7 +10,10 @@ alias ls "eza --icons=always"
 alias l "eza --icons=always -la"
 alias lt "eza --icons=always -Ta -L=2"
 alias nv "nvim"
+alias enva "source $HOME/dotfiles/scripts/envactivate"
+alias envl "l $HOME/.virtualenv"
 
+abbr --erase (abbr --list)
 abbr --add nconfig cd ~/.config/nvim
 abbr --add ws cd ~/programs
 abbr --add n newsboat
@@ -21,8 +24,6 @@ abbr --add sjl brew services run jupyterlab
 abbr --add qjl brew services stop jupyterlab
 abbr --add c clear
 abbr --add cd.. cd ..
-abbr --add enva . .venv/bin/activate.fish
-abbr --add envc python3 -m venv .venv
 abbr --add envd deactivate
 abbr --add pre fzf --preview=\"bat --color=always {}\"
 
@@ -35,7 +36,6 @@ abbr --add gr git add .\;git commit -m
 if test -d /home/linuxbrew/.linuxbrew
   set -gx HOMEBREW_PREFIX "/home/linuxbrew/.linuxbrew"
 else if test -d /opt/homebrew
-  # Homebrew is installed on MacOS
   set -gx HOMEBREW_PREFIX "/opt/homebrew"
 end
 
