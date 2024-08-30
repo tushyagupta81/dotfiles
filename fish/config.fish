@@ -51,6 +51,7 @@ $HOMEBREW_PREFIX/bin/brew shellenv | source
 starship init fish | source
 thefuck --alias | source
 zoxide init fish --cmd cd | source
+fzf --fish | source
 
 if status --is-login
   if not set -q TMUX
