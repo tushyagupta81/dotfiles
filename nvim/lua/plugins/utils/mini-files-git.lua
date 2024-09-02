@@ -116,12 +116,12 @@ local function updateMiniWithGit(buf_id, gitStatusMap)
 	end)
 end
 
-local function is_valid_git_repo()
-	if vim.fn.isdirectory(".git") == 0 then
-		return false
-	end
-	return true
-end
+-- local function is_valid_git_repo()
+-- 	if vim.fn.isdirectory(".git") == 0 then
+-- 		return false
+-- 	end
+-- 	return true
+-- end
 
 -- Thanks for the idea of gettings https://github.com/refractalize/oil-git-status.nvim signs for dirs
 local function parseGitStatus(content)
