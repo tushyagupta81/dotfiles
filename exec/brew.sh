@@ -96,22 +96,15 @@ fish utils/install-nvm.sh
 
 # Define an array of applications to install using Homebrew Cask.
 apps=(
-  # "google-chrome"
   "firefox"
-  # "brave-browser"
-  # "sublime-text"
   "visual-studio-code"
-  # "virtualbox"
   "spotify"
   "discord"
   "wezterm"
   "raycast"
   "dockey"
   "shottr"
-  # "google-drive"
-  # "gimp"
-  # "vlc"
-  # "rectangle"
+  "alttab"
   "postman"
   "docker"
   "whatsapp"
