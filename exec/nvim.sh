@@ -5,17 +5,20 @@ if [ -x "/opt/homebrew/bin/brew" ] && [[ ":$path:" != *":/opt/homebrew/bin:"* ]]
     export path="/opt/homebrew/bin:$path"
 fi
 
-rm -rf ~/.config
-mkdir ~/.config
-mkdir ~/.nvm
+if [ ! -d "$HOME/.config" ]; then
+    mkdir ~/.config
+fi
+if [ ! -d "$HOME/.nvm" ]; then
+    mkdir ~/.nvm
+fi
 
-ln -sf ~/dotfiles/nvim ~/.config
+ln -sf ~/dotfiles/configs/nvim ~/.config
 ln -sf ~/dotfiles/scripts ~/.config
-ln -sf ~/dotfiles/newsboat ~/.config
-ln -sf ~/dotfiles/fish ~/.config
+ln -sf ~/dotfiles/configs/newsboat ~/.config
+ln -sf ~/dotfiles/configs/fish ~/.config
 ln -sf ~/dotfiles/starship.toml ~/.config
 
 rm -rf ~/.jupyter
-ln -sf ~/dotfiles/.jupyter ~
+ln -sf ~/dotfiles/configs/.jupyter ~
 
 # newsboat -C=~/.config/newsboat/config -u=~/.config/newsboat/urls
