@@ -8,15 +8,22 @@ fi
 if [ ! -d "$HOME/.config" ]; then
     mkdir ~/.config
 fi
-mkdir ~/.nvm
+if [ ! -d "$HOME/.nvm" ]; then
+    mkdir ~/.nvm
+fi
 
-ln -sf ~/dotfiles/nvim ~/.config
+ln -sf ~/dotfiles/configs/nvim ~/.config
+ln -sf ~/dotfiles/configs/newsboat ~/.config
+ln -sf ~/dotfiles/configs/fish ~/.config
+ln -sf ~/dotfiles/configs/i3 ~/.config
+ln -sf ~/dotfiles/configs/rofi ~/.config
+ln -sf ~/dotfiles/configs/picom ~/.config
+ln -sf ~/dotfiles/configs/polybar ~/.config
+
 ln -sf ~/dotfiles/scripts ~/.config
-ln -sf ~/dotfiles/newsboat ~/.config
-ln -sf ~/dotfiles/fish ~/.config
 ln -sf ~/dotfiles/starship.toml ~/.config
 
 rm -rf ~/.jupyter
-ln -sf ~/dotfiles/.jupyter ~
+ln -sf ~/dotfiles/configs/.jupyter ~
 
 # newsboat -C=~/.config/newsboat/config -u=~/.config/newsboat/urls
