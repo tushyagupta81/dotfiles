@@ -5,12 +5,19 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
 -- This is where you actually apply your config choices
+local is_linux = function()
+	return wezterm.target_triple:find("linux") ~= nil
+end
 
-config.font = wezterm.font("JetBrainsMono Nerd Font")
+local is_darwin = function()
+	return wezterm.target_triple:find("darwin") ~= nil
+end
+
+config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Regular" })
 -- config.font = wezterm.font("FiraCode Nerd Font")
 -- config.font = wezterm.font("MesloLGS NF")
 -- config.font = wezterm.font("Source Code Pro for Powerline")
-config.font_size = 16
+config.font_size = is_linux() and 12 or 16
 
 config.enable_tab_bar = false
 
