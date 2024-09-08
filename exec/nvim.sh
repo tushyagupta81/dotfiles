@@ -15,6 +15,9 @@ fi
 ln -sf ~/dotfiles/configs/nvim ~/.config
 ln -sf ~/dotfiles/scripts ~/.config
 ln -sf ~/dotfiles/configs/newsboat ~/.config
+if [ -d "$HOME/.config/fish" ]; then
+  rm -rf "$HOME/.config/fish"
+fi
 ln -sf ~/dotfiles/configs/fish ~/.config
 ln -sf ~/dotfiles/starship.toml ~/.config
 
