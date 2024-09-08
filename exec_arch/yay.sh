@@ -64,16 +64,19 @@ git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
 cd ..
+rm -rf ./yay
 
-# Loop over the array to install each application.
-for package in "${packages[@]}"; do
-  if brew list --formula | grep -q "^$package\$"; then
-    echo "$package is already installed. Skipping..."
-  else
-    echo "Installing $package..."
-    yay -S "$package"
-  fi
-done
+# # Loop over the array to install each application.
+# for package in "${packages[@]}"; do
+#   if brew list --formula | grep -q "^$package\$"; then
+#     echo "$package is already installed. Skipping..."
+#   else
+#     echo "Installing $package..."
+#     yay -S "$package"
+#   fi
+# done
+
+yay -S ${packages[*]}
 
 echo "Swaping ctrl and caps"
 setxkbmap -layout us -option ctrl:swapcaps
