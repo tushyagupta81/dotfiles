@@ -27,6 +27,7 @@
     pkgs.git
     pkgs.newsboat
     pkgs.btop
+    pkgs.fastfetch
     pkgs.mysql
     pkgs.ripgrep
     pkgs.thefuck
@@ -58,6 +59,7 @@
     #   org.gradle.daemon.idletimeout=3600000
     # '';
   };
+  home.file.".config/nvim".source = ./nvim;
 
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a
@@ -81,9 +83,4 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-  programs.fish.enable = true;
-  programs.fzf.enableFishIntegration = true;
-  programs.eza.enableFishIntegration = true;
-  programs.starship.enableFishIntegration = true;
-  programs.zoxide.enableFishIntegration = true;
 }
