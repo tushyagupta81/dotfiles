@@ -19,7 +19,10 @@
   # environment.
   home.packages = [
     pkgs.python3
+    pkgs.rustc
+    pkgs.cargo
     pkgs.fish
+    pkgs.starship
     pkgs.pnpm
     pkgs.bat
     pkgs.tmux
@@ -59,7 +62,7 @@
     #   org.gradle.daemon.idletimeout=3600000
     # '';
   };
-  home.file.".config/nvim".source = ./nvim;
+  home.file.".config/fish".source = ./configs/fish;
 
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a
@@ -83,4 +86,8 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+  programs.bash = {
+    enable = true;
+    initExtra = "fish";
+  };
 }
