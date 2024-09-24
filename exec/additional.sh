@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+exec bash
+
 # Add the fish to allowed shells
 echo "Changing default shell to fish"
 echo "$(which fish)" | sudo tee -a /etc/shells >/dev/null
