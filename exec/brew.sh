@@ -33,7 +33,7 @@ brew cleanup
 packages=$(grep -o -E "(\w|')+" "$HOME/dotfiles/packages.txt" | sed -e "s/'.*\$//" | sort -u -f)
 
 # Loop over the array to install each application.
-for package in $packages"; do
+for package in $packages; do
   if brew list --formula | grep -q "^$package\$"; then
     echo "$package is already installed. Skipping..."
   else
@@ -41,6 +41,12 @@ for package in $packages"; do
     brew install "$package"
   fi
 done
+
+echo -n "Install apps(y/n): "
+read choice
+if [ $choice == n ]; then
+	exit
+fi
 
 # Define an array of applications to install using Homebrew Cask.
 apps=(
@@ -67,21 +73,6 @@ for app in "${apps[@]}"; do
     brew install --cask "$app"
   fi
 done
-
-# Install Source Code Pro Font
-# Tap the Homebrew font cask repository if not already tapped
-brew tap | grep -q "^homebrew/cask-fonts$" || brew tap homebrew/cask-fonts
-
-# Define the font name
-font_name="0xProto Nerd Font"
-
-# Check if the font is already installed
-if brew list --cask | grep -q "^$font_name\$"; then
-  echo "$font_name is already installed. Skipping..."
-else
-  echo "Installing $font_name..."
-  brew install --cask "$font_name"
-fi
 
 # Update and clean up again for safe measure
 brew update
