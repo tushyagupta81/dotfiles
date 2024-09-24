@@ -37,30 +37,25 @@ abbr --add gp git push
 abbr --add gc git commit -m
 abbr --add gr git add .\;git commit -m
 
+if test -d /home/linuxbrew/.linuxbrew
+  set -gx HOMEBREW_PREFIX "/home/linuxbrew/.linuxbrew"
+else if test -d /opt/homebrew
+  set -gx HOMEBREW_PREFIX "/opt/homebrew"
+end
+
+set -gx HOMEBREW_CELLAR "$HOMEBREW_PREFIX/Cellar"
+set -gx HOMEBREW_REPOSITORY "$HOMEBREW_PREFIX/Homebrew"
+set -gx PATH "$HOMEBREW_PREFIX/bin" "$HOMEBREW_PREFIX/sbin" $PATH
+set -q MANPATH; or set MANPATH ''
+set -gx MANPATH "$HOMEBREW_PREFIX/share/man" $MANPATH
+set -q INFOPATH; or set INFOPATH ''
+set -gx INFOPATH "$HOMEBREW_PREFIX/share/info" $INFOPATH
+$HOMEBREW_PREFIX/bin/brew shellenv | source
+
 starship init fish | source
 thefuck --alias | source
 zoxide init fish --cmd cd | source
 fzf --fish | source
-
-# pnpm
-set -gx PNPM_HOME "/home/tushya/.local/share/pnpm"
-if not string match -q -- $PNPM_HOME $PATH
-  set -gx PATH "$PNPM_HOME" $PATH
-end
-# pnpm end
-
-switch (uname)
-  case Darwin
-    set -gx HOMEBREW_PREFIX "/opt/homebrew"
-    set -gx HOMEBREW_CELLAR "$HOMEBREW_PREFIX/Cellar"
-    set -gx HOMEBREW_REPOSITORY "$HOMEBREW_PREFIX/Homebrew"
-    set -gx PATH "$HOMEBREW_PREFIX/bin" "$HOMEBREW_PREFIX/sbin" $PATH
-    set -q MANPATH; or set MANPATH \'\'
-    set -gx MANPATH "$HOMEBREW_PREFIX/share/man" $MANPATH
-    set -q INFOPATH; or set INFOPATH \'\'
-    set -gx INFOPATH "$HOMEBREW_PREFIX/share/info" $INFOPATH
-    $HOMEBREW_PREFIX/bin/brew shellenv | source
-end
 
 if status --is-login
   if not set -q TMUX
@@ -71,3 +66,10 @@ end
 if status is-interactive
   # Commands to run in interactive sessions can go here
 end
+
+# pnpm
+set -gx PNPM_HOME "/home/tushya/.local/share/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end

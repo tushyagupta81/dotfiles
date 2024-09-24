@@ -103,7 +103,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
 
 		-- Shortcut for searching your Neovim configuration files
 		vim.keymap.set("n", "<leader>sn", function()
-			builtin.find_files({ cwd = vim.fn.getenv("HOME") .. "/nixdotfiles/modules/home-manager/nvim/nvim" })
+			builtin.find_files({ cwd = vim.fn.getenv("HOME") .. "/.config/nvim" })
 		end, { desc = "[S]earch [N]eovim files" })
 	end,
 }
