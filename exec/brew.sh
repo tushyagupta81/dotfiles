@@ -33,7 +33,7 @@ brew cleanup
 packages=$(grep -o -E "(\w|')+" "$HOME/dotfiles/packages.txt" | sed -e "s/'.*\$//" | sort -u -f)
 
 # Loop over the array to install each application.
-for package in "${packages[@]}"; do
+for package in $packages"; do
   if brew list --formula | grep -q "^$package\$"; then
     echo "$package is already installed. Skipping..."
   else
