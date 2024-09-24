@@ -1,0 +1,21 @@
+alias nv="nvim"
+alias nconfig="cd ~/.config/nvim"
+export PATH=~/.config/scripts:$PATH
+
+if [ $OSTYPE = linux-gnu ]
+then
+  alias workspace='cd ~/../../mnt/c/Users/Tushya/Desktop/All\ Programs'
+else
+  alias workspace='cd ~/Desktop/Programs'
+fi
+
+alias n='newsboat'
+alias jn='jupyter notebook'
+
+alias smysql='brew services run mysql'
+alias qmysql='brew services stop mysql'
+
+alias c="clear"
+
+alias enva="source venv/bin/activate"
+alias envd="deactivate"
