@@ -6,9 +6,6 @@ echo "$(which fish)" | sudo tee -a /etc/shells >/dev/null
 # Set the Homebrew fish as default shell
 chsh -s "$(which fish)"
 
-echo "Installing rust"
-curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
-
 echo "Installing tmux plugin manager"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 

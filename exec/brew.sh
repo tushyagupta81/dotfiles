@@ -30,7 +30,7 @@ brew upgrade --cask
 brew cleanup
 
 # Define an array of packages to install using Homebrew.
-packages=$(grep -o -E "(\w|')+" "$HOME/dotfiles/packages.txt" | sed -e "s/'.*\$//" | sort -u -f)
+packages=$(grep -o -E "(\w|')+" "$HOME/dotfiles/packages/packages.txt" | sed -e "s/'.*\$//" | sort -u -f)
 
 # Loop over the array to install each application.
 for package in $packages; do
