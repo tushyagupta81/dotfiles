@@ -65,7 +65,7 @@ M.get_wallpaper = function(dir)
 	}
 end
 
-local path = os.getenv("HOME") .. "/nixdotfiles/wallpapers/**"
+local path = os.getenv("HOME") .. "/dotfiles/wallpapers/**"
 
 config.background = { M.get_wallpaper(path) }
 

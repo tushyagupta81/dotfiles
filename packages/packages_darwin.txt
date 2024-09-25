@@ -1,0 +1,12 @@
+alt-tab
+visual-studio-code
+spotify
+discord
+wezterm
+raycast
+shottr
+alttab
+dockey
+postman
+docker
+whatsapp

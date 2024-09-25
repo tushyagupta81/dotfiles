@@ -49,23 +49,9 @@ if [ $choice == n ]; then
 fi
 
 # Define an array of applications to install using Homebrew Cask.
-apps=(
-  "firefox"
-  "visual-studio-code"
-  "spotify"
-  "discord"
-  "wezterm"
-  "raycast"
-  "dockey"
-  "shottr"
-  "alttab"
-  "dockey"
-  "postman"
-  "docker"
-  "whatsapp"
-)
+apps=$(grep -o -E "(\w|')+" "$HOME/dotfiles/packages/packages_darwin.txt" | sed -e "s/'.*\$//" | sort -u -f)
 # Loop over the array to install each application.
-for app in "${apps[@]}"; do
+for app in $apps; do
   if brew list --cask | grep -q "^$app\$"; then
     echo "$app is already installed. Skipping..."
   else

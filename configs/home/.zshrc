@@ -50,7 +50,7 @@ alias enva="source venv/bin/activate"
 alias envd="deactivate"
 
 if [[ ! "$NVIM" ]]; then
-  fastfetch -c ~/dotfiles/fastfetch_conf.jsonc
+  fastfetch -c ~/.config/fastfetch_conf.jsonc
 fi
 
 # Plugins
