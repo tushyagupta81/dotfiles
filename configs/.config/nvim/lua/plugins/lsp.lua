@@ -153,6 +153,7 @@ return {
 				"black", -- python formatter
 				"ruff", -- python linter
 				"flake8", -- python linter
+				"biome",
 				"eslint_d",
 				"clang-format",
 				-- "rustfmt",
