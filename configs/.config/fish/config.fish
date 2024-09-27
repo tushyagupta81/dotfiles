@@ -14,7 +14,7 @@ alias ls "eza --icons=always"
 alias l "eza --icons=always -la"
 alias lt "eza --icons=always -Ta -L=2"
 alias nv "nvim"
-alias enva "source $HOME/nixdotfiles/scripts/envactivate.fish"
+alias enva "source $HOME/.config/scripts/envactivate.fish"
 alias envl "l $HOME/.virtualenv"
 
 abbr --erase (abbr --list)
