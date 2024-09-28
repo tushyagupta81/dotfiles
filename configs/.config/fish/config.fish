@@ -54,6 +54,14 @@ if test -n "$HOMEBREW_PREFIX"
   $HOMEBREW_PREFIX/bin/brew shellenv | source
 end
 
+# to activate virtualenv in tmux
+if test -n "$VIRTUAL_ENV"
+  . "$VIRTUAL_ENV/bin/activate.fish"
+end
+if test -n "$TMUX"
+  tmux set-environment VIRTUAL_ENV $VIRTUAL_ENV
+end
+
 starship init fish | source
 thefuck --alias | source
 zoxide init fish --cmd cd | source
