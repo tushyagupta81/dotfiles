@@ -58,7 +58,7 @@ end
 if test -n "$VIRTUAL_ENV"
   . "$VIRTUAL_ENV/bin/activate.fish"
 end
-if test -n "$TMUX"
+if test -n "$TMUX" && test -n "$VIRTUAL_ENV"
   tmux set-environment VIRTUAL_ENV $VIRTUAL_ENV
 end
 
