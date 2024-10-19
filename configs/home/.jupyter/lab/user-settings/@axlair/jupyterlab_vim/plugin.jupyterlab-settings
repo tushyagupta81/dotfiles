@@ -6,5 +6,5 @@
 
     // Enabled
     // Enable/disable vim extension (may require a page refresh)
-    "enabled": true
+    "enabled": false
 }
