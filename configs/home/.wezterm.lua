@@ -8,6 +8,9 @@ local config = wezterm.config_builder()
 local is_linux = function()
 	return wezterm.target_triple:find("linux") ~= nil
 end
+local is_darwin = function()
+	return wezterm.target_triple:find("darwin") ~= nil
+end
 
 -- config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Regular" })
 config.font = wezterm.font("0xProto Nerd Font", { weight = "Regular" })
@@ -69,12 +72,18 @@ local path = os.getenv("HOME") .. "/dotfiles/wallpapers/**"
 
 config.background = { M.get_wallpaper(path) }
 
-local mux = wezterm.mux
+if not is_darwin() then
+	local mux = wezterm.mux
+	wezterm.on("gui-startup", function()
+		local tab, pane, window = mux.spawn_window({})
+		window:gui_window():maximize()
+	end)
+end
 
-wezterm.on("gui-startup", function()
-	local tab, pane, window = mux.spawn_window({})
-	window:gui_window():maximize()
-end)
+if is_darwin() then
+	config.initial_cols = 300
+	config.initial_rows = 300
+end
 
 -- and finally, return the configuration to wezterm
 return config
