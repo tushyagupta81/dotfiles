@@ -69,7 +69,7 @@ fzf --fish | source
 
 if status --is-login
   if not set -q TMUX
-    command fastfetch -c ~/.config/fastfetch_conf.jsonc --logo small;
+    command fastfetch -c ~/.config/fastfetch_conf.jsonc --logo-type iterm;
   end
 end
 
