@@ -8,7 +8,8 @@ local config = wezterm.config_builder()
 
 config.default_domain = "WSL:Ubuntu"
 
-config.font = wezterm.font("JetBrainsMono Nerd Font")
+-- config.font = wezterm.font("JetBrainsMono Nerd Font")
+config.font = wezterm.font("0xProto Nerd Font", { weight = "Regular" })
 -- config.font = wezterm.font("FiraCode Nerd Font")
 -- config.font = wezterm.font("MesloLGS NF")
 -- config.font = wezterm.font("Source Code Pro for Powerline")
@@ -47,7 +48,6 @@ M.get_wallpaper = function(dir)
 	end
 	local wallpaper = h.get_random_entry(wallpapers)
 	wallpaper = string.gsub(wallpaper, "/", "\\")
-	print(wallpaper)
 	return {
 		source = { File = { path = wallpaper } },
 		height = "Cover",
@@ -78,3 +78,4 @@ end)
 
 -- and finally, return the configuration to wezterm
 return config
+
