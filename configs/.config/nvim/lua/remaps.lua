@@ -10,12 +10,6 @@ vim.opt.clipboard = "unnamedplus"
 
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
--- TIP: Disable arrow keys in normal mode
--- vim.keymap.set("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')
--- vim.keymap.set("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
--- vim.keymap.set("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
--- vim.keymap.set("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
-
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
 --  See `:help wincmd` for a list of all window commands
@@ -43,3 +37,8 @@ vim.keymap.set({ "n", "v" }, ";", "$")
 
 -- <C-r><C-w> gets the curret word under cursor
 vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gc<Left><Left><Left>]])
+
+-- spelling mistakes in command mode
+vim.keymap.set("ca", "W", "w")
+vim.keymap.set("ca", "Wqa", "wqa")
+vim.keymap.set("ca", "WQa", "wqa")
