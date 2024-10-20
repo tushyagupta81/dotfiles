@@ -40,5 +40,6 @@ vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gc<Left><Left><
 
 -- spelling mistakes in command mode
 vim.keymap.set("ca", "W", "w")
+vim.keymap.set("ca", "Wa", "wa")
 vim.keymap.set("ca", "Wqa", "wqa")
 vim.keymap.set("ca", "WQa", "wqa")
