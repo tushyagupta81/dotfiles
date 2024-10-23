@@ -1,4 +1,4 @@
-```bash
+```sh
 ssh-keygen -t ed25519 -C "tushyagupta81@gmail.com"
 
 eval "$(ssh-agent -s)"
