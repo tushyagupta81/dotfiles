@@ -34,7 +34,7 @@ abbr --add pre fzf --preview=\"bat --color=always {}\"
 
 abbr --add gs git status
 abbr --add ga git add
-abbr --add gp git push
+abbr --add gp git pull\;git push
 abbr --add gc git commit -m
 abbr --add gr git add .\;git commit -m
 

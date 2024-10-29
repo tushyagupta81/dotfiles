@@ -45,6 +45,8 @@ return {
 				"ts_ls",
 				"emmet_language_server",
 				"eslint",
+				-- "ruff_lsp",
+				-- "pylsp",
 				"pyright",
 				"emmet_ls",
 				"bashls",
@@ -108,7 +110,7 @@ return {
 				"isort", -- python formatter
 				"black", -- python formatter
 				"ruff", -- python linter
-				"flake8", -- python linter
+				-- "flake8", -- python linter
 				"biome",
 				"eslint_d",
 				"clang-format",

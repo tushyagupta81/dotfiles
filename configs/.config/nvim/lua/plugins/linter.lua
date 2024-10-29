@@ -9,7 +9,7 @@ return {
 			typescript = { "eslint_d" },
 			javascriptreact = { "eslint_d" },
 			typescriptreact = { "eslint_d" },
-			python = { "ruff", "flake8" },
+			python = { "ruff" },
 			-- rust = { "bacon" },
 			-- lua = { "luacheck" },
 		}
@@ -34,27 +34,27 @@ return {
 			},
 		}
 
-		local pattern = "[^:]+:(%d+):(%d+):(%w+):(.+)"
-		local groups = { "lnum", "col", "code", "message" }
-		lint.linters.flake8 = {
-			cmd = "flake8",
-			stdin = true,
-			args = {
-				"--no-warn-ignored", -- <-- this is the key argument
-				"--format=%(path)s:%(row)d:%(col)d:%(code)s:%(text)s",
-				"--no-show-source",
-				"--stdin-display-name",
-				function()
-					return vim.api.nvim_buf_get_name(0)
-				end,
-				"-",
-			},
-			ignore_exitcode = true,
-			parser = require("lint.parser").from_pattern(pattern, groups, nil, {
-				["source"] = "flake8",
-				["severity"] = vim.diagnostic.severity.WARN,
-			}),
-		}
+		-- local pattern = "[^:]+:(%d+):(%d+):(%w+):(.+)"
+		-- local groups = { "lnum", "col", "code", "message" }
+		-- lint.linters.flake8 = {
+		-- 	cmd = "flake8",
+		-- 	stdin = true,
+		-- 	args = {
+		-- 		"--no-warn-ignored", -- <-- this is the key argument
+		-- 		"--format=%(path)s:%(row)d:%(col)d:%(code)s:%(text)s",
+		-- 		"--no-show-source",
+		-- 		"--stdin-display-name",
+		-- 		function()
+		-- 			return vim.api.nvim_buf_get_name(0)
+		-- 		end,
+		-- 		"-",
+		-- 	},
+		-- 	ignore_exitcode = true,
+		-- 	parser = require("lint.parser").from_pattern(pattern, groups, nil, {
+		-- 		["source"] = "flake8",
+		-- 		["severity"] = vim.diagnostic.severity.WARN,
+		-- 	}),
+		-- }
 
 		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 
