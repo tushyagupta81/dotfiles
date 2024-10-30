@@ -16,9 +16,11 @@ alias lt "eza --icons=always -Ta -L=2"
 alias nv "nvim"
 alias enva "source $HOME/.config/scripts/envactivate.fish"
 alias envl "l $HOME/.virtualenv"
-alias ff "fastfetch -c ~/.config/fastfetch_conf.jsonc --logo-type iterm"
+
+
 
 abbr --erase (abbr --list)
+
 abbr --add nconfig cd ~/.config/nvim
 abbr --add ws cd ~/programs
 abbr --add n newsboat
@@ -31,6 +33,7 @@ abbr --add c clear
 abbr --add cd.. cd ..
 abbr --add envd deactivate
 abbr --add pre fzf --preview=\"bat --color=always {}\"
+abbr --add ff fastfetch -c ~/.config/fastfetch_conf.jsonc --logo-type iterm
 
 abbr --add gs git status
 abbr --add ga git add
@@ -71,7 +74,7 @@ fzf --fish | source
 
 if status --is-login
   if not set -q TMUX
-    command fastfetch -c ~/.config/fastfetch_conf.jsonc --logo-type iterm
+    command fastfetch -c ~/.config/fastfetch_conf.jsonc --logo-type iterm;
   end
 end
 
