@@ -18,7 +18,6 @@ alias enva "source $HOME/.config/scripts/envactivate.fish"
 alias envl "l $HOME/.virtualenv"
 
 
-
 abbr --erase (abbr --list)
 
 abbr --add nconfig cd ~/.config/nvim
@@ -35,6 +34,7 @@ abbr --add envd deactivate
 abbr --add pre fzf --preview=\"bat --color=always {}\"
 abbr --add ff fastfetch -c ~/.config/fastfetch_conf.jsonc --logo-type iterm
 
+# git abbrivations
 abbr --add gs git status
 abbr --add ga git add
 abbr --add gpl git pull
@@ -42,6 +42,7 @@ abbr --add gp git push
 abbr --add gc git commit -m
 abbr --add gr git add .\;git commit -m
 
+# homebrew setuup
 if test -d /home/linuxbrew/.linuxbrew
   set -gx HOMEBREW_PREFIX "/home/linuxbrew/.linuxbrew"
 else if test -d /opt/homebrew
@@ -67,11 +68,13 @@ if test -n "$TMUX" && test -n "$VIRTUAL_ENV"
   tmux set-environment VIRTUAL_ENV $VIRTUAL_ENV
 end
 
+# tools init
 starship init fish | source
 thefuck --alias | source
 zoxide init fish --cmd cd | source
 fzf --fish | source
 
+# show fastfetch only on startup
 if status --is-login
   if not set -q TMUX
     command fastfetch -c ~/.config/fastfetch_conf.jsonc --logo-type iterm;
