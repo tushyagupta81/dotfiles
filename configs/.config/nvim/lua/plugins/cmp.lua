@@ -14,7 +14,7 @@ return {
 			sources = {
 				accept = { auto_brackets = { enabled = true } },
 				completion = {
-					enabled_providers = { "lsp", "path", "snippets", "buffer" },
+					enabled_providers = { "lsp", "snippets", "path", "buffer" },
 				},
 				providers = {
 					lsp = {
@@ -78,32 +78,10 @@ return {
 					max_width = 40,
 					max_height = 15,
 					border = "rounded",
-					-- draw = "reversed",
+					draw = "reversed",
 					scrolloff = 2,
 					direction_priority = { "s", "n" },
 					winblend = 0,
-					draw = function(ctx)
-						-- https://github.com/Saghen/blink.cmp/blob/9846c2d2bfdeaa3088c9c0143030524402fffdf9/lua/blink/cmp/types.lua#L1-L6
-						-- https://github.com/Saghen/blink.cmp/blob/9846c2d2bfdeaa3088c9c0143030524402fffdf9/lua/blink/cmp/windows/autocomplete.lua#L298-L349
-						-- differentiate LSP snippets from user snippets and emmet snippets
-						local source, client = ctx.item.source_id, ctx.item.client_id
-						if client and vim.lsp.get_client_by_id(client).name == "emmet_language_server" then
-							source = "emmet"
-						end
-
-						local sourceIcons = { snippets = "󰩫", buffer = "󰦨", emmet = "󰯸" }
-						local icon = sourceIcons[source] or ctx.kind_icon
-
-						return {
-							{
-								" " .. ctx.item.label .. " ",
-								fill = true,
-								hl_group = ctx.deprecated and "BlinkCmpLabelDeprecated" or "BlinkCmpLabel",
-								max_width = 40,
-							},
-							{ icon .. " ", hl_group = "BlinkCmpKind" .. ctx.kind },
-						}
-					end,
 				},
 				documentation = {
 					min_width = 15,
