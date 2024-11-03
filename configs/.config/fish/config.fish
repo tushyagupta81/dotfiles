@@ -16,6 +16,7 @@ alias lt "eza --icons=always -Ta -L=2"
 alias nv "nvim"
 alias enva "source $HOME/.config/scripts/envactivate.fish"
 alias envl "l $HOME/.virtualenv"
+alias ide "tmux"
 
 
 abbr --erase (abbr --list)
