@@ -1,3 +1,16 @@
+-- return {
+-- 	"Exafunction/codeium.nvim",
+-- 	lazy = true,
+-- 	dependencies = {
+-- 		"nvim-lua/plenary.nvim",
+-- 		{ "hrsh7th/nvim-cmp",enabled=false },
+-- 	},
+-- 	config = function()
+-- 		require("codeium").setup({
+--
+--     })
+-- 	end,
+-- }
 return {
 	"Exafunction/codeium.vim",
 	event = "InsertEnter",

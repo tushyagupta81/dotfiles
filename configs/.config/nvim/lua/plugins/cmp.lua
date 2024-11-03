@@ -1,7 +1,11 @@
 return {
 	{
 		"saghen/blink.cmp",
-		dependencies = "rafamadriz/friendly-snippets",
+		dependencies = {
+			"rafamadriz/friendly-snippets",
+			-- { "saghen/blink.compat", opts = { impersonate_nvim_cmp = true } },
+			-- "Exafunction/codeium.nvim",
+		},
 		event = "InsertEnter",
 		version = "v0.*", -- REQUIRED release tag needed to download pre-built binaries
 		opts = {
@@ -17,6 +21,10 @@ return {
 					enabled_providers = { "lsp", "snippets", "path", "buffer" },
 				},
 				providers = {
+					-- codeium = {
+					-- 	name = "Codeium",
+					-- 	module = "blink.compat.source",
+					-- },
 					lsp = {
 						name = "LSP",
 						module = "blink.cmp.sources.lsp",
