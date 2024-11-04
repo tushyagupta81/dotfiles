@@ -21,32 +21,45 @@ return {
 		config = function()
 			require("mason-lspconfig").setup({
 				ensure_installed = {
-					"lua_ls",
-					"rust_analyzer",
-					"ts_ls",
-					"emmet_language_server",
-					"eslint",
-					"pyright",
-					"emmet_ls",
-					"bashls",
-					"tailwindcss",
-					-- "ast_grep",
+					"lua_ls", -- lua
+					"rust_analyzer", -- rust
+					"ts_ls", -- typescript
+					"emmet_language_server", -- emmet
+					"emmet_ls", -- emmet
+					"eslint", -- javascript
+					"basedpyright", -- python
+					"bashls", -- bash
+					"tailwindcss", -- tailwind
 				},
 			})
 			require("mason-tool-installer").setup({
 				ensure_installed = {
-					"prettier", -- prettier formatter
+					"prettier", -- js, ts & more formatter
 					"stylua", -- lua formatter
-					"isort", -- python formatter
-					"black", -- python formatter
-					"ruff", -- python linter
-					"flake8", -- python linter
-					"biome",
-					"eslint_d",
-					"clang-format",
-					-- "rustfmt",
+					"luacheck", -- lua linter
+					"ruff", -- python linter & formatter
+					"biome", -- js & ts formatter
+					"eslint_d", -- js formatter
+					"clang-format", -- cpp & c formatter
+					-- "rustfmt", -- rust
 				},
 			})
 		end,
+	},
+	{
+		"jay-babu/mason-nvim-dap.nvim",
+		event = "VeryLazy",
+		dependencies = {
+			"williamboman/mason.nvim",
+			"mfussenegger/nvim-dap",
+		},
+		opts = {
+			handlers = {},
+			ensure_installed = {
+				"codelldb", -- c c++ rust zig
+				"python", -- python
+				"typescript", -- node
+			},
+		},
 	},
 }

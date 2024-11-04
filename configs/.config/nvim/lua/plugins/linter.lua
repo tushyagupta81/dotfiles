@@ -11,7 +11,7 @@ return {
 			typescriptreact = { "eslint_d" },
 			python = { "ruff" },
 			rust = { "bacon" },
-			-- lua = { "luacheck" },
+			lua = { "luacheck" },
 		}
 
 		lint.linters.eslint_d = {
