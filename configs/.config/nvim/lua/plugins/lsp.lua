@@ -1,9 +1,7 @@
 return {
 	"neovim/nvim-lspconfig",
 	dependencies = {
-		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
-		"WhoIsSethDaniel/mason-tool-installer.nvim",
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-path",
@@ -29,28 +27,7 @@ return {
 			cmp_lsp.default_capabilities()
 		)
 		require("fidget").setup({})
-		require("mason").setup({
-			ui = {
-				icons = {
-					package_installed = "✓",
-					package_pending = "➜",
-					package_uninstalled = "✗",
-				},
-			},
-		})
 		require("mason-lspconfig").setup({
-			ensure_installed = {
-				"lua_ls",
-				"rust_analyzer",
-				"ts_ls",
-				"emmet_language_server",
-				"eslint",
-				"pyright",
-				"emmet_ls",
-				"bashls",
-				"tailwindcss",
-				-- "ast_grep",
-			},
 			handlers = {
 				function(server_name) -- default handler (optional)
 					require("lspconfig")[server_name].setup({
@@ -77,12 +54,13 @@ return {
 							"eruby",
 							"html",
 							"javascript",
+							"typescript",
 							"javascriptreact",
+							"typescriptreact",
 							"less",
 							"sass",
 							"scss",
 							"pug",
-							"typescriptreact",
 						},
 					})
 				end,
@@ -99,20 +77,6 @@ return {
 						},
 					})
 				end,
-			},
-		})
-		require("mason-tool-installer").setup({
-			ensure_installed = {
-				"prettier", -- prettier formatter
-				"stylua", -- lua formatter
-				"isort", -- python formatter
-				"black", -- python formatter
-				"ruff", -- python linter
-				"flake8", -- python linter
-				"biome",
-				"eslint_d",
-				"clang-format",
-				-- "rustfmt",
 			},
 		})
 		require("luasnip.loaders.from_vscode").lazy_load()
@@ -140,14 +104,13 @@ return {
 			}),
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" },
+				{ name = "luasnip" }, -- For luasnip users.
 				{ name = "codeium" },
 				{ name = "copilot" },
-				{ name = "luasnip" }, -- For luasnip users.
 			}, {
 				{ name = "buffer" },
 			}),
 			formatting = {
-				-- format = require("tailwindcss-colorizer-cmp").formatter,
 				format = require("lspkind").cmp_format({
 					before = require("tailwind-tools.cmp").lspkind_format,
 				}),
@@ -158,7 +121,7 @@ return {
 			-- update_in_insert = true,
 			float = {
 				focusable = false,
-				style = "minimal",
+				style = "default",
 				border = "rounded",
 				source = "always",
 				header = "",

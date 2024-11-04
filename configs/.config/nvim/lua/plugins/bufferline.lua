@@ -11,6 +11,10 @@ return {
 					local icon = level:match("error") and " " or ""
 					return icon .. " " .. count
 				end,
+				indicator = {
+					-- icon = "▎",
+					style = "none",
+				},
 				style_preset = {
 					bufferline.style_preset.minimal,
 				},
@@ -21,12 +25,14 @@ return {
 					},
 				},
 				show_buffer_close_icons = false,
-				show_close_icon = false,
+				modified_icon = "● ",
 				hover = {
 					enabled = true,
 					delay = 200,
 					reveal = { "close" },
 				},
+				color_icons = true, -- whether or not to add the filetype icon highlights
+				separator_style = "thick",
 			},
 		})
 		vim.keymap.set("n", "<Tab>", ":BufferLineCycleNext<CR>", { noremap = true, silent = true })

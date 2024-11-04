@@ -19,21 +19,6 @@ return { -- Collection of various small independent plugins/modules
 			-- - sr)'  - [S]urround [R]eplace [)] [']
 			require("mini.surround").setup()
 
-			-- Simple and easy statusline.
-			--  You could remove this setup call if you don't like it,
-			--  and try some other statusline plugin
-			-- local statusline = require("mini.statusline")
-			-- -- set use_icons to true if you have a Nerd Font
-			-- statusline.setup({ use_icons = true })
-
-			-- -- You can configure sections in the statusline by overriding their
-			-- -- default behavior. For example, here we set the section for
-			-- -- cursor location to LINE:COLUMN
-			-- ---@diagnostic disable-next-line: duplicate-set-field
-			-- statusline.section_location = function()
-			-- 	return "%2l:%-2v"
-			-- end
-
 			require("mini.indentscope").setup({
 				draw = {
 					delay = 100,
@@ -90,21 +75,4 @@ return { -- Collection of various small independent plugins/modules
 			end
 		end,
 	},
-	-- {
-	-- 	"echasnovski/mini.map",
-	-- 	version = false,
-	-- 	config = function()
-	-- 		local MiniMap = require("mini.map")
-	-- 		MiniMap.open()
-	-- 		local gitsigns_integration = MiniMap.gen_integration.gitsigns({
-	-- 			add = "GitSignsAdd",
-	-- 			change = "GitSignsChange",
-	-- 			delete = "GitSignsDelete",
-	-- 		})
-	-- 		MiniMap.setup({ integrations = { gitsigns_integration } })
-	-- 		vim.keymap.set("n", "<leader>mc", MiniMap.close)
-	-- 		vim.keymap.set("n", "<leader>mf", MiniMap.toggle_focus)
-	-- 		vim.keymap.set("n", "<leader>mo", MiniMap.open)
-	-- 	end,
-	-- },
 }
