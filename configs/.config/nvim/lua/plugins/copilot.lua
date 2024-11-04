@@ -25,17 +25,14 @@ return {
 					copilot_cmp.setup(opts)
 				end,
 			},
+			"onsails/lspkind-nvim",
 		},
 		config = function()
 			local cmp = require("cmp")
 			cmp.setup({
 				formatting = {
 					format = require("lspkind").cmp_format({
-						mode = "symbol",
-						max_width = 50,
-						symbol_map = {
-							Copilot = "",
-						},
+						before = require("tailwind-tools.cmp").lspkind_format,
 					}),
 				},
 			})

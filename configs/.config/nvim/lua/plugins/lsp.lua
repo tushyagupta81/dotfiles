@@ -11,8 +11,6 @@ return {
 		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
 		"j-hui/fidget.nvim",
-		"luckasRanarison/tailwind-tools.nvim",
-		"onsails/lspkind-nvim",
 	},
 	event = "LspAttach",
 	config = function()
@@ -34,9 +32,8 @@ return {
 						capabilities = capabilities,
 					})
 				end,
-
 				["lua_ls"] = function()
-					lspconfig.lua_ls.setup({
+					lspconfig.lua_ls = {
 						capabilities = capabilities,
 						settings = {
 							Lua = {
@@ -45,10 +42,11 @@ return {
 								},
 							},
 						},
-					})
+					}
 				end,
 				["emmet_language_server"] = function()
-					lspconfig.emmet_language_server.setup({
+					lspconfig.emmet_language_server = {
+						capabilities = capabilities,
 						filetypes = {
 							"css",
 							"eruby",
@@ -62,20 +60,18 @@ return {
 							"scss",
 							"pug",
 						},
-					})
+					}
 				end,
-				["pyright"] = function()
-					lspconfig.pyright.setup({
-						capabilities = {
-							textDocument = {
-								publishDiagnostics = {
-									tagSupport = {
-										valueSet = { 2 },
-									},
-								},
-							},
+				["basedpyright"] = function()
+					lspconfig.basedpyright = {
+						analysis = {
+							typeCheckingMode = "standard",
+							autoSearchPaths = true,
+							useLibraryCodeForTypes = true,
+							autoImportCompletions = true,
+							diagnosticsMode = "openFilesOnly",
 						},
-					})
+					}
 				end,
 			},
 		})
@@ -110,11 +106,6 @@ return {
 			}, {
 				{ name = "buffer" },
 			}),
-			formatting = {
-				format = require("lspkind").cmp_format({
-					before = require("tailwind-tools.cmp").lspkind_format,
-				}),
-			},
 		})
 
 		vim.diagnostic.config({

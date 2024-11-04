@@ -36,7 +36,6 @@ return {
 				ensure_installed = {
 					"prettier", -- js, ts & more formatter
 					"stylua", -- lua formatter
-					"luacheck", -- lua linter
 					"ruff", -- python linter & formatter
 					"biome", -- js & ts formatter
 					"eslint_d", -- js formatter
