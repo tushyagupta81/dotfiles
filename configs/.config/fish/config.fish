@@ -62,12 +62,12 @@ if test -n "$HOMEBREW_PREFIX"
 end
 
 # to activate virtualenv in tmux
-if test -n "$VIRTUAL_ENV"
-  . "$VIRTUAL_ENV/bin/activate.fish"
-end
-if test -n "$TMUX" && test -n "$VIRTUAL_ENV"
-  tmux set-environment VIRTUAL_ENV $VIRTUAL_ENV
-end
+#if test -n "$VIRTUAL_ENV"
+#  . "$VIRTUAL_ENV/bin/activate.fish"
+#end
+#if test -n "$TMUX" && test -n "$VIRTUAL_ENV"
+#  tmux set-environment VIRTUAL_ENV $VIRTUAL_ENV
+#end
 
 # tools init
 starship init fish | source

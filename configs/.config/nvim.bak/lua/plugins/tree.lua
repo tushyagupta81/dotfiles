@@ -40,9 +40,15 @@ return {
 					leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
 				},
 			},
+
+			-- If a user has a sources list it will replace this one.
+			-- Only sources listed here will be loaded.
+			-- You can also add an external source by adding it's name to this list.
+			-- The name used here must be the same name you would use in a require() call.
 			sources = {
 				"filesystem",
 				"git_status",
+				-- "document_symbols",
 			},
 			add_blank_line_at_top = false, -- Add a blank line at the top of the tree.
 			close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
