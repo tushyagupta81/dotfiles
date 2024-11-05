@@ -15,16 +15,7 @@ return {
 		"nvim-cmp",
 		event = "VeryLazy",
 		dependencies = {
-			{
-				"zbirenbaum/copilot-cmp",
-				verylazy = true,
-				dependencies = "copilot.lua",
-				opts = {},
-				config = function(_, opts)
-					local copilot_cmp = require("copilot_cmp")
-					copilot_cmp.setup(opts)
-				end,
-			},
+			"luckasRanarison/tailwind-tools.nvim",
 			"onsails/lspkind-nvim",
 		},
 		config = function()
@@ -32,7 +23,11 @@ return {
 			cmp.setup({
 				formatting = {
 					format = require("lspkind").cmp_format({
-						before = require("tailwind-tools.cmp").lspkind_format,
+						mode = "symbol",
+						max_width = 50,
+						symbol_map = {
+							Copilot = "",
+						},
 					}),
 				},
 			})

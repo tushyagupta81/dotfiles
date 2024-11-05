@@ -10,7 +10,6 @@ return {
 			javascriptreact = { "eslint_d" },
 			typescriptreact = { "eslint_d" },
 			python = { "ruff" },
-			rust = { "bacon" },
 		}
 
 		lint.linters.eslint_d = {
