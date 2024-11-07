@@ -3,9 +3,9 @@ set fish_greeting
 
 set -gx FONT "0xProto Nerd Font"
 
-if test -e "$HOME/.cargo/env.fish"
-  source "$HOME/.cargo/env.fish"
-end
+#if test -e "$HOME/.cargo/env.fish"
+#  source "$HOME/.cargo/env.fish"
+#end
 
 fish_add_path "$HOME/.config/scripts"
 fish_config theme choose vibrant

@@ -21,3 +21,4 @@ lazygit
 zoxide
 fzf
 starship
+coreutils

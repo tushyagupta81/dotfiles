@@ -5,8 +5,5 @@ curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fi
 fisher install jorgebucaran/nvm.fish
 fisher install jorgebucaran/autopair.fish
 
-echo "Installing rust"
-curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
-
 nvm install 22
 set --universal nvm_default_version v22.9.0

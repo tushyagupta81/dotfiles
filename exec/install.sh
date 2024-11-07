@@ -14,8 +14,8 @@ if [ ${machine} == "linux" ]; then
   read arch
   if [ "$arch" == "a" ]; then
     ~/dotfiles/exec/yay.sh
-  elif [ "$arch" == "u" ]; then
-    ~/dotfiles/exec/apt.sh
+  # elif [ "$arch" == "u" ]; then
+  #   ~/dotfiles/exec/apt.sh
   else
     exit
   fi

@@ -70,7 +70,24 @@ end
 
 local path = os.getenv("HOME") .. "/dotfiles/wallpapers/**"
 
-config.background = { M.get_wallpaper(path) }
+-- config.background = { M.get_wallpaper(path) }
+config.background = {
+	{
+		source = { File = { path = os.getenv("HOME") .. "/dotfiles/wallpapers/n6s6uj47jst61.jpg" } },
+		height = "Cover",
+		width = "Cover",
+		horizontal_align = "Center",
+		repeat_x = "Repeat",
+		repeat_y = "Repeat",
+		opacity = 1,
+		hsb = {
+			brightness = 0.02,
+			hue = 1.0,
+			saturation = 1.0,
+		},
+		-- speed = 200,
+	},
+}
 
 if not is_darwin() then
 	local mux = wezterm.mux
