@@ -64,18 +64,19 @@ thefuck --alias | source
 zoxide init fish --cmd cd | source
 fzf --fish | source
 
-# show fastfetch only on startup
 if status --is-login
-  if set -q TMUX && not set -q IN_TMUX
-    command fastfetch -c ~/.config/fastfetch_conf.jsonc --logo-type iterm;
-    set -Ux IN_TMUX true;
-  end
+
 end
 
+# tmux on startup and show fastfetch only on startup
 if status is-interactive
   if not set -q TMUX
     set -e IN_TMUX
     exec tmux
+  end
+  if set -q TMUX && not set -q IN_TMUX
+    command fastfetch -c ~/.config/fastfetch_conf.jsonc --logo-type iterm;
+    set -Ux IN_TMUX true;
   end
 end
 
