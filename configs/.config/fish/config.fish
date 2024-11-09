@@ -77,13 +77,18 @@ fzf --fish | source
 
 # show fastfetch only on startup
 if status --is-login
-  if not set -q TMUX
-    command fastfetch -c ~/.config/fastfetch_conf.jsonc --logo-type iterm;
+  if set -q TMUX && not set -q IN_TMUX
+    command fastfetch -c ~/.config/fastfetch_conf.jsonc --logo-type sixel;
+    set -Ux IN_TMUX true;
   end
+  #command fastfetch -c ~/.config/fastfetch_conf.jsonc --logo-type iterm;
 end
 
 if status is-interactive
-  # Commands to run in interactive sessions can go here
+  if not set -q TMUX
+    set -e IN_TMUX
+    exec tmux
+  end
 end
 
 # pnpm
