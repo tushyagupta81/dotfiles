@@ -4,10 +4,6 @@ set fish_greeting
 set -gx FONT "0xProto Nerd Font"
 #set -gx FONT "JetBrainsMono Nerd Font"
 
-#if test -e "$HOME/.cargo/env.fish"
-#  source "$HOME/.cargo/env.fish"
-#end
-
 fish_add_path "$HOME/.config/scripts"
 fish_config theme choose vibrant
 
@@ -70,13 +66,17 @@ fzf --fish | source
 
 # show fastfetch only on startup
 if status --is-login
-  if not set -q TMUX
+  if set -q TMUX && not set -q IN_TMUX
     command fastfetch -c ~/.config/fastfetch_conf.jsonc --logo-type iterm;
+    set -Ux IN_TMUX true;
   end
 end
 
 if status is-interactive
-
+  if not set -q TMUX
+    set -e IN_TMUX
+    exec tmux
+  end
 end
 
 # pnpm
