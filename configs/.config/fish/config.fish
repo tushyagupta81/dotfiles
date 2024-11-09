@@ -1,8 +1,8 @@
 # ~/.config/fish/config.fish
 set fish_greeting
 
-#set -gx FONT "0xProto Nerd Font"
-set -gx FONT "JetBrainsMono Nerd Font"
+set -gx FONT "0xProto Nerd Font"
+#set -gx FONT "JetBrainsMono Nerd Font"
 
 #if test -e "$HOME/.cargo/env.fish"
 #  source "$HOME/.cargo/env.fish"
