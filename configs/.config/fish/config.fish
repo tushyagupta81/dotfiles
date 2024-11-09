@@ -1,7 +1,8 @@
 # ~/.config/fish/config.fish
 set fish_greeting
 
-set -gx FONT "0xProto Nerd Font"
+#set -gx FONT "0xProto Nerd Font"
+set -gx FONT "JetBrainsMono Nerd Font"
 
 #if test -e "$HOME/.cargo/env.fish"
 #  source "$HOME/.cargo/env.fish"
@@ -61,14 +62,6 @@ if test -n "$HOMEBREW_PREFIX"
   $HOMEBREW_PREFIX/bin/brew shellenv | source
 end
 
-# to activate virtualenv in tmux
-#if test -n "$VIRTUAL_ENV"
-#  . "$VIRTUAL_ENV/bin/activate.fish"
-#end
-#if test -n "$TMUX" && test -n "$VIRTUAL_ENV"
-#  tmux set-environment VIRTUAL_ENV $VIRTUAL_ENV
-#end
-
 # tools init
 starship init fish | source
 thefuck --alias | source
@@ -77,18 +70,13 @@ fzf --fish | source
 
 # show fastfetch only on startup
 if status --is-login
-  if set -q TMUX && not set -q IN_TMUX
-    command fastfetch -c ~/.config/fastfetch_conf.jsonc --logo-type sixel;
-    set -Ux IN_TMUX true;
+  if not set -q TMUX
+    command fastfetch -c ~/.config/fastfetch_conf.jsonc --logo-type iterm;
   end
-  #command fastfetch -c ~/.config/fastfetch_conf.jsonc --logo-type iterm;
 end
 
 if status is-interactive
-  if not set -q TMUX
-    set -e IN_TMUX
-    exec tmux
-  end
+
 end
 
 # pnpm
