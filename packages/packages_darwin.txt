@@ -10,3 +10,4 @@ dockey
 postman
 docker
 whatsapp
+reattach-to-user-namespace
