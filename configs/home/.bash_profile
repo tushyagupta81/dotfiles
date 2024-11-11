@@ -25,3 +25,5 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 . "$HOME/.cargo/env"
+
+if [ -e /home/tushya/.nix-profile/etc/profile.d/nix.sh ]; then . /home/tushya/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

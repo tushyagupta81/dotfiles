@@ -57,3 +57,5 @@ fi
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+
+if [ -e /home/tushya/.nix-profile/etc/profile.d/nix.sh ]; then . /home/tushya/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
