@@ -5,32 +5,32 @@ return {
 		local lint = require("lint")
 
 		lint.linters_by_ft = {
-			javascript = { "eslint_d" },
-			typescript = { "eslint_d" },
-			javascriptreact = { "eslint_d" },
-			typescriptreact = { "eslint_d" },
+			javascript = { "biomejs" },
+			typescript = { "biomejs" },
+			javascriptreact = { "biomejs" },
+			typescriptreact = { "biomejs" },
 			python = { "ruff" },
 		}
 
-		lint.linters.eslint_d = {
-			-- From nvim-lint README
-			cmd = function()
-				local local_binary = vim.fn.fnamemodify("./node_modules/.bin/" .. "eslint_d", ":p")
-				return vim.loop.fs_stat(local_binary) and local_binary or "eslint_d"
-			end,
-			-- ^ this was directly copied from nvim-lint README
-
-			args = {
-				"--no-warn-ignored", -- <-- this is the key argument
-				"--format",
-				"json",
-				"--stdin",
-				"--stdin-filename",
-				function()
-					return vim.api.nvim_buf_get_name(0)
-				end,
-			},
-		}
+		-- lint.linters.eslint_d = {
+		-- 	-- From nvim-lint README
+		-- 	cmd = function()
+		-- 		local local_binary = vim.fn.fnamemodify("./node_modules/.bin/" .. "eslint_d", ":p")
+		-- 		return vim.loop.fs_stat(local_binary) and local_binary or "eslint_d"
+		-- 	end,
+		-- 	-- ^ this was directly copied from nvim-lint README
+		--
+		-- 	args = {
+		-- 		"--no-warn-ignored", -- <-- this is the key argument
+		-- 		"--format",
+		-- 		"json",
+		-- 		"--stdin",
+		-- 		"--stdin-filename",
+		-- 		function()
+		-- 			return vim.api.nvim_buf_get_name(0)
+		-- 		end,
+		-- 	},
+		-- }
 
 		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 

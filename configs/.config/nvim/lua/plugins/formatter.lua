@@ -10,7 +10,7 @@ return {
 				typescript = { "biome", "prettier" },
 				javascriptreact = { "biome", "prettier" },
 				typescriptreact = { "biome", "prettier" },
-				json = { "biome", "prettier" },
+				json = { "prettier" },
 				svelte = { "prettier" },
 				css = { "prettier" },
 				html = { "prettier" },
