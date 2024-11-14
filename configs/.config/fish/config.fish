@@ -41,22 +41,26 @@ abbr --add gp git push
 abbr --add gc git commit -m
 abbr --add gr git add .\;git commit -m
 
+if test -e "$HOME/.cargo/env.fish"
+    source "$HOME/.cargo/env.fish"
+end
+
 # homebrew setuup
 if test -d /home/linuxbrew/.linuxbrew
-  set -gx HOMEBREW_PREFIX "/home/linuxbrew/.linuxbrew"
+    set -gx HOMEBREW_PREFIX "/home/linuxbrew/.linuxbrew"
 else if test -d /opt/homebrew
-  set -gx HOMEBREW_PREFIX "/opt/homebrew"
+    set -gx HOMEBREW_PREFIX "/opt/homebrew"
 end
 
 if test -n "$HOMEBREW_PREFIX"
-  set -gx HOMEBREW_CELLAR "$HOMEBREW_PREFIX/Cellar"
-  set -gx HOMEBREW_REPOSITORY "$HOMEBREW_PREFIX/Homebrew"
-  set -gx PATH "$HOMEBREW_PREFIX/bin" "$HOMEBREW_PREFIX/sbin" $PATH
-  set -q MANPATH; or set MANPATH ''
-  set -gx MANPATH "$HOMEBREW_PREFIX/share/man" $MANPATH
-  set -q INFOPATH; or set INFOPATH ''
-  set -gx INFOPATH "$HOMEBREW_PREFIX/share/info" $INFOPATH
-  $HOMEBREW_PREFIX/bin/brew shellenv | source
+    set -gx HOMEBREW_CELLAR "$HOMEBREW_PREFIX/Cellar"
+    set -gx HOMEBREW_REPOSITORY "$HOMEBREW_PREFIX/Homebrew"
+    set -gx PATH "$HOMEBREW_PREFIX/bin" "$HOMEBREW_PREFIX/sbin" $PATH
+    set -q MANPATH; or set MANPATH ''
+    set -gx MANPATH "$HOMEBREW_PREFIX/share/man" $MANPATH
+    set -q INFOPATH; or set INFOPATH ''
+    set -gx INFOPATH "$HOMEBREW_PREFIX/share/info" $INFOPATH
+    $HOMEBREW_PREFIX/bin/brew shellenv | source
 end
 
 # tools init
@@ -71,19 +75,19 @@ end
 
 # tmux on startup and show fastfetch only on startup
 if status is-interactive
-  if not set -q TMUX
-    set -e IN_TMUX
-    exec tmux
-  end
-  if set -q TMUX && not set -q IN_TMUX
-    command fastfetch -c ~/.config/fastfetch_conf.jsonc --logo-type iterm;
-    set -Ux IN_TMUX true;
-  end
+    if not set -q TMUX
+        set -e IN_TMUX
+        exec tmux
+    end
+    if set -q TMUX && not set -q IN_TMUX
+        command fastfetch -c ~/.config/fastfetch_conf.jsonc --logo-type iterm;
+        set -Ux IN_TMUX true;
+    end
 end
 
 # pnpm
 set -gx PNPM_HOME "/home/tushya/.local/share/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
-  set -gx PATH "$PNPM_HOME" $PATH
+    set -gx PATH "$PNPM_HOME" $PATH
 end
 # pnpm end
