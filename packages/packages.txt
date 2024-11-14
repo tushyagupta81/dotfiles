@@ -24,3 +24,4 @@ starship
 coreutils
 rust
 nushell
+dust
