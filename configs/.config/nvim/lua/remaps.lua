@@ -1,7 +1,18 @@
 vim.g.mapleader = " "
 
+-- move code along in visual mode
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
+
+-- searching stays in the center
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
+
+-- paste and replace without copying the deleted material
+vim.keymap.set("x", "<leader>p", '"_dp')
 
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
