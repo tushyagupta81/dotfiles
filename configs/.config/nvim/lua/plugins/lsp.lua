@@ -75,6 +75,7 @@ return {
 				end,
 			},
 		})
+		require("luasnip.loaders.from_lua").load({ paths = vim.fn.getenv("HOME") .. "/.config/nvim/lua/snippets/" })
 		require("luasnip.loaders.from_vscode").lazy_load()
 		local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
