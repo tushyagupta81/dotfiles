@@ -7,8 +7,8 @@ set -gx FONT "0xProto Nerd Font"
 fish_add_path "$HOME/.config/scripts"
 fish_config theme choose vibrant
 
-alias ls "eza --icons=always"
-alias l "eza --icons=always -la"
+alias ls "eza --icons=always --color=always"
+alias l "eza --icons=always -la --git --color=always"
 alias lt "eza --icons=always -Ta -L=2"
 alias nv "nvim"
 alias enva "source $HOME/.config/scripts/envactivate.fish"
