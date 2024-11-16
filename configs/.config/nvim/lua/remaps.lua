@@ -12,7 +12,7 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 -- paste and replace without copying the deleted material
-vim.keymap.set("x", "<leader>p", '"_dp')
+vim.keymap.set("x", "<leader>p", '"_dP')
 
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
