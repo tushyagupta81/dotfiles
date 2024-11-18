@@ -24,6 +24,15 @@ truncate_to_repo = true
 truncation_length = 3
 truncation_symbol = '…/'
 
+[shell]
+fish_indicator = ''
+nu_indicator = '(nu) '
+zsh_indicator = '(zsh) '
+bash_indicator = ' '
+format = '[$indicator]($style)'
+style = 'cyan bold'
+disabled = false
+
 [git_branch]
 disabled = false
 style = "bold blue"
@@ -56,9 +65,9 @@ symbol = " "
 
 [custom.cpp]
 detect_extensions = ['cpp']
-symbol = "󰙲 "
-format = 'via $symbol($version(-$name) )'
-command = 'g++ --version'
+symbol = " "
+format = 'via $symbol($output)'
+command = 'g++-14 --version | grep -oP "(?<=\) )\d+\.\d+\.\d+"'
 
 [conda]
 symbol = " "
