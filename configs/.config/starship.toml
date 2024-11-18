@@ -26,8 +26,8 @@ truncation_symbol = '…/'
 
 [shell]
 fish_indicator = ''
-nu_indicator = '(nu) '
-zsh_indicator = '(zsh) '
+nu_indicator = 'nu '
+zsh_indicator = 'zsh '
 bash_indicator = ' '
 format = '[$indicator]($style)'
 style = 'cyan bold'
