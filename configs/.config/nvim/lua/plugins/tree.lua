@@ -55,51 +55,51 @@
 -- 	end,
 -- }
 
-return {
-	"echasnovski/mini.files",
-	version = false,
-	config = function()
-		require("mini.files").setup({
-			mappings = {
-				close = "q",
-				go_in = "l",
-				go_in_plus = "<CR>",
-				go_out = "h",
-				go_out_plus = "H",
-				reset = "<BS>",
-				reveal_cwd = "@",
-				show_help = "g?",
-				synchronize = "=",
-				trim_left = "<",
-				trim_right = ">",
-			},
-			windows = {
-				-- Maximum number of windows to show side by side
-				max_number = 3,
-				-- Whether to show preview of file/directory under cursor
-				preview = true,
-				-- Width of focused window
-				width_focus = 25,
-				-- Width of non-focused window
-				width_nofocus = 25,
-				-- Width of preview window
-				width_preview = 80,
-			},
-		})
-
-		require("plugins.utils.mini-files-git")
-
-		local MiniFiles = require("mini.files")
-		local minifiles_toggle = function()
-			if not MiniFiles.close() then
-				MiniFiles.open(vim.api.nvim_buf_get_name(0))
-				MiniFiles.reveal_cwd()
-			end
-		end
-
-		vim.keymap.set("n", "-", minifiles_toggle)
-	end,
-}
+-- return {
+-- 	"echasnovski/mini.files",
+-- 	version = false,
+-- 	config = function()
+-- 		require("mini.files").setup({
+-- 			mappings = {
+-- 				close = "q",
+-- 				go_in = "l",
+-- 				go_in_plus = "<CR>",
+-- 				go_out = "h",
+-- 				go_out_plus = "H",
+-- 				reset = "<BS>",
+-- 				reveal_cwd = "@",
+-- 				show_help = "g?",
+-- 				synchronize = "=",
+-- 				trim_left = "<",
+-- 				trim_right = ">",
+-- 			},
+-- 			windows = {
+-- 				-- Maximum number of windows to show side by side
+-- 				max_number = 3,
+-- 				-- Whether to show preview of file/directory under cursor
+-- 				preview = true,
+-- 				-- Width of focused window
+-- 				width_focus = 25,
+-- 				-- Width of non-focused window
+-- 				width_nofocus = 25,
+-- 				-- Width of preview window
+-- 				width_preview = 80,
+-- 			},
+-- 		})
+--
+-- 		require("plugins.utils.mini-files-git")
+--
+-- 		local MiniFiles = require("mini.files")
+-- 		local minifiles_toggle = function()
+-- 			if not MiniFiles.close() then
+-- 				MiniFiles.open(vim.api.nvim_buf_get_name(0))
+-- 				MiniFiles.reveal_cwd()
+-- 			end
+-- 		end
+--
+-- 		vim.keymap.set("n", "-", minifiles_toggle)
+-- 	end,
+-- }
 
 -- return {
 -- 	"nvim-tree/nvim-tree.lua",
@@ -165,23 +165,23 @@ return {
 -- 	end,
 -- }
 
--- return {
--- 	"stevearc/oil.nvim",
--- 	dependencies = { "nvim-tree/nvim-web-devicons" },
--- 	config = function()
--- 		require("oil").setup({
--- 			keymaps = {
--- 				["<C-h>"] = false,
--- 				["<C-l>"] = false,
--- 				["<C-j>"] = false,
--- 				["<C-k>"] = false,
--- 				["<leader>-"] = "actions.refresh",
--- 			},
--- 			view_options = {
--- 				-- Show files and directories that start with "."
--- 				show_hidden = true,
--- 			},
--- 		})
--- 		vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
--- 	end,
--- }
+return {
+	"stevearc/oil.nvim",
+	dependencies = { "nvim-tree/nvim-web-devicons" },
+	config = function()
+		require("oil").setup({
+			keymaps = {
+				["<C-h>"] = false,
+				["<C-l>"] = false,
+				["<C-j>"] = false,
+				["<C-k>"] = false,
+				["<leader>-"] = "actions.refresh",
+			},
+			view_options = {
+				-- Show files and directories that start with "."
+				show_hidden = true,
+			},
+		})
+		vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+	end,
+}
