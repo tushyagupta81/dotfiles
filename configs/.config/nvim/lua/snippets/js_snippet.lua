@@ -5,23 +5,18 @@ local i = ls.insert_node
 
 local fmt = require("luasnip.extras.fmt").fmt
 
-ls.add_snippets("cpp", {
+local shared_snippets = {
 	-- Function snippet using fmt for formatting
 	s(
-		"#in",
-		fmt(
-			[[
-        #include <iostream>
-        using namespace std;
-
-        int main() {{
-          {}
-          return 0;
-        }}
-      ]],
-			{
-				i(0),
-			}
-		)
+		"con",
+		fmt([[console.log({});]], {
+			i(0),
+		})
 	),
+}
+
+-- Register the snippets for both js and jsx
+ls.add_snippets(nil, {
+	js = shared_snippets,
+	jsx = shared_snippets,
 })
