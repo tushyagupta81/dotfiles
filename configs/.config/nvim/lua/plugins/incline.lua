@@ -1,13 +1,28 @@
 return {
 	"b0o/incline.nvim",
-	dependencies = { "SmiteshP/nvim-navic" },
-	event = "VeryLazy",
-	priority = 1200,
+	name = "incline",
+	dependencies = {
+		"SmiteshP/nvim-navic",
+		"nvim-tree/nvim-web-devicons",
+	},
+	event = "VimEnter",
 	config = function()
 		-- require("incline").setup({})
 		local helpers = require("incline.helpers")
 		local navic = require("nvim-navic")
 		local devicons = require("nvim-web-devicons")
+
+		vim.api.nvim_create_autocmd("LspAttach", {
+			desc = "Navic Attacher",
+			group = vim.api.nvim_create_augroup("idr4n/navic-attacher", {}),
+			callback = function(a)
+				local client = vim.lsp.get_client_by_id(a.data.client_id)
+				if client and client.server_capabilities["documentSymbolProvider"] then
+					navic.attach(client, a.buf)
+				end
+			end,
+		})
+
 		require("incline").setup({
 			window = {
 				padding = 0,

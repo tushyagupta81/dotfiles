@@ -7,11 +7,29 @@ return {
 				options = {
 					theme = cyberdream,
 				},
+				sections = {
+					lualine_x = {
+						{
+							require("noice").api.statusline.mode.get,
+							cond = require("noice").api.statusline.mode.has,
+							color = { fg = "#ff9e64" },
+						},
+					},
+				},
 			})
 		else
 			require("lualine").setup({
 				options = {
 					theme = "ayu_mirage",
+				},
+				sections = {
+					lualine_x = {
+						{
+							require("noice").api.statusline.mode.get,
+							cond = require("noice").api.statusline.mode.has,
+							color = { fg = "#ff9e64" },
+						},
+					},
 				},
 			})
 		end
