@@ -13,7 +13,6 @@ return {
 	},
 	{
 		"nvim-cmp",
-		event = "VeryLazy",
 		dependencies = {
 			{
 				"zbirenbaum/copilot-cmp",

@@ -1,8 +1,16 @@
 vim.g.mapleader = " "
 
 -- move code along in visual mode
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+-- They were interfearing with K in visual mode to type in snippets
+local function map_v_line(lhs, rhs)
+	vim.keymap.set("x", lhs, function()
+		if vim.fn.mode() == "V" then
+			return rhs
+		end
+	end, { noremap = true, silent = true, expr = true })
+end
+map_v_line("J", ":m '>+1<CR>gv=gv")
+map_v_line("K", ":m '<-2<CR>gv=gv")
 
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")

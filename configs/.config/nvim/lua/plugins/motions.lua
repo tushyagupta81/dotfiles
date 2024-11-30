@@ -1,6 +1,9 @@
 return {
 	"folke/flash.nvim",
-	event = "VeryLazy",
+	event = {
+		"BufReadPre",
+		"BufNewFile",
+	},
 	---@diagnostic disable-next-line: undefined-doc-name
 	---@type Flash.Config
 	opts = {},

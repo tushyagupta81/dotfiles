@@ -13,7 +13,6 @@ return {
 	},
 	{
 		"nvim-cmp",
-		event = "VeryLazy",
 		dependencies = {
 			"luckasRanarison/tailwind-tools.nvim",
 			"onsails/lspkind-nvim",
