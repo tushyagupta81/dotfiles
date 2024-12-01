@@ -46,7 +46,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 -- vim.keymap.set("n", "<leader>cb", ":w<CR>:bd<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>q", ":w<CR>:bp<bar>sp<bar>bn<bar>bd<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>q", ":bd<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>wqa", ":wa<CR>:qa<CR>", { noremap = true, silent = true })
 
 vim.keymap.set("n", "<C-w>+", [[<cmd>horizontal resize +2<cr>]])

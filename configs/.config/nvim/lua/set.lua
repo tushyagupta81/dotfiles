@@ -37,6 +37,11 @@ vim.opt.cmdheight = 0
 vim.opt.laststatus = 3
 
 -- code folding
-vim.o.foldmethod = "expr"
+-- vim.o.fillchars = "eob: ,fold: ,foldopen:,foldsep: ,foldclose:"
+-- vim.o.foldcolumn = "1"
+vim.o.foldenable = true
 vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+-- vim.o.foldexpr = "v:lua.vim.lsp.foldexpr()"
+vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99
+vim.o.foldmethod = "expr"
