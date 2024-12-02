@@ -1,6 +1,7 @@
 # Compiled Python files
 *.pyc
 *undodir
+*sessions
 
 # Folder view configuration files
 .DS_Store
