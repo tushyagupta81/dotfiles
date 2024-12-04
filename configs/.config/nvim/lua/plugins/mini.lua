@@ -21,8 +21,6 @@ return { -- Collection of various small independent plugins/modules
 
 			require("mini.cursorword").setup()
 
-			require("mini.pairs").setup()
-
 			require("mini.indentscope").setup({
 				draw = {
 					delay = 100,

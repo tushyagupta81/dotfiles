@@ -13,6 +13,7 @@ return {
 	},
 	{
 		"nvim-cmp",
+		event = "VimEnter",
 		dependencies = {
 			"luckasRanarison/tailwind-tools.nvim",
 			"onsails/lspkind-nvim",

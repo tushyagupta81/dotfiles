@@ -9,21 +9,22 @@ return {
 			"nvim-telescope/telescope.nvim", -- optional
 			"neovim/nvim-lspconfig", -- optional
 		},
-		opts = {}, -- your configuration
+		opts = {
+			document_color = {
+				enabled = true, -- can be toggled by commands
+				kind = "background", -- "inline" | "foreground" | "background"
+				debounce = 200, -- in milliseconds, only applied in insert mode
+			},
+			cmp = {
+				highlight = "foreground", -- color preview style, "foreground" | "background"
+			},
+		}, -- your configuration
 	},
 	{
-		"nvim-cmp",
+		"hrsh7th/nvim-cmp",
+		event = "VimEnter",
 		dependencies = {
-			{
-				"zbirenbaum/copilot-cmp",
-				verylazy = true,
-				dependencies = "copilot.lua",
-				opts = {},
-				config = function(_, opts)
-					local copilot_cmp = require("copilot_cmp")
-					copilot_cmp.setup(opts)
-				end,
-			},
+			"tailwind-tools",
 			"onsails/lspkind-nvim",
 		},
 		config = function()
