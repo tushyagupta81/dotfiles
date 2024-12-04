@@ -14,6 +14,7 @@ alias nv "nvim"
 alias enva "source $HOME/.config/scripts/envactivate.fish"
 alias envl "l $HOME/.virtualenv"
 alias ide "tmux"
+alias wsl-open "bash wsl-open"
 
 
 abbr --erase (abbr --list)
