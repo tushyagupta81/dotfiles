@@ -1,12 +1,9 @@
 return {
 	"folke/noice.nvim",
 	event = "VeryLazy",
-	opts = {
-		-- add any options here
-	},
 	dependencies = {
 		"MunifTanjim/nui.nvim",
-		"rcarriga/nvim-notify",
+		-- "rcarriga/nvim-notify",
 	},
 	config = function()
 		require("noice").setup({
@@ -28,12 +25,12 @@ return {
 				lsp_doc_border = false, -- add a border to hover docs and signature help
 			},
 		})
-		require("notify").setup({
-			timeout = 200,
-			background_color = "transparent",
-			top_down = false,
-			render = "minimal",
-			stages = "fade",
-		})
+		-- require("notify").setup({
+		-- 	timeout = 200,
+		-- 	background_color = "transparent",
+		-- 	top_down = false,
+		-- 	render = "minimal",
+		-- 	stages = "fade",
+		-- })
 	end,
 }

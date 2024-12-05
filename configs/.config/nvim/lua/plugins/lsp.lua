@@ -6,8 +6,14 @@ return {
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-path",
 		"hrsh7th/cmp-cmdline",
-		"hrsh7th/nvim-cmp",
-		{ "L3MON4D3/LuaSnip", dependencies = { "rafamadriz/friendly-snippets" } },
+		{
+			"hrsh7th/nvim-cmp",
+			dependencies = { "onsails/lspkind-nvim" },
+		},
+		{
+			"L3MON4D3/LuaSnip",
+			dependencies = { "rafamadriz/friendly-snippets" },
+		},
 		"saadparwaiz1/cmp_luasnip",
 		"j-hui/fidget.nvim",
 	},
@@ -16,6 +22,7 @@ return {
 		local lspconfig = require("lspconfig")
 
 		local cmp = require("cmp")
+		local lspkind = require("lspkind")
 		local cmp_lsp = require("cmp_nvim_lsp")
 		local capabilities = vim.tbl_deep_extend(
 			"force",
@@ -112,6 +119,18 @@ return {
 					{ name = "buffer" },
 				},
 			}),
+			formatting = {
+				format = lspkind.cmp_format({
+					mode = "symbol_text",
+					menu = {
+						buffer = "[Buffer]",
+						nvim_lsp = "[LSP]",
+						luasnip = "[LuaSnip]",
+						nvim_lua = "[Lua]",
+						latex_symbols = "[Latex]",
+					},
+				}),
+			},
 		})
 
 		vim.diagnostic.config({

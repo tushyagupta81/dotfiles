@@ -60,7 +60,7 @@ return { -- Collection of various small independent plugins/modules
 				},
 			})
 
-			require("mini.starter").setup()
+			-- require("mini.starter").setup()
 		end,
 	},
 	{
