@@ -15,6 +15,7 @@ alias enva "source $HOME/.config/scripts/envactivate.fish"
 alias envl "l $HOME/.virtualenv"
 alias ide "tmux"
 alias wsl-open "bash wsl-open"
+alias gl "git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' --all"
 
 
 abbr --erase (abbr --list)
