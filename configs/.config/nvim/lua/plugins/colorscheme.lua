@@ -1,72 +1,61 @@
--- return {
---     'catppuccin/nvim',
---     name = 'catppuccin',
---     priority = 1000,
---     config = function()
---         require('catppuccin').setup({
---             transparent_background = true,
---         })
---         vim.cmd.colorscheme "catppuccin-mocha"
---     end
--- }
+function ColorMyPencils(color)
+	color = color or "cyberdream"
+	vim.cmd.colorscheme(color)
 
--- return {
--- 	"rose-pine/neovim",
--- 	name = "rose-pine",
--- 	config = function()
--- 		require("rose-pine").setup({
--- 			styles = {
--- 				italic = false,
--- 				transparency = true,
--- 			},
--- 		})
--- 		vim.cmd("colorscheme rose-pine-moon")
--- 	end,
--- }
+	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+end
 
 return {
-	"scottmckendry/cyberdream.nvim",
-	lazy = false,
-	priority = 1000,
-	config = function()
-		require("cyberdream").setup({
-			-- Enable transparent background
+	{
+		"folke/tokyonight.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {
 			transparent = true,
-			borderless_telescope = false,
-		})
-		vim.cmd("colorscheme cyberdream")
-	end,
+		},
+		-- vim.cmd.colorscheme("tokyonight-night")
+		-- vim.cmd.colorscheme("tokyonight-moon")
+		-- vim.cmd.colorscheme("tokyonight-storm")
+		-- vim.cmd.colorscheme("tokyonight-day")
+	},
+	{
+		"catppuccin/nvim",
+		name = "catppuccin",
+		priority = 1000,
+		config = function()
+			require("catppuccin").setup({
+				transparent_background = true,
+			})
+			-- vim.cmd.colorscheme("catppuccin-macchiato")
+			-- vim.cmd.colorscheme("catppuccin-mocha")
+			-- vim.cmd.colorscheme("catppuccin-latte")
+			-- vim.cmd.colorscheme("catppuccin-frappe")
+		end,
+	},
+	{
+		"scottmckendry/cyberdream.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("cyberdream").setup({
+				-- Enable transparent background
+				transparent = true,
+				borderless_telescope = false,
+			})
+			ColorMyPencils()
+			-- vim.cmd("colorscheme cyberdream")
+		end,
+	},
+	{
+		"diegoulloao/neofusion.nvim",
+		name = "neofusion",
+		priority = 1000,
+		config = function()
+			require("neofusion").setup({
+				transparent_mode = true,
+			})
+			-- vim.cmd.colorscheme("neofusion")
+		end,
+	},
 }
-
--- return {
--- 	"diegoulloao/neofusion.nvim",
--- 	name = "neofusion",
--- 	priority = 1000,
--- 	config = function()
--- 		require("neofusion").setup({
--- 			transparent_mode = true,
--- 		})
--- 		vim.cmd.colorscheme("neofusion")
--- 	end,
--- }
-
--- return {
--- 	"rebelot/kanagawa.nvim",
--- 	name = "kanagawa",
--- 	priority = 1000,
--- 	config = function()
--- 		require("kanagawa").setup({
--- 			transparent = true,
--- 			colors = {
--- 				theme = {
--- 					all = {
--- 						ui = {
--- 							bg_gutter = "none",
--- 						},
--- 					},
--- 				},
--- 			},
--- 		})
--- 		vim.cmd("colorscheme kanagawa-wave")
--- 	end,
--- }

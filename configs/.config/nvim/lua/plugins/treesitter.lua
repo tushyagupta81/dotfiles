@@ -27,14 +27,6 @@ return {
 			sync_install = false,
 			auto_install = true,
 
-			indent = {
-				enable = true,
-				disable = {
-					"c",
-					"html",
-				},
-			},
-
 			highlight = {
 				enable = true,
 				additional_vim_regex_highlighting = { "markdown" },
