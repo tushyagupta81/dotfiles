@@ -10,6 +10,7 @@ return {
 			javascriptreact = { "biomejs" },
 			typescriptreact = { "biomejs" },
 			python = { "ruff" },
+			markdown = { "markdownlint-cli2" },
 		}
 
 		-- lint.linters.eslint_d = {

@@ -22,6 +22,7 @@ return {
 				rust = { "rustfmt" },
 				python = { "ruff" },
 				cpp = { "clang-format" },
+				md = { "prettier" },
 			},
 			format_on_save = {
 				lsp_fallback = true,

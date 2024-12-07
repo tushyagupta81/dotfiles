@@ -41,6 +41,8 @@ return {
 					"biome", -- js & ts formatter
 					"eslint_d", -- js formatter
 					"clang-format", -- cpp & c formatter
+					"marksman", -- markdown lsp
+					"markdownlint-cli2", -- markdown linter
 					-- "rustfmt", -- rust
 				},
 			})
