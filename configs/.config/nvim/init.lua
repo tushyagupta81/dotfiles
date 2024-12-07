@@ -14,4 +14,19 @@ vim.opt.rtp:prepend(lazypath)
 require("set")
 require("remaps")
 
-require("lazy").setup("plugins")
+require("lazy").setup({
+	-- importing directories
+	spec = {
+		{ import = "plugins" },
+		-- { import = "plugins.lsp" },
+	},
+
+	-- ui config
+	ui = {
+		border = "rounded",
+		size = {
+			width = 0.8,
+			height = 0.8,
+		},
+	},
+})
