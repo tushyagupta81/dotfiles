@@ -8,7 +8,7 @@ return {
 		-- Only one of these is needed, not both.
 		"nvim-telescope/telescope.nvim", -- optional
 	},
-	enabled = true,
+	enabled = false,
 	config = function()
 		local neogit = require("neogit")
 

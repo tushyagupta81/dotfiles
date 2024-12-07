@@ -71,7 +71,52 @@ return {
 				timeout = 3000, -- default timeout in ms
 				top_down = false, -- place notifications from top to bottom
 			},
+			styles = {
+				notification = {
+					wo = { wrap = true }, -- Wrap notifications
+				},
+			},
 			quickfile = { enabled = true },
+		}
+	end,
+	keys = function()
+		local snacks = require("snacks")
+		return {
+			{
+				"<leader>.",
+				function()
+					snacks.scratch()
+				end,
+				desc = "Toggle Scratch Buffer",
+			},
+			{
+				"<leader>S",
+				function()
+					snacks.scratch.select()
+				end,
+				desc = "Select Scratch Buffer",
+			},
+			{
+				"<leader>n",
+				function()
+					snacks.notifier.show_history()
+				end,
+				desc = "Notification History",
+			},
+			{
+				"<leader>bd",
+				function()
+					snacks.bufdelete()
+				end,
+				desc = "Delete Buffer",
+			},
+			{
+				"<leader>lg",
+				function()
+					snacks.lazygit()
+				end,
+				desc = "Open LazyGit",
+			},
 		}
 	end,
 }
