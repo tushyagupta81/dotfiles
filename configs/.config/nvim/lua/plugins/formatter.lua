@@ -24,11 +24,11 @@ return {
 				cpp = { "clang-format" },
 				md = { "prettier" },
 			},
-			format_on_save = {
-				lsp_fallback = true,
-				async = false,
-				timeout_ms = 1000,
-			},
+			-- format_on_save = {
+			-- 	lsp_fallback = true,
+			-- 	async = false,
+			-- 	timeout_ms = 1000,
+			-- },
 		})
 
 		vim.keymap.set({ "n", "v" }, "<leader>gf", function()
