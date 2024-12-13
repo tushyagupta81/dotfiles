@@ -5,7 +5,6 @@ return {
 	opts = function()
 		local snacks = require("snacks")
 		return {
-
 			-- your configuration comes here
 			-- or leave it empty to use the default settings
 			-- refer to the configuration section below
@@ -118,5 +117,14 @@ return {
 				desc = "Open LazyGit",
 			},
 		}
+	end,
+	config = function()
+		local snacks = require("snacks")
+		vim.api.nvim_create_autocmd("User", {
+			pattern = "MiniFilesActionRename",
+			callback = function(event)
+				snacks.rename.on_rename_file(event.data.from, event.data.to)
+			end,
+		})
 	end,
 }
