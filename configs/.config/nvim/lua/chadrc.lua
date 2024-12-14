@@ -3,19 +3,25 @@ local M = {}
 M.base46 = {
 	theme = "monekai", -- "doomchad" ""chadracula" "monekai" "gatekeeper" "kanagawa" "gruvbox" "flexoki" "mito-laser" "nightowl" "solarized_dark" "tokyodark"
 	transparency = true,
-  hl_override = {
-    CursorLine = {
-      bg = "one_bg"
-    }
-  },
+	hl_override = {
+		CursorLine = {
+			bg = "one_bg",
+		},
+		FloatTitle = {
+			bg = "none",
+		},
+		FloatShadow = {
+			bg = "none",
+		},
+	},
 }
 
 M.ui = {
 	statusline = {
-		theme = "minimal", -- default/vscode/vscode_colored/minimal
+		theme = "default", -- default/vscode/vscode_colored/minimal
 		-- default/round/block/arrow separators work only for default statusline theme
 		-- round and block will work for minimal theme only
-		separator_style = "block",
+		separator_style = "round",
 		order = nil,
 		modules = nil,
 	},
