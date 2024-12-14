@@ -2,6 +2,17 @@ return {
 	"neovim/nvim-lspconfig",
 	dependencies = {
 		"williamboman/mason-lspconfig.nvim",
+		{
+			"folke/lazydev.nvim",
+			ft = "lua", -- only load on lua files
+			opts = {
+				library = {
+					-- See the configuration section for more details
+					-- Load luvit types when the `vim.uv` word is found
+					{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
+				},
+			},
+		},
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-path",
@@ -31,6 +42,7 @@ return {
 			cmp_lsp.default_capabilities()
 		)
 		require("fidget").setup({})
+		---@diagnostic disable-next-line: missing-fields
 		require("mason-lspconfig").setup({
 			handlers = {
 				function(server_name) -- default handler (optional)
@@ -81,11 +93,13 @@ return {
 				end,
 			},
 		})
+
+		---@diagnostic disable-next-line: assign-type-mismatch
 		require("luasnip.loaders.from_lua").load({ paths = vim.fn.getenv("HOME") .. "/.config/nvim/lua/snippets/" })
 		require("luasnip.loaders.from_vscode").lazy_load()
 		local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
-		cmp.setup({
+		local cmp_opts = {
 			-- Auto selects first item in completion list
 			completion = {
 				completeopt = "menu,menuone,noinsert",
@@ -107,6 +121,10 @@ return {
 			}),
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" },
+				{
+					name = "lazydev",
+					group_index = 0, -- set group index to 0 to skip loading LuaLS completions
+				},
 				{ name = "luasnip" }, -- For luasnip users.
 				{ name = "codeium" },
 				{ name = "copilot" },
@@ -131,7 +149,9 @@ return {
 					},
 				}),
 			},
-		})
+		}
+		cmp_opts = vim.tbl_deep_extend("force", cmp_opts, require("nvchad.cmp"))
+		cmp.setup(cmp_opts)
 
 		vim.diagnostic.config({
 			-- update_in_insert = true,
@@ -139,7 +159,7 @@ return {
 				focusable = false,
 				style = "default",
 				border = "rounded",
-				source = "always",
+				source = true,
 				header = "",
 				prefix = "",
 			},
