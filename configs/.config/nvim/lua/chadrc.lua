@@ -3,6 +3,11 @@ local M = {}
 M.base46 = {
 	theme = "monekai", -- "doomchad" ""chadracula" "monekai" "gatekeeper" "kanagawa" "gruvbox" "flexoki" "mito-laser" "nightowl" "solarized_dark" "tokyodark"
 	transparency = true,
+  hl_override = {
+    CursorLine = {
+      bg = "one_bg"
+    }
+  },
 }
 
 M.ui = {
