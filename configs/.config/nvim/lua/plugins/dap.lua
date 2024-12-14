@@ -26,6 +26,6 @@ return {
 			dapui.close()
 		end
 
-		dapui.setup({})
+		dapui.setup()
 	end,
 }

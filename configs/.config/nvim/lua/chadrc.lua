@@ -37,8 +37,8 @@ M.ui = {
 	},
 
 	tabufline = {
-		enabled = false,
-		order = { "buffers" },
+		enabled = true,
+		order = nil,
 		modules = nil,
 	},
 }
@@ -55,7 +55,10 @@ M.colorify = {
 }
 
 M.lsp = {
-	signature = true,
+	signature = false,
 }
+
+vim.keymap.set("n", "<Tab>", function() require("nvchad.tabufline").next() end, {})
+vim.keymap.set("n", "<S-Tab>", function() require("nvchad.tabufline").prev() end, {})
 
 return M
