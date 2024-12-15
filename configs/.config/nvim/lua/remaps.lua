@@ -51,6 +51,9 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 vim.keymap.set("n", "<C-w>+", [[<cmd>horizontal resize +2<cr>]])
 vim.keymap.set("n", "<C-w>-", [[<cmd>horizontal resize -2<cr>]])
 
+vim.keymap.set("n", "<M-j>", "<cmd>cnext<CR>")
+vim.keymap.set("n", "<M-k>", "<cmd>cprev<CR>")
+
 vim.keymap.set({ "n", "v" }, ";", "$")
 
 -- <C-r><C-w> gets the curret word under cursor

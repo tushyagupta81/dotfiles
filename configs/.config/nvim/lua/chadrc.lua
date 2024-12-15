@@ -14,6 +14,17 @@ M.base46 = {
 			bg = "none",
 		},
 	},
+	hl_add = {
+		MiniIconsAzure = {},
+		MiniIconsBlue = {},
+		MiniIconsCyan = {},
+		MiniIconsGreen = {},
+		MiniIconsGrey = {},
+		MiniIconsOrange = {},
+		MiniIconsPurple = {},
+		MiniIconsRed = {},
+		MiniIconsYellow = {},
+	},
 }
 
 M.ui = {
@@ -28,7 +39,6 @@ M.ui = {
 
 	cmp = {
 		lspkind_text = true,
-		icons = true,
 		icons_left = true,
 		style = "default", -- default/flat_light/flat_dark/atom/atom_colored
 		format_colors = {
@@ -46,8 +56,8 @@ M.ui = {
 M.colorify = {
 	enabled = true,
 	mode = "virtual", -- fg, bg, virtual
-	-- virt_text = "󱓻 ",
-	virt_text = " ",
+	virt_text = "󱓻 ",
+	-- virt_text = " ",
 	highlight = {
 		hex = true,
 		lspvars = true,
@@ -58,7 +68,11 @@ M.lsp = {
 	signature = false,
 }
 
-vim.keymap.set("n", "<Tab>", function() require("nvchad.tabufline").next() end, {})
-vim.keymap.set("n", "<S-Tab>", function() require("nvchad.tabufline").prev() end, {})
+vim.keymap.set("n", "<Tab>", function()
+	require("nvchad.tabufline").next()
+end, {})
+vim.keymap.set("n", "<S-Tab>", function()
+	require("nvchad.tabufline").prev()
+end, {})
 
 return M
