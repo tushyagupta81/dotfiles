@@ -42,9 +42,9 @@ return {
 				-- Enable transparent background
 				transparent = true,
 				borderless_telescope = false,
-        cache = false,
+				cache = false,
 			})
-			-- ColorMyPencils()
+			ColorMyPencils()
 			-- vim.cmd("colorscheme cyberdream")
 		end,
 	},

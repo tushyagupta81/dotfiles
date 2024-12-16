@@ -2,6 +2,7 @@
 set fish_greeting
 
 set -gx FONT "0xProto Nerd Font"
+set -gx EDITOR "nvim"
 #set -gx FONT "JetBrainsMono Nerd Font"
 
 fish_add_path "$HOME/.config/scripts"

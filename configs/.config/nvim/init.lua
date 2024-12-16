@@ -1,6 +1,3 @@
--- put this in your main init.lua file ( before lazy setup )
-vim.g.base46_cache = vim.fn.stdpath("data") .. "/base46_cache/"
-
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 ---@diagnostic disable-next-line: undefined-field
 if not vim.loop.fs_stat(lazypath) then
@@ -34,16 +31,3 @@ require("lazy").setup({
 		},
 	},
 })
-
-dofile(vim.g.base46_cache .. "defaults")
-dofile(vim.g.base46_cache .. "statusline")
-dofile(vim.g.base46_cache .. "syntax")
-dofile(vim.g.base46_cache .. "treesitter")
-dofile(vim.g.base46_cache .. "cmp")
-dofile(vim.g.base46_cache .. "telescope")
-dofile(vim.g.base46_cache .. "tbline")
-dofile(vim.g.base46_cache .. "lsp")
-
--- for _, v in ipairs(vim.fn.readdir(vim.g.base46_cache)) do
--- 	dofile(vim.g.base46_cache .. v)
--- end
