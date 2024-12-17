@@ -71,14 +71,14 @@ return {
 
 			completion = {
 				menu = {
-          auto_show = true,
+					auto_show = true,
 					draw = {
 						---@diagnostic disable-next-line: assign-type-mismatch
 						treesitter = { "lsp" },
 						columns = {
-							{ "kind_icon","sperator",gap=1},
+							{ "kind_icon", "sperator", gap = 1 },
 							{ "label", "label_description", gap = 1 },
-							{ "kind",  "source_name",gap=1 },
+							{ "sperator", "kind", gap = 0 },
 						},
 						components = {
 							sperator = {
@@ -87,6 +87,9 @@ return {
 								text = function()
 									return "┃"
 								end,
+                highlight = function (ctx)
+                  return 'BlinkCmpKind' .. ctx.kind
+                end
 							},
 						},
 					},

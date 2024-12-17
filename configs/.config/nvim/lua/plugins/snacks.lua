@@ -26,7 +26,11 @@ return {
 					{
 						section = "header",
 					},
-					{ section = "keys", gap = 1, padding = 1 },
+					{
+            section = "keys",
+            gap = 1,
+            padding = 1,
+          },
 					{
 						pane = 2,
 						icon = " ",
@@ -35,7 +39,14 @@ return {
 						indent = 2,
 						padding = 1,
 					},
-					{ pane = 2, icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
+					{
+            pane = 2,
+            icon = " ",
+            title = "Projects",
+            section = "projects",
+            indent = 3,
+            padding = 1,
+          },
 					{
 						pane = 2,
 						icon = " ",
@@ -48,7 +59,7 @@ return {
 						height = 5,
 						padding = 1,
 						ttl = 5 * 60,
-						indent = 3,
+						indent = 2,
 					},
 					{
 						pane = 2,
@@ -62,7 +73,7 @@ return {
 						height = 5,
 						padding = 1,
 						ttl = 5 * 60,
-						indent = 3,
+						indent = 2,
 					},
 					{ section = "startup" },
 				},
