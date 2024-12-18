@@ -25,3 +25,5 @@ coreutils
 rustup
 nushell
 dust
+fd
+git-delta

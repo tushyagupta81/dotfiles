@@ -42,7 +42,7 @@ abbr --add ga git add
 abbr --add gpl git pull
 abbr --add gp git push
 abbr --add gc git commit -m
-abbr --add gr git add .\;git commit -m
+abbr --add gr git add -A\;git commit -m
 
 if test -e "$HOME/.cargo/env.fish"
   source "$HOME/.cargo/env.fish"

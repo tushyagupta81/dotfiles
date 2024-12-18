@@ -63,20 +63,9 @@ return {
 			},
 		})
 
-		vim.diagnostic.config({
-			-- update_in_insert = true,
-			float = {
-				focusable = false,
-				style = "default",
-				border = "rounded",
-				source = true,
-				header = "",
-				prefix = "",
-			},
-		})
-		vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
-		vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
-		vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
-		vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
+		vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
+		vim.keymap.set("n", "<leader>gd", "<cmd>FzfLua lsp_definitions<CR>")
+		vim.keymap.set("n", "<leader>gr", "<cmd>FzfLua lsp_references<CR>")
+		vim.keymap.set("n", "<leader>ca", "<cmd>FzfLua lsp_code_actions<CR>")
 	end,
 }

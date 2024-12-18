@@ -36,10 +36,25 @@ return {
 				nerd_font_variant = "mono",
 			},
 
+			snippets = {
+				expand = function(snippet)
+					require("luasnip").lsp_expand(snippet)
+				end,
+				active = function(filter)
+					if filter and filter.direction then
+						return require("luasnip").jumpable(filter.direction)
+					end
+					return require("luasnip").in_snippet()
+				end,
+				jump = function(direction)
+					require("luasnip").jump(direction)
+				end,
+			},
+
 			-- default list of enabled providers defined so that you can extend it
 			-- elsewhere in your config, without redefining it, via `opts_extend`
 			sources = {
-				default = { "lsp", "path", "luasnip", "buffer", "lazydev" },
+				default = { "lsp", "lazydev", "luasnip", "path", "buffer" },
 				min_keyword_length = 0,
 				providers = {
 					-- dont show LuaLS require statements when lazydev has items
@@ -49,27 +64,19 @@ return {
 					lazydev = {
 						name = "LazyDev",
 						module = "lazydev.integrations.blink",
+						score_offset = 100, -- show at a higher priority than lsp
 					},
-				},
-				snippets = {
-					expand = function(snippet)
-						require("luasnip").lsp_expand(snippet)
-					end,
-					active = function(filter)
-						if filter and filter.direction then
-							return require("luasnip").jumpable(filter.direction)
-						end
-						return require("luasnip").in_snippet()
-					end,
-					jump = function(direction)
-						require("luasnip").jump(direction)
-					end,
 				},
 				-- optionally disable cmdline completions
 				cmdline = {},
 			},
 
 			completion = {
+				accept = {
+					auto_brackets = {
+						enabled = true,
+					},
+				},
 				menu = {
 					auto_show = true,
 					draw = {
@@ -78,7 +85,8 @@ return {
 						columns = {
 							{ "kind_icon", "sperator", gap = 1 },
 							{ "label", "label_description", gap = 1 },
-							{ "sperator", "kind", gap = 0 },
+							-- { "sperator", "kind", gap = 0 },
+							{ "kind" },
 						},
 						components = {
 							sperator = {
@@ -87,9 +95,6 @@ return {
 								text = function()
 									return "┃"
 								end,
-                highlight = function (ctx)
-                  return 'BlinkCmpKind' .. ctx.kind
-                end
 							},
 						},
 					},
@@ -98,7 +103,7 @@ return {
 				},
 				documentation = {
 					auto_show = true,
-					auto_show_delay_ms = 0,
+					auto_show_delay_ms = 200,
 					window = {
 						border = "single",
 						winblend = 0,
@@ -112,7 +117,7 @@ return {
 
 			-- experimental signature help support
 			signature = {
-				enabled = true,
+				enabled = false,
 			},
 		},
 		-- allows extending the providers array elsewhere in your config
