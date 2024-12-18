@@ -14,6 +14,6 @@ $(which git) config --global user.email "$git_user_email"
 $(which git) config --global core.compression 9
 $(which git) config --global pull.rebase true
 $(which git) config --global core.pager delta
-$(which git) config --glnfig --global interactive.diffFilter 'delta --color-only'
-$(which git) config --glnfig --global delta.navigate true
-$(which git) config --glnfig --global merge.conflictStyle zdiff3
+$(which git) config --global interactive.diffFilter 'delta --color-only'
+$(which git) config --global delta.navigate true
+$(which git) config --global merge.conflictStyle zdiff3
