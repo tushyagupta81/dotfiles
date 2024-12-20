@@ -58,13 +58,11 @@ return {
 				min_keyword_length = 0,
 				providers = {
 					-- dont show LuaLS require statements when lazydev has items
-					lsp = {
-						fallback_for = { "lazydev" },
-					},
 					lazydev = {
 						name = "LazyDev",
 						module = "lazydev.integrations.blink",
 						score_offset = 100, -- show at a higher priority than lsp
+            fallbacks = {"lsp"}
 					},
 				},
 				-- optionally disable cmdline completions

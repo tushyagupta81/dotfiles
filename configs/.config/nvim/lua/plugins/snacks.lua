@@ -116,9 +116,9 @@ return {
 				animate = {
 					enabled = false,
 				},
-				scope = {
-					char = "┃",
-				},
+				-- scope = {
+				-- 	char = "┃",
+				-- },
 			},
       zen = {
         toggles = {
