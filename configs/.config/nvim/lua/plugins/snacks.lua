@@ -120,6 +120,14 @@ return {
 					char = "┃",
 				},
 			},
+      zen = {
+        toggles = {
+          dim = false,
+        },
+        show = {
+          statusline = true,
+        },
+      },
 		}
 	end,
 	keys = function()
@@ -159,6 +167,13 @@ return {
 					snacks.lazygit()
 				end,
 				desc = "Open LazyGit",
+			},
+			{
+				"<leader>zz",
+				function()
+					snacks.zen()
+				end,
+				desc = "Open zen mode",
 			},
 		}
 	end,

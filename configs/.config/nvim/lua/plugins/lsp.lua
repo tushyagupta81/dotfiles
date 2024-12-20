@@ -15,12 +15,12 @@ return {
 		require("mason-lspconfig").setup({
 			handlers = {
 				function(server_name) -- default handler (optional)
-					require("lspconfig")[server_name].setup({
+					lspconfig[server_name].setup({
 						capabilities = capabilities,
 					})
 				end,
 				["emmet_language_server"] = function()
-					lspconfig.emmet_language_server = {
+					lspconfig.emmet_language_server.setup({
 						capabilities = capabilities,
 						filetypes = {
 							"css",
@@ -35,10 +35,10 @@ return {
 							"scss",
 							"pug",
 						},
-					}
+					})
 				end,
 				["basedpyright"] = function()
-					lspconfig.basedpyright = {
+					lspconfig.basedpyright.setup({
 						capabilities = capabilities,
 						analysis = {
 							typeCheckingMode = "standard",
@@ -47,7 +47,18 @@ return {
 							autoImportCompletions = true,
 							diagnosticsMode = "openFilesOnly",
 						},
-					}
+					})
+				end,
+				["tailwindcss"] = function()
+					lspconfig.tailwindcss.setup({
+						capabilities = capabilities,
+						filetypes = {
+							"javascript",
+							"typescript",
+							"javascriptreact",
+							"typescriptreact",
+						},
+					})
 				end,
 			},
 		})

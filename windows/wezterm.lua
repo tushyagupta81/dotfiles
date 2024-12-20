@@ -26,6 +26,9 @@ config.window_padding = {
 }
 config.color_scheme = "Rasi (terminal.sexy)"
 
+config.enable_kitty_keyboard = true
+config.max_fps = 60
+
 local h = {}
 
 h.get_random_entry = function(tbl)
@@ -68,14 +71,30 @@ end
 local path = "C:\\Users\\Tushya\\Desktop\\Wallpaper\\**"
 
 config.background = { M.get_wallpaper(path) }
+-- config.background = {
+-- 	{
+-- 		source = { File = { path = "C:\\Users\\Tushya\\Desktop\\Wallpaper\\n6s6uj47jst61.jpg" } },
+-- 		height = "Cover",
+-- 		width = "Cover",
+-- 		horizontal_align = "Center",
+-- 		repeat_x = "Repeat",
+-- 		repeat_y = "Repeat",
+-- 		opacity = 1,
+-- 		hsb = {
+-- 			brightness = 0.02,
+-- 			hue = 1.0,
+-- 			saturation = 1.0,
+-- 		},
+-- 		-- speed = 200,
+-- 	},
+-- }
 
 local mux = wezterm.mux
 
 wezterm.on("gui-startup", function()
-	local tab, pane, window = mux.spawn_window({})
+	local _, _, window = mux.spawn_window({})
 	window:gui_window():maximize()
 end)
 
 -- and finally, return the configuration to wezterm
 return config
-
