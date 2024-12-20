@@ -98,14 +98,14 @@ return {
 							},
 						},
 					},
-					border = "single",
+					border = "rounded",
 					scrollbar = false,
 				},
 				documentation = {
 					auto_show = true,
 					auto_show_delay_ms = 200,
 					window = {
-						border = "single",
+						border = "rounded",
 						winblend = 0,
 						max_width = 100,
 					},
@@ -117,7 +117,10 @@ return {
 
 			-- experimental signature help support
 			signature = {
-				enabled = false,
+				enabled = true,
+        window = {
+          border = "rounded",
+        },
 			},
 		},
 		-- allows extending the providers array elsewhere in your config

@@ -3,8 +3,8 @@ return {
 	event = "VeryLazy",
 	keys = {
 		"<space>m",
-		"<space>j",
-		"<space>s",
+		-- "<space>j",
+		-- "<space>s",
 	},
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter",

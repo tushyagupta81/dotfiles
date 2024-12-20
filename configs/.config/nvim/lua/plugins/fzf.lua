@@ -2,6 +2,7 @@
 return {
 	"ibhagwan/fzf-lua",
 	dependencies = { "echasnovski/mini.icons" },
+  event = "VimEnter",
 	opts = function()
 		local config = require("fzf-lua.config")
 		local actions = require("fzf-lua.actions")
@@ -27,11 +28,12 @@ return {
 			},
 			winopts = {
 				width = 0.8,
-				height = 0.8,
+				height = 0.9,
 				row = 0.5,
 				col = 0.5,
 				preview = {
 					scrollchars = { "┃", "" },
+          -- default = "bat",
 				},
 			},
 			files = {
@@ -46,6 +48,9 @@ return {
 					["alt-i"] = { actions.toggle_ignore },
 					["alt-h"] = { actions.toggle_hidden },
 				},
+				rg_glob = true,
+				glob_flag = "--iglob",
+				glob_sperator = "%s%-%-",
 			},
 		}
 	end,
@@ -63,11 +68,12 @@ return {
 	},
 	config = function(_, opts)
 		vim.keymap.set("n", "<leader>sf", require("fzf-lua").files, { desc = "Fzf Files" })
-		vim.keymap.set("n", "<leader>sg", require("fzf-lua").live_grep_native, { desc = "Fzf Files" })
+		vim.keymap.set("n", "<leader>sg", require("fzf-lua").live_grep, { desc = "Fzf Files" })
 		vim.keymap.set("n", "<leader>sr", require("fzf-lua").resume, { desc = "Fzf Resume" })
+		vim.keymap.set("n", "<leader><leader>", require("fzf-lua").oldfiles, { desc = "Fzf OldFiles" })
 		vim.keymap.set("n", "<leader>sn", function()
 			require("fzf-lua").files({
-				cwd = vim.fn.stdpath("config") .. "/nvim",
+				cwd = vim.fn.stdpath("config"),
 			})
 		end, { desc = "Fzf Neovim Config" })
 

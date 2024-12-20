@@ -19,18 +19,6 @@ return {
 						capabilities = capabilities,
 					})
 				end,
-				["lua_ls"] = function()
-					lspconfig.lua_ls.setup({
-						capabilities = capabilities,
-						settings = {
-							Lua = {
-								diagnostics = {
-									globals = { "vim", "it", "describe", "before_each", "after_each" },
-								},
-							},
-						},
-					})
-				end,
 				["emmet_language_server"] = function()
 					lspconfig.emmet_language_server = {
 						capabilities = capabilities,
@@ -51,6 +39,7 @@ return {
 				end,
 				["basedpyright"] = function()
 					lspconfig.basedpyright = {
+						capabilities = capabilities,
 						analysis = {
 							typeCheckingMode = "standard",
 							autoSearchPaths = true,

@@ -1,15 +1,22 @@
+---@diagnostic disable: missing-fields
 return {
 	"folke/snacks.nvim",
 	priority = 1000,
 	lazy = false,
 	opts = function()
 		local snacks = require("snacks")
+		vim.api.nvim_create_autocmd("User", {
+			pattern = "MiniFilesActionRename",
+			callback = function(event)
+				snacks.rename.on_rename_file(event.data.from, event.data.to)
+			end,
+		})
 		return {
 			-- your configuration comes here
 			-- or leave it empty to use the default settings
 			-- refer to the configuration section below
 			dashboard = {
-        width = 68,
+				width = 68,
 				preset = {
 					header = [[
                                                                    
@@ -27,10 +34,10 @@ return {
 						section = "header",
 					},
 					{
-            section = "keys",
-            gap = 1,
-            padding = 1,
-          },
+						section = "keys",
+						gap = 1,
+						padding = 1,
+					},
 					{
 						pane = 2,
 						icon = " ",
@@ -40,13 +47,13 @@ return {
 						padding = 1,
 					},
 					{
-            pane = 2,
-            icon = " ",
-            title = "Projects",
-            section = "projects",
-            indent = 3,
-            padding = 1,
-          },
+						pane = 2,
+						icon = " ",
+						title = "Projects",
+						section = "projects",
+						indent = 3,
+						padding = 1,
+					},
 					{
 						pane = 2,
 						icon = " ",
@@ -101,7 +108,18 @@ return {
 					wo = { wrap = true }, -- Wrap notifications
 				},
 			},
-			quickfile = { enabled = true },
+			quickfile = {
+				enabled = true,
+			},
+			indent = {
+				enabled = true,
+				animate = {
+					enabled = false,
+				},
+				scope = {
+					char = "┃",
+				},
+			},
 		}
 	end,
 	keys = function()
