@@ -5,7 +5,10 @@ return {
 		"SmiteshP/nvim-navic",
 		"nvim-tree/nvim-web-devicons",
 	},
-	event = "VimEnter",
+	event = {
+		"BufReadPre",
+		"BufNewFile",
+	},
 	config = function()
 		-- require("incline").setup({})
 		local helpers = require("incline.helpers")

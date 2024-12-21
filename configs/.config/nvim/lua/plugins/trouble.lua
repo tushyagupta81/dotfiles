@@ -1,6 +1,9 @@
 return {
 	"folke/trouble.nvim",
-	event = "VeryLazy",
+	event = {
+		"BufReadPre",
+		"BufNewFile",
+	},
 	config = function()
 		require("trouble").setup({
 			auto_close = true, -- auto close when there are no items

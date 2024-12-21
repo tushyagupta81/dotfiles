@@ -1,15 +1,18 @@
 return {
 	{
 		"luckasRanarison/tailwind-tools.nvim",
-		event = "VeryLazy",
+		event = {
+			"BufReadPre",
+			"BufNewFile",
+		},
 		name = "tailwind-tools",
 		build = ":UpdateRemotePlugins",
 		ft = {
-      "js",
-      "ts",
-      "jsx",
-      "tsx",
-    },
+			"js",
+			"ts",
+			"jsx",
+			"tsx",
+		},
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
 			"nvim-telescope/telescope.nvim", -- optional

@@ -1,8 +1,11 @@
+---@diagnostic disable: missing-fields
 return {
 	{
 		"williamboman/mason.nvim",
+    lazy = true,
 		config = function()
 			require("mason").setup({
+				PATH = "append",
 				ui = {
 					border = "rounded",
 					icons = {
@@ -16,6 +19,7 @@ return {
 	},
 	{
 		"williamboman/mason-lspconfig.nvim",
+    lazy = true,
 		dependencies = {
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
 		},

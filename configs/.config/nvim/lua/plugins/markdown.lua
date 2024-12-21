@@ -1,5 +1,6 @@
 return {
 	"MeanderingProgrammer/render-markdown.nvim",
+  ft = { "md" },
 	event = "VeryLazy",
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter",

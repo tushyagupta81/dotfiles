@@ -1,6 +1,9 @@
 return {
 	"Wansmer/treesj",
-	event = "VeryLazy",
+	event = {
+		"BufReadPre",
+		"BufNewFile",
+	},
 	keys = {
 		"<space>m",
 		-- "<space>j",

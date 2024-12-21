@@ -1,5 +1,6 @@
 return {
 	"nvim-lualine/lualine.nvim",
+  event = "VimEnter",
 	config = function()
 		if vim.g.colors_name == "cyberdream" then
 			local cyberdream = require("lualine.themes.cyberdream")

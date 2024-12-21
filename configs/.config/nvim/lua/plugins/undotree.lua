@@ -1,6 +1,9 @@
 return {
 	"mbbill/undotree",
-	event = "VeryLazy",
+	event = {
+		"BufReadPre",
+		"BufNewFile",
+	},
 	config = function()
 		vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 	end,
