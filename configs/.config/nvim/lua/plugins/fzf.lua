@@ -69,7 +69,7 @@ return {
 		{ "<leader>sf", "<cmd>FzfLua files<cr>", desc = "Fzf Files" },
 		{ "<leader>sg", "<cmd>FzfLua live_grep<cr>", desc = "Fzf LiveGrep" },
 		{ "<leader>sr", "<cmd>FzfLua resume<cr>", desc = "Fzf Resume" },
-		{ "<leader><leader>", "<cmd>FzfLua oldfiles<cr>", desc = "Fzf OldFiles" },
+		{ "<leader><leader>", "<cmd>FzfLua buffers<cr>", desc = "Fzf buffers" },
 		{
 			"<leader>sn",
 			function()

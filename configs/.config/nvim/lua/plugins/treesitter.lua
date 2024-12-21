@@ -3,6 +3,7 @@ return {
 	event = "VimEnter",
 	build = ":TSUpdate",
 	config = function()
+		---@diagnostic disable-next-line: missing-fields
 		require("nvim-treesitter.configs").setup({
 			-- A list of parser names, or "all"
 			ensure_installed = {
@@ -30,6 +31,13 @@ return {
 			highlight = {
 				enable = true,
 				additional_vim_regex_highlighting = { "markdown" },
+			},
+			incremental_selection = {
+				enable = true,
+				keymaps = {
+					node_incremental = "v",
+					node_decremental = "V",
+				},
 			},
 		})
 	end,
