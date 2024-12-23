@@ -1,3 +1,4 @@
+---@param color "neofusion" | "tokyonight-storm" | "cyberdream" | "tokyonight-day" | "tokyonight-moon" | "tokyonight-night" | "catppuccin-latte" | "catppuccin-mocha" | "catppuccin-frappe" | "catppuccin-macchiato" | nil
 function ColorMyPencils(color)
 	color = color or "cyberdream"
 	vim.cmd.colorscheme(color)
@@ -5,7 +6,7 @@ function ColorMyPencils(color)
 	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 	vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#ffbd5e" })
-	vim.api.nvim_set_hl(0, "BlinkCmpSignatureHelpActiveParameter", { fg = "#ff0000" })
+	vim.api.nvim_set_hl(0, "BlinkCmpSignatureHelpActiveParameter", { fg = "#D84727" })
 	vim.api.nvim_set_hl(0, "SnacksIndentScope", { fg = "#5eff6c" })
 end
 

@@ -5,7 +5,7 @@ return {
     lazy = true,
 		config = function()
 			require("mason").setup({
-				PATH = "append",
+				-- PATH = "append",
 				ui = {
 					border = "rounded",
 					icons = {
