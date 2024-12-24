@@ -12,6 +12,7 @@ alias ls "eza --icons=always --color=always"
 alias l "eza --icons=always -la --git --color=always"
 alias lt "eza --icons=always -Ta -L=2"
 alias nv "nvim"
+alias e $EDITOR
 alias enva "source $HOME/.config/scripts/envactivate.fish"
 alias envl "l $HOME/.virtualenv"
 alias ide "tmux"

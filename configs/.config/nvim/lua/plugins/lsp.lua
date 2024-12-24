@@ -63,6 +63,12 @@ return {
 			},
 		})
 
+		local signs = { Error = "✘", Warn = "󰀪", Hint = "󰌶", Info = "" }
+		for type, icon in pairs(signs) do
+			local hl = "DiagnosticSign" .. type
+			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+		end
+
 		vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
 		vim.keymap.set("n", "<leader>gd", "<cmd>FzfLua lsp_definitions<CR>")
 		vim.keymap.set("n", "<leader>gr", "<cmd>FzfLua lsp_references<CR>")
