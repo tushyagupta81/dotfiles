@@ -13,8 +13,8 @@ local is_darwin = function()
 end
 
 -- config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Regular" })
--- config.font = wezterm.font("0xProto Nerd Font Mono", { weight = "Regular" })
-config.font = wezterm.font("0xProto Nerd Font", { weight = "Regular" })
+config.font = wezterm.font("0xProto Nerd Font Mono", { weight = "Regular" })
+-- config.font = wezterm.font("0xProto Nerd Font", { weight = "Regular" })
 -- config.font = wezterm.font("FiraCode Nerd Font")
 -- config.font = wezterm.font("MesloLGS NF")
 -- config.font = wezterm.font("Source Code Pro for Powerline")
