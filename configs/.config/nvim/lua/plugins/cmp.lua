@@ -66,7 +66,7 @@ return {
 					},
 				},
 				-- optionally disable cmdline completions
-				cmdline = {},
+				-- cmdline = {},
 			},
 
 			completion = {
