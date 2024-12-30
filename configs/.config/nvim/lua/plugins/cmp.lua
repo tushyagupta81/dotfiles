@@ -15,18 +15,18 @@ return {
 		"saghen/blink.cmp",
 		lazy = false, -- lazy loading handled internally
 		dependencies = {
+      "rafamadriz/friendly-snippets",
 			{
 				"L3MON4D3/LuaSnip",
 				version = "v2.*",
+				config = function()
+					---@diagnostic disable-next-line: assign-type-mismatch
+					require("luasnip.loaders.from_lua").load({ paths = vim.fn.stdpath("config") .. "/snippets" })
+					require("luasnip.loaders.from_vscode").lazy_load()
+				end,
 			},
-			"rafamadriz/friendly-snippets",
 		},
 		version = "v0.*",
-		init = function()
-			---@diagnostic disable-next-line: assign-type-mismatch
-			require("luasnip.loaders.from_lua").load({ paths = vim.fn.stdpath("config") .. "/snippets" })
-			require("luasnip.loaders.from_vscode").lazy_load()
-		end,
 		---@module 'blink.cmp'
 		---@type blink.cmp.Config
 		opts = {
@@ -62,7 +62,7 @@ return {
 						name = "LazyDev",
 						module = "lazydev.integrations.blink",
 						score_offset = 100, -- show at a higher priority than lsp
-            fallbacks = {"lsp"}
+						fallbacks = { "lsp" },
 					},
 				},
 				-- optionally disable cmdline completions
@@ -116,9 +116,9 @@ return {
 			-- experimental signature help support
 			signature = {
 				enabled = true,
-        window = {
-          border = "rounded",
-        },
+				window = {
+					border = "rounded",
+				},
 			},
 		},
 		-- allows extending the providers array elsewhere in your config

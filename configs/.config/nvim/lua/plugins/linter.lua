@@ -11,6 +11,7 @@ return {
 			typescriptreact = { "biomejs" },
 			python = { "ruff" },
 			markdown = { "markdownlint-cli2" },
+			rust = { "clippy" },
 		}
 
 		-- lint.linters.eslint_d = {

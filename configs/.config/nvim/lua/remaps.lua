@@ -56,9 +56,7 @@ vim.keymap.set("n", "<M-k>", "<cmd>cprev<CR>")
 
 vim.keymap.set({ "n", "v" }, ";", "$")
 
--- <C-r><C-w> gets the curret word under cursor
-vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gc<Left><Left><Left>]])
-vim.keymap.set("v", "<leader>r", [[:s/\<\>//gc<Left><Left><Left><Left><Left><Left>]])
+vim.keymap.set("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<CR>")
 
 -- spelling mistakes in command mode
 vim.keymap.set("ca", "W", "w")
