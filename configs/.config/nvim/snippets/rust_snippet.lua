@@ -5,19 +5,13 @@ local i = ls.insert_node
 
 local fmt = require("luasnip.extras.fmt").fmt
 
-ls.add_snippets("cpp", {
+ls.add_snippets("rust", {
 	-- Function snippet using fmt for formatting
 	s(
-		"#in",
+		"Rese",
 		fmt(
 			[[
-        include <iostream>
-        using namespace std;
-
-        int main() {{
-          {}
-          return 0;
-        }}
+        Result<{},Box<dyn Error>>
       ]],
 			{
 				i(0),

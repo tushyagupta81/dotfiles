@@ -7,12 +7,6 @@ return {
 		},
 		name = "tailwind-tools",
 		build = ":UpdateRemotePlugins",
-		ft = {
-			"js",
-			"ts",
-			"jsx",
-			"tsx",
-		},
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
 			"nvim-telescope/telescope.nvim", -- optional
