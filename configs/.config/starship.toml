@@ -66,7 +66,7 @@ symbol = " "
 [custom.cpp]
 detect_extensions = ['cpp']
 symbol = " "
-format = 'via $symbol($output)'
+format = 'via $symbol($output) '
 command = 'g++-14 --version | grep -oP "(?<=\) )\d+\.\d+\.\d+"'
 
 [conda]
