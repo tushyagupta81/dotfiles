@@ -26,3 +26,11 @@ nushell
 dust
 fd
 git-delta
+xsel
+i3
+picom
+rofi
+polybar
+yeh
+bluez
+bluez-utils
