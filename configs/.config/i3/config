@@ -11,8 +11,7 @@
 
 set $mod Mod4
 
-exec_always --no-startup-id killall polybar
-exec_always --no-startup-id ~/dotfiles/configs/.config/polybar/launch_polybar.sh
+exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
 exec_always feh --bg-scale ~/dotfiles/wallpapers/purple-aesthetic-3840x2160-18775.jpg
 bindsym $mod+space exec rofi -show combi
 

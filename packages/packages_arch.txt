@@ -34,3 +34,5 @@ polybar
 yeh
 bluez
 bluez-utils
+xcape
+solaar
