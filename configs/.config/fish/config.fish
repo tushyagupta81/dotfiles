@@ -79,13 +79,13 @@ end
 # tmux on startup and show fastfetch only on startup
 if status is-interactive
   if not set -q TMUX
-    set -e IN_TMUX
     set sessions (tmux list-sessions -F '#{session_name}' 2>/dev/null)
 
     if test -n "$sessions"
       # Attach to the first session
       exec tmux attach-session -t $sessions[1]
     else
+      set -e IN_TMUX
       exec tmux new-session
     end
     #exec tmux
