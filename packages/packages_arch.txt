@@ -36,3 +36,4 @@ bluez
 bluez-utils
 xcape
 solaar
+code
