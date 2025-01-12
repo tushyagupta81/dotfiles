@@ -36,4 +36,4 @@ bluez
 bluez-utils
 xcape
 solaar
-code
+visual-studio-code-bin
