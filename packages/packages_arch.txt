@@ -37,3 +37,5 @@ bluez-utils
 xcape
 solaar
 visual-studio-code-bin
+google-chrome
+zig
