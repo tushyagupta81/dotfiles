@@ -39,3 +39,4 @@ solaar
 visual-studio-code-bin
 google-chrome
 zig
+bc

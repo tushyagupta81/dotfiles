@@ -11,7 +11,10 @@ if [ -n "${FLOAT_TERM}" ]; then
   if [ "$(tmux display-message -p -F "#{session_name}")" = "popup" ];then
     tmux detach-client
   else
-    tmux popup -d '#{pane_current_path}' -xC -yC -w90% -h90% -E "tmux attach -t popup || tmux new -s popup"
+    # tmux new-session -d -s popup
+    # tmux set-option destroy-unattached on
+    # tmux send-keys -t popup "tmux attach -t popup" C-m
+    tmux popup -d '#{pane_current_path}' -xC -yC -w80% -h90% -E "tmux attach -t popup || tmux new -s popup"
   fi
 else
   if [ "${PANE_COUNT}" = 1 ]; then
