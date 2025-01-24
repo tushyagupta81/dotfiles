@@ -15,6 +15,7 @@ exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
 exec_always feh --bg-scale "$(find $HOME/dotfiles/wallpapers -type f -print0 | shuf -z -n 1)" 
 exec xset s off
 exec xset -dpms
+exec xrandr --output HDMI-0 --primary --left-of DP-0 &
 bindsym $mod+space exec rofi -show combi
 bindsym $mod+Control+b exec bluetoothctl connect "2C:BE:EB:C3:B4:90" &
 
@@ -134,6 +135,17 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
+
+workspace "1" output primary
+workspace "2" output DP-0
+workspace "3" output primary
+workspace "4" output DP-0
+workspace "5" output primary
+workspace "6" output DP-0
+workspace "7" output primary
+workspace "8" output DP-0
+workspace "9" output primary
+workspace "10" output DP-0
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1

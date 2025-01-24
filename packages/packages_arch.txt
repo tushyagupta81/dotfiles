@@ -40,3 +40,4 @@ visual-studio-code-bin
 google-chrome
 zig
 bc
+xorg-xrandr
