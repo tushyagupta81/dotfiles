@@ -82,6 +82,11 @@ if status is-interactive
     set sessions (tmux list-sessions -F '#{session_name}' 2>/dev/null)
 
     if test -n "$sessions"
+      if [ "$sessions[1]" = "popup" ]
+        tmux kill-session -t "popup"
+        set -e IN_TMUX
+        exec tmux new-session
+      end
       # Attach to the first session
       exec tmux attach-session -t $sessions[1]
     else

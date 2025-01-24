@@ -23,7 +23,7 @@ config.font_size = is_linux() and 12 or 16
 config.enable_tab_bar = false
 
 config.enable_kitty_keyboard = true
-config.max_fps = 120
+config.max_fps = 144
 
 config.window_decorations = "RESIZE"
 config.window_padding = {
