@@ -17,3 +17,4 @@ $(which git) config --global core.pager delta
 $(which git) config --global interactive.diffFilter 'delta --color-only'
 $(which git) config --global delta.navigate true
 $(which git) config --global merge.conflictStyle zdiff3
+$(which git) config --global init.defaultBranch main

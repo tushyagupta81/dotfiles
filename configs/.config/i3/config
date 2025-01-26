@@ -17,6 +17,7 @@ exec xset s off
 exec xset -dpms
 exec xrandr --output HDMI-0 --primary --left-of DP-0 &
 bindsym $mod+space exec rofi -show combi
+bindsym $mod+Shift+s exec flameshot gui -p ~/Pictures/screenshots/ &
 bindsym $mod+Control+b exec bluetoothctl connect "2C:BE:EB:C3:B4:90" &
 
 # Font for window titles. Will also be used by the bar unless a different font
