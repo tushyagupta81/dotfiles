@@ -41,3 +41,4 @@ zig
 bc
 xorg-xrandr
 flameshot
+qemu
