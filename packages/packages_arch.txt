@@ -12,7 +12,6 @@ newsboat
 btop
 mysql
 ripgrep
-thefuck
 mpv
 neovim
 gcc

@@ -68,7 +68,6 @@ end
 
 # tools init
 starship init fish | source
-thefuck --alias | source
 zoxide init fish --cmd cd | source
 fzf --fish | source
 
