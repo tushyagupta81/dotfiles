@@ -42,3 +42,4 @@ bc
 xorg-xrandr
 flameshot
 qemu
+nasm
