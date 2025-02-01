@@ -5,6 +5,7 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
 -- This is where you actually apply your config choices
+--
 local is_linux = function()
 	return wezterm.target_triple:find("linux") ~= nil
 end
@@ -22,8 +23,7 @@ config.font_size = is_linux() and 12 or 16
 
 config.enable_tab_bar = false
 
-config.enable_kitty_keyboard = true
-config.max_fps = 144
+config.max_fps = 60
 
 config.window_decorations = "RESIZE"
 config.window_padding = {
@@ -64,7 +64,7 @@ M.get_wallpaper = function(dir)
 		repeat_y = "Repeat",
 		opacity = 1,
 		hsb = {
-			brightness = 0.02,
+			brightness = is_darwin() and 0.015 or 0.02,
 			hue = 1.0,
 			saturation = 1.0,
 		},
@@ -79,7 +79,6 @@ config.background = { M.get_wallpaper(path) }
 if not is_darwin() then
 	local mux = wezterm.mux
 	wezterm.on("gui-startup", function()
-		-- local tab, pane, window = mux.spawn_window({})
 		local _, _, window = mux.spawn_window({})
 		window:gui_window():maximize()
 	end)
