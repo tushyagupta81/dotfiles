@@ -1,7 +1,8 @@
 # ~/.config/fish/config.fish
 set fish_greeting
 
-set -gx FONT "0xProto Nerd Font"
+# set -gx FONT "0xProto Nerd Font"
+set -gx FONT "CommitMono Nerd Font"
 set -gx EDITOR "nvim"
 #set -gx FONT "JetBrainsMono Nerd Font"
 
