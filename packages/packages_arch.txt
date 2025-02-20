@@ -41,5 +41,7 @@ zig
 bc
 xorg-xrandr
 flameshot
-qemu
+qemu-full
 nasm
+libreoffice-fresh
+xorriso
