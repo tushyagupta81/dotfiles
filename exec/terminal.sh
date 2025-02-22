@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
 
-echo "Installing plugins"
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
+packages=$(grep -o -E "(\w|')+" "$HOME/dotfiles/packages/packages_terminal.txt" | sed -e "s/'.*\$//" | sort -u -f)
+sudo pacman -S ${packages_arch[*]} --disable-sandbox

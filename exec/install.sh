@@ -10,12 +10,14 @@ case "$(uname -a)" in
 esac
 
 if [ ${machine} == "linux" ]; then
-  echo -n "arch or ubuntu(a/u): "
-  read arch
-  if [ "$arch" == "a" ]; then
+  echo -n "arch or ubuntu or terminal only(a/u/t): "
+  read platform
+  if [ "$platform" == "a" ]; then
     ~/dotfiles/exec/yay.sh
-  # elif [ "$arch" == "u" ]; then
-  #   ~/dotfiles/exec/apt.sh
+  elif [ "$platform" == "u" ]; then
+    ~/dotfiles/exec/brew.sh
+  elif [ "$platform" == "t" ]; then
+    ~/dotfiles/exec/terminal.sh
   else
     exit
   fi
@@ -26,6 +28,3 @@ fi
 
 ~/dotfiles/exec/configs.sh
 ~/dotfiles/exec/git.sh
-
-# Run the terminal Script
-~/dotfiles/exec/terminal.sh
