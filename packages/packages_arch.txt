@@ -45,3 +45,4 @@ qemu-full
 nasm
 libreoffice-fresh
 xorriso
+arduino-cli

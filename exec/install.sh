@@ -24,7 +24,7 @@ if [ ${machine} == "linux" ]; then
 elif [ ${machine} == "darwin" ]; then
   ~/dotfiles/exec/brew.sh
 fi
-~/dotfiles/exec/additional.sh
+~/dotfiles/exec/utils/additional.sh
 
-~/dotfiles/exec/configs.sh
-~/dotfiles/exec/git.sh
+~/dotfiles/exec/utils/configs.sh
+~/dotfiles/exec/utils/git.sh
