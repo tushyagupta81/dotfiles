@@ -21,3 +21,4 @@ xsel
 xcape
 zig
 nasm
+uv

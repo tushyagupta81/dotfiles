@@ -27,3 +27,4 @@ dust
 fd
 git-delta
 arduino-cli
+uv

@@ -46,3 +46,4 @@ nasm
 libreoffice-fresh
 xorriso
 arduino-cli
+uv

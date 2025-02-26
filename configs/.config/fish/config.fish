@@ -71,6 +71,7 @@ end
 starship init fish | source
 zoxide init fish --cmd cd | source
 fzf --fish | source
+uv generate-shell-completion fish | source
 
 if status --is-login
 
