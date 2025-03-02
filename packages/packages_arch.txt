@@ -47,3 +47,7 @@ libreoffice-fresh
 xorriso
 arduino-cli
 uv
+podman
+gvproxy-bin
+virtiofsd
+fuse-overlayfs

@@ -22,3 +22,4 @@ xcape
 zig
 nasm
 uv
+podman

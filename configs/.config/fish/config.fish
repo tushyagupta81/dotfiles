@@ -36,6 +36,7 @@ abbr --add envd deactivate
 abbr --add pre fzf --preview=\"bat --color=always {}\"
 abbr --add ff fastfetch -c ~/.config/fastfetch_conf.jsonc --logo-type iterm
 abbr --add imgcat wezterm imgcat
+abbr --add enva source .venv/bin/activate.fish
 
 # git abbrivations
 abbr --add gs git status
