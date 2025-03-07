@@ -11,7 +11,7 @@ read git_user_email
 # Set my git credentials
 $(which git) config --global user.name "$git_user_name"
 $(which git) config --global user.email "$git_user_email"
-$(which git) config --global core.compression 9
+# $(which git) config --global core.compression 9
 $(which git) config --global pull.rebase true
 $(which git) config --global core.pager delta
 $(which git) config --global interactive.diffFilter 'delta --color-only'

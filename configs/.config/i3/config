@@ -24,7 +24,7 @@ bindsym $mod+Control+b exec bluetoothctl connect "2C:BE:EB:C3:B4:90" &
 # is used in the bar {} block below.
 # font pango:monospace 4
 # font pango:JetBrainsMono Nerd Font 8
-font pango:0xProto Nerd Font 12
+font pango:CommitMono Nerd Font 12
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
