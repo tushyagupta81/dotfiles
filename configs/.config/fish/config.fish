@@ -1,10 +1,9 @@
 # ~/.config/fish/config.fish
 set fish_greeting
 
-# set -gx FONT "0xProto Nerd Font"
-#set -gx FONT "JetBrainsMono Nerd Font"
 set -gx FONT "CommitMono Nerd Font"
 set -gx EDITOR "nvim"
+set -gx MANPAGER 'nvim +Man!'
 
 fish_add_path "$HOME/.config/scripts"
 fish_config theme choose vibrant
@@ -14,8 +13,6 @@ alias l "eza --icons=always -la --git --color=always"
 alias lt "eza --icons=always -Ta -L=2"
 alias nv "nvim"
 alias e $EDITOR
-# alias enva "source $HOME/.config/scripts/envactivate.fish"
-# alias envl "l $HOME/.virtualenv"
 alias ide "tmux"
 alias wsl-open "bash wsl-open"
 alias gl "git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' --all"
