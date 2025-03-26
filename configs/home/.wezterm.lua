@@ -63,10 +63,9 @@ M.get_wallpaper = function(dir)
 		horizontal_align = "Center",
 		repeat_x = "Repeat",
 		repeat_y = "Repeat",
-		opacity = 0.12,
+		opacity = 1.0,
 		hsb = {
-			-- brightness = is_darwin() and 0.015 or 0.02,
-      brightness = 1,
+			brightness = is_darwin() and 0.015 or 0.02,
 			hue = 1.0,
 			saturation = 0.3,
 		},
