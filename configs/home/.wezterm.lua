@@ -20,7 +20,7 @@ config.font = wezterm.font("CommitMono Nerd Font", { weight = "Regular" })
 -- config.font = wezterm.font("FiraCode Nerd Font")
 -- config.font = wezterm.font("MesloLGS NF")
 -- config.font = wezterm.font("Source Code Pro for Powerline")
-config.font_size = is_linux() and 16 or 18
+config.font_size = is_linux() and 16 or 20
 
 config.enable_tab_bar = false
 
