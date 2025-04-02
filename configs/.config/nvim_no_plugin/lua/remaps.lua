@@ -54,8 +54,6 @@ vim.keymap.set("n", "<C-w>-", [[<cmd>horizontal resize -2<cr>]])
 vim.keymap.set("n", "<M-j>", "<cmd>cnext<CR>")
 vim.keymap.set("n", "<M-k>", "<cmd>cprev<CR>")
 
-vim.keymap.set("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<CR>")
-
 -- spelling mistakes in command mode
 vim.keymap.set("ca", "W", "w")
 vim.keymap.set("ca", "Q", "q")

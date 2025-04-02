@@ -1,5 +1,6 @@
 vim.opt.nu = true
 vim.opt.relativenumber = true
+vim.cmd.colorscheme("slate")
 
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
