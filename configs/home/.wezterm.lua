@@ -20,12 +20,8 @@ config.font = wezterm.font("CommitMono Nerd Font", { weight = "Regular" })
 -- config.font = wezterm.font("FiraCode Nerd Font")
 -- config.font = wezterm.font("MesloLGS NF")
 -- config.font = wezterm.font("Source Code Pro for Powerline")
-config.font_size = is_linux() and 16 or 20
 
 config.enable_tab_bar = false
-
-config.max_fps = 60
-
 config.window_decorations = "RESIZE"
 config.window_padding = {
 	left = 0,
@@ -34,10 +30,7 @@ config.window_padding = {
 	bottom = 0,
 }
 config.color_scheme = "Rasi (terminal.sexy)"
-
-local h = {}
-
-h.get_random_entry = function(tbl)
+local get_random_entry = function(tbl)
 	local keys = {}
 	for key, _ in ipairs(tbl) do
 		table.insert(keys, key)
@@ -46,16 +39,14 @@ h.get_random_entry = function(tbl)
 	return tbl[randomKey]
 end
 
-local M = {}
-
-M.get_wallpaper = function(dir)
+local get_wallpaper = function(dir)
 	local wallpapers = {}
 	for _, v in ipairs(wezterm.glob(dir)) do
 		if not (string.match(v, "%.git$") or string.match(v, "%.DS_Store$")) then
 			table.insert(wallpapers, v)
 		end
 	end
-	local wallpaper = h.get_random_entry(wallpapers)
+	local wallpaper = get_random_entry(wallpapers)
 	return {
 		source = { File = { path = wallpaper } },
 		height = "Cover",
@@ -75,17 +66,23 @@ end
 
 local path = os.getenv("HOME") .. "/dotfiles/wallpapers/**"
 
-config.background = { M.get_wallpaper(path) }
+config.background = { get_wallpaper(path) }
 
-if not is_darwin() then
+if is_linux() then
+	config.font_size = 16
+
+	config.max_fps = 60
+
 	local mux = wezterm.mux
 	wezterm.on("gui-startup", function()
 		local _, _, window = mux.spawn_window({})
 		window:gui_window():maximize()
 	end)
-end
+elseif is_darwin() then
+	config.font_size = 19
 
-if is_darwin() then
+  config.max_fps = 144
+
 	config.initial_cols = 300
 	config.initial_rows = 300
 end
