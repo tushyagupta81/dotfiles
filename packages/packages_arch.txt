@@ -51,3 +51,4 @@ podman
 gvproxy-bin
 virtiofsd
 fuse-overlayfs
+graphviz

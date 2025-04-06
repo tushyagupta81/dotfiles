@@ -29,3 +29,4 @@ git-delta
 arduino-cli
 uv
 podman
+graphviz
