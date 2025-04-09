@@ -68,6 +68,8 @@ local path = os.getenv("HOME") .. "/dotfiles/wallpapers/**"
 
 config.background = { get_wallpaper(path) }
 
+-- config.term = "wezterm"
+
 if is_linux() then
 	config.font_size = 16
 
