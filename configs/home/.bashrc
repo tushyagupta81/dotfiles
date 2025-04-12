@@ -1,31 +1,50 @@
-# If not running interactively, exit script
-[[ $- != *i* ]] && return
-
-# Load dotfiles:
-for file in ~/.{aliases}; do
-    [ -r "$file" ] && [ -f "$file" ] && source "$file";
-done;
-unset file;
-
-if [[ "$OSTYPE" =~ ^linux ]]; then
-    test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
-    test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+if [ -d "/opt/homebrew" ]; then
+  set HOMEBREW_PREFIX="/opt/homebrew"
+elif [ -d "/home/linuxbrew/.linuxbrew" ]; then
+  set HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
 fi
+eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/tushya/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/tushya/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/tushya/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/tushya/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
+set FONT="CommitMono Nerd Font"
+set EDITOR="nvim"
+set MANPAGER='nvim +Man!'
 
-. "$HOME/.cargo/env"
+export PATH=~/.config/scripts:$PATH
+
+alias ls="eza --icons=always --color=always"
+alias l="eza --icons=always -la --git --color=always"
+alias lt="eza --icons=always -Ta -L=2"
+alias nv="nvim"
+alias e=$EDITOR
+alias ide="tmux"
+alias wsl-open="bash wsl-open"
+alias gl="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' --all"
+
+alias nconfig="cd ~/.config/nvim"
+alias ws="cd ~/programs"
+alias n="newsboat"
+alias jl="jupyter lab"
+alias smysql="brew services run mysql"
+alias qmysql="brew services stop mysql"
+alias sjl="brew services run jupyterlab"
+alias qjl="brew services stop jupyterlab"
+alias c="clear"
+alias cd..="cd .."
+alias envd="deactivate"
+alias pre="fzf --preview=\"bat --color=always {}\""
+alias ff="fastfetch -c ~/.config/fastfetch_conf.jsonc --logo-type iterm"
+alias imgcat="wezterm imgcat"
+alias enva="source .venv/bin/activate"
+
+# git abbrivations
+alias gs="git status"
+alias ga="git add"
+alias gpl="git pull"
+alias gp="git push"
+alias gc="git commit -m"
+alias gr="git add -A\;git commit -m"
+
+eval "$(zoxide init bash --cmd cd)"
+eval "$(starship init bash)"
+eval "$(fzf --bash)"
+eval "$(uv generate-shell-completion bash)"
