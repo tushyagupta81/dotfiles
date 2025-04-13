@@ -21,7 +21,9 @@ if [ -d "/opt/homebrew" ]; then
 elif [ -d "/home/linuxbrew/.linuxbrew" ]; then
   set HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
 fi
-eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
+if [ -n "$HOMEBREW_PREFIX" ]; then
+  eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
+fi
 
 set FONT="CommitMono Nerd Font"
 set EDITOR="nvim"
