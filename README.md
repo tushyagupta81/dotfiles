@@ -8,3 +8,5 @@ cat ~/.ssh/id_ed25519.pub
 echo "add this public key in github account settings"
 read
 ```
+
+Also generate a gpg key if needed
