@@ -36,8 +36,9 @@ abbr --add imgcat wezterm imgcat
 abbr --add enva source .venv/bin/activate.fish
 
 # git abbrivations
-abbr --add gs git status
+abbr --add gs git status --short
 abbr --add ga git add
+abbr --add gd "git diff --output-indicator-new=' ' --output-indicator-old=' '"
 abbr --add gpl git pull
 abbr --add gp git push
 abbr --add gc git commit -m

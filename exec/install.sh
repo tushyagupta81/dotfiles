@@ -27,4 +27,4 @@ fi
 ~/dotfiles/exec/utils/additional.sh
 
 ~/dotfiles/exec/utils/configs.sh
-~/dotfiles/exec/utils/git.sh
+# ~/dotfiles/exec/utils/git.sh
