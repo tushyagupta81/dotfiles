@@ -11,3 +11,4 @@ postman
 docker
 whatsapp
 leader-key
+gpg
