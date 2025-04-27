@@ -42,9 +42,9 @@ abbr --add gd "git diff --output-indicator-new=' ' --output-indicator-old=' '"
 abbr --add gpl git pull
 abbr --add gp git push
 abbr --add gc git commit -m
-abbr --add gcs git commit -Sm
+abbr --add gcs git commit -S -m
 abbr --add gr git add -A\;git commit -m
-abbr --add grs git add -A\;git commit -Sm
+abbr --add grs git add -A\;git commit -S -m
 
 if test -e "$HOME/.cargo/env.fish"
   source "$HOME/.cargo/env.fish"
