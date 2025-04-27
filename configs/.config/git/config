@@ -36,7 +36,7 @@
   frag = magenta
   context = white
   whitespace = yellow reverse
-[commit]
-  gpgsign = true
-[tag]
-  gpgSign = true
+; [commit]
+;   gpgsign = true
+; [tag]
+;   gpgSign = true

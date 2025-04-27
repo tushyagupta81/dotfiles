@@ -1,4 +1,4 @@
-# ~/.config/fish/config.fish
+# ~/.config/fish/config.fishS
 set fish_greeting
 
 set -gx FONT "CommitMono Nerd Font"
@@ -42,7 +42,9 @@ abbr --add gd "git diff --output-indicator-new=' ' --output-indicator-old=' '"
 abbr --add gpl git pull
 abbr --add gp git push
 abbr --add gc git commit -m
+abbr --add gcs git commit -Sm
 abbr --add gr git add -A\;git commit -m
+abbr --add grs git add -A\;git commit -Sm
 
 if test -e "$HOME/.cargo/env.fish"
   source "$HOME/.cargo/env.fish"
