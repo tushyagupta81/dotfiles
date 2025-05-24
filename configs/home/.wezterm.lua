@@ -56,7 +56,7 @@ local get_wallpaper = function(dir)
 		repeat_y = "Repeat",
 		opacity = 1.0,
 		hsb = {
-			brightness = is_darwin() and 0.015 or 0.02,
+			brightness = is_darwin() and 0.015 or 0.008,
 			hue = 1.0,
 			saturation = 0.3,
 		},
@@ -67,6 +67,9 @@ end
 local path = os.getenv("HOME") .. "/dotfiles/wallpapers/**"
 
 config.background = { get_wallpaper(path) }
+-- config.colors = {
+--   background = "#000000",
+-- }
 
 -- config.term = "wezterm"
 
