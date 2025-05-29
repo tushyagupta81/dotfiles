@@ -19,7 +19,7 @@ alias gl "git log --graph --abbrev-commit --decorate --format=format:'%C(bold bl
 
 abbr --erase (abbr --list)
 
-abbr --add nconfig cd ~/.config/nvim
+abbr --add nc cd ~/.config/nvim
 abbr --add ws cd ~/programs
 abbr --add n newsboat
 abbr --add jl jupyter lab
