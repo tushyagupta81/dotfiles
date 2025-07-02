@@ -30,3 +30,4 @@ arduino-cli
 uv
 podman
 graphviz
+tldr
