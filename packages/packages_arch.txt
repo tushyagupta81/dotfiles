@@ -34,7 +34,7 @@ yeh
 bluez
 bluez-utils
 xcape
-solaar
+piper
 visual-studio-code-bin
 google-chrome
 zig
