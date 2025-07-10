@@ -34,7 +34,7 @@ font pango:CommitMono Nerd Font 12
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
 
-# exec picom
+exec picom
 # exec --no-startup-id solaar --window=hide
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
