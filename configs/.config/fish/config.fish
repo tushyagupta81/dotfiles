@@ -6,6 +6,7 @@ set -gx EDITOR "nvim"
 set -gx MANPAGER 'nvim +Man!'
 
 fish_add_path "$HOME/.config/scripts"
+fish_add_path "$HOME/.bin"
 fish_config theme choose vibrant
 
 alias ls "eza --icons=always --color=always"
