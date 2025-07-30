@@ -7,3 +7,6 @@ bluetoothctl
 > trust XX:XX:XX:XX:XX
 > connect XX:XX:XX:XX:XX
 ```
+
+## Blueberry
+GUI for bluetooth connection

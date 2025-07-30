@@ -53,3 +53,8 @@ virtiofsd
 fuse-overlayfs
 graphviz
 tldr
+blueberry
+cups
+cups-pdf
+cups-filters
+system-config-printer
