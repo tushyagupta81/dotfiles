@@ -58,3 +58,4 @@ cups
 cups-pdf
 cups-filters
 system-config-printer
+hplip
