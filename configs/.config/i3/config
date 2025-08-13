@@ -20,6 +20,7 @@ bindsym $mod+space exec rofi -show combi
 bindsym $mod+Shift+s exec flameshot gui -p ~/Pictures/screenshots/ &
 # bindsym $mod+Control+b exec bluetoothctl connect "2C:BE:EB:C3:B4:90" &
 bindsym $mod+Control+b exec bluetoothctl connect "00:1B:66:E0:D1:B6" &
+bindsym $mod+Control+s exec shutdown 0 &
 
 # remove the border from windows
 default_border pixel 0
