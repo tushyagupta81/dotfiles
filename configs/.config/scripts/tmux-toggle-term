@@ -1,24 +1,28 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-set -uo pipefail
+TOX_WIDTH="$1"
+TOX_HEIGHT="$2"
+TOX_TEXT_COLOR="$3"
+TOX_BORDER_COLOR="$4"
+TOX_TITLE="$5"
 
-FLOAT_TERM="${1:-}"
-LIST_PANES="$(tmux list-panes -F '#F' )"
-PANE_ZOOMED="$(echo "${LIST_PANES}" | grep Z)"
-PANE_COUNT="$(echo "${LIST_PANES}" | wc -l | bc)"
-
-if [ -n "${FLOAT_TERM}" ]; then
-  if [ "$(tmux display-message -p -F "#{session_name}")" = "popup" ];then
-    tmux detach-client
-  else
-    tmux popup -d '#{pane_current_path}' -xC -yC -w80% -h90% -E "tmux attach -t popup || tmux new -s popup"
-  fi
+curr_sess=$(tmux list-sessions | grep "attached" | sed -E 's/:.*$//')
+if echo "$curr_sess" | grep "popup"; then
+  tmux detach-client
 else
-  if [ "${PANE_COUNT}" = 1 ]; then
-    tmux split-window -c "#{pane_current_path}"
-  elif [ -n "${PANE_ZOOMED}" ]; then
-    tmux select-pane -t:.-
-  else
-    tmux resize-pane -Z -t1
+  popup_sess=$(printf "popup-$curr_sess")
+  if ! tmux list-sessions | grep -q "^$popup_sess:"; then
+    tmux new-session -d -c "$(tmux display-message -p '#{pane_current_path}')" -s "$popup_sess"
+    tmux set-option -t "$popup_sess" detach-on-destroy on
   fi
+  tmux popup \
+    -S fg="$TOX_BORDER_COLOR" \
+    -s fg="$TOX_TEXT_COLOR" \
+    -T "$TOX_TITLE" \
+    -w "$TOX_WIDTH" \
+    -h "$TOX_HEIGHT" \
+    -b rounded \
+    -E \
+    "tmux attach-session -t \"$popup_sess\"" 
 fi
+
