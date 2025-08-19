@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+path=$(fd . "$HOME" --type directory --max-depth 4 | fzf)
+cd $path
+echo -n "Session name: "
+read name
+tmux new-session -d -s $name
+tmux switch-client -t $name
