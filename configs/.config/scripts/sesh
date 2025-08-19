@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
 path=$(fd . "$HOME" --type directory --max-depth 4 | fzf)
+if [ -z $path ]; then
+  exit 1
+fi
 cd $path
 echo -n "Session name: "
 read name

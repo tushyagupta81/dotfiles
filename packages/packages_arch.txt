@@ -59,3 +59,4 @@ cups-pdf
 cups-filters
 system-config-printer
 hplip
+silicon

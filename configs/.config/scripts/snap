@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+input_file="$1"
+out_dir="$HOME/Pictures/silicon"
+mkdir -p "$out_dir"
+
+# Detect OS and pick split binary
+if [[ "$(uname)" == "Darwin" ]]; then
+    split_bin="gsplit"   # coreutils installed version
+else
+    split_bin="split"
+fi
+
+ext="${input_file##*.}"
+
+tmpdir=$(mktemp -d)
+
+# First 40 lines → chunk_00
+head -n 40 "$input_file" > "$tmpdir/chunk_00"
+
+# Rest into 60-line chunks starting with chunk_01
+tail -n +41 "$input_file" | \
+    "$split_bin" -l 60 -d -a 2 --numeric-suffixes=01 - "$tmpdir/chunk_"
+
+base_ts=$(date +%s)
+i=0
+
+for chunk in "$tmpdir"/chunk_*; do
+    out="$out_dir/${base_ts}_$(printf "%02d" "$i").png"
+    silicon "$chunk" -l "$ext" -o "$out"
+    i=$((i+1))
+done
+
+rm -r "$tmpdir"

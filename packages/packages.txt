@@ -31,3 +31,4 @@ uv
 podman
 graphviz
 tldr
+silicon
