@@ -9,14 +9,14 @@ fish_add_path "$HOME/.config/scripts"
 fish_add_path "$HOME/.bin"
 fish_config theme choose vibrant
 
-alias ls "eza --icons=always --color=always"
+alias ls "eza --icons=always --color=always --oneline"
 alias l "eza --icons=always -la --git --color=always"
 alias lt "eza --icons=always -Ta -L=2"
-alias nv "nvim"
 alias e $EDITOR
 alias ide "tmux"
 alias wsl-open "bash wsl-open"
 alias gl "git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' --all"
+alias y "yazi"
 
 abbr --erase (abbr --list)
 
@@ -69,14 +69,14 @@ if test -n "$HOMEBREW_PREFIX"
   $HOMEBREW_PREFIX/bin/brew shellenv | source
 end
 
-function y
-	set tmp (mktemp -t "yazi-cwd.XXXXXX")
-	yazi $argv --cwd-file="$tmp"
-	if set cwd (command cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
-		builtin cd -- "$cwd"
-	end
-	rm -f -- "$tmp"
-end
+# function y
+# 	set tmp (mktemp -t "yazi-cwd.XXXXXX")
+# 	yazi $argv --cwd-file="$tmp"
+# 	if set cwd (command cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+# 		builtin cd -- "$cwd"
+# 	end
+# 	rm -f -- "$tmp"
+# end
 
 # tools init
 starship init fish | source
