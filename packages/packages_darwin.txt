@@ -12,3 +12,4 @@ docker
 whatsapp
 leader-key
 gpg
+localsend
