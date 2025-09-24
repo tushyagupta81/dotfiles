@@ -34,5 +34,5 @@ SETUVAR fish_pager_color_description:yellow\x1e\x2di
 SETUVAR fish_pager_color_prefix:normal\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_pager_color_selected_background:\x2dr
-SETUVAR fish_user_paths:/Users/tushya/\x2ebin\x1e/home/tushya/\x2ebin\x1e/home/tushya/\x2elocal/share/nvim/mason/bin\x1e/Users/tushya/\x2econfig/scripts\x1e/home/tushya/\x2econfig/scripts\x1e/home/tushya/dotfiles/scripts\x1e/Users/tushya/dotfiles/scripts\x1e/opt/homebrew/bin
+SETUVAR fish_user_paths:/opt/homebrew/opt/llvm/bin\x1e/Users/tushya/\x2ebin\x1e/home/tushya/\x2ebin\x1e/home/tushya/\x2elocal/share/nvim/mason/bin\x1e/Users/tushya/\x2econfig/scripts\x1e/home/tushya/\x2econfig/scripts\x1e/home/tushya/dotfiles/scripts\x1e/Users/tushya/dotfiles/scripts\x1e/opt/homebrew/bin
 SETUVAR nvm_default_version:v23\x2e3\x2e0

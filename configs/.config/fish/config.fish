@@ -11,7 +11,7 @@ fish_config theme choose vibrant
 
 alias ls "eza --icons=always --color=always --oneline"
 alias l "eza --icons=always -la --git --color=always"
-alias lt "eza --icons=always -Ta -L=2"
+alias lt "eza --icons=always -Ta -L=2 --git-ignore"
 alias e $EDITOR
 alias ide "tmux"
 alias wsl-open "bash wsl-open"
