@@ -1,46 +1,12 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-FREQ_FILE="$HOME/.dir_freq"
-TMP_FILE=$(mktemp)
-trap 'rm -f "$TMP_FILE"' EXIT
-touch "$FREQ_FILE"
-
-# Load frequencies into associative array
-declare -A freq
-while IFS=$'\t' read -r path count; do
-  freq["$path"]=$count
-done < "$FREQ_FILE"
-
-# Build list in one pass
-fd . "$HOME" --type directory --max-depth 4 |
-while IFS= read -r d; do
-  c=${freq["$d"]:-0}
-  printf '%s\t%s\n' "$d" "$c"
-done > "$TMP_FILE"
-
-# Sort and pass to fzf
-# path=$(sort -t $'\t' -k2,2nr -k1,1 "$TMP_FILE" | cut -f1 | fzf --no-sort --tiebreak=index)
-selection=$(
-  sort -t $'\t' -k2,2nr -k1,1 "$TMP_FILE" |
-  awk -F'\t' '{printf "%s:%s\n", $1, $2}' |
-  fzf --no-sort --tiebreak=index
-)
-
-# Extract just the directory part
-path=${selection%:*}
-
-# Update frequencies
-if [ -n "${path:-}" ]; then
-  freq["$path"]=$(( ${freq["$path"]:-0} + 1 ))
-  {
-    for k in "${!freq[@]}"; do
-      printf '%s\t%s\n' "$k" "${freq[$k]}"
-    done
-  } > "$FREQ_FILE"
-
-  cd "$path" || exit 1
-  read -r -p "Session name: " name
-  tmux new-session -d -s "$name"
-  tmux switch-client -t "$name"
+path=$(fd . "$HOME" --type directory --max-depth 4 | fzf)
+if [ -z $path ]; then
+  exit 1
 fi
+cd $path
+echo -n "Session name: "
+read name
+tmux new-session -d -s $name
+tmux switch-client -t $name
