@@ -47,6 +47,9 @@ abbr --add gcs git commit -S -m
 abbr --add gr git add -A\;git commit -m
 abbr --add grs git add -A\;git commit -S -m
 
+# Podman commands
+abbr --add pc podman compose
+
 if test -e "$HOME/.cargo/env.fish"
   source "$HOME/.cargo/env.fish"
 end
