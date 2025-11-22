@@ -61,3 +61,4 @@ system-config-printer
 hplip
 silicon
 localsend-bin
+hoppscotch-bin

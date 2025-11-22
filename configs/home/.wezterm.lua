@@ -66,9 +66,9 @@ end
 
 local path = os.getenv("HOME") .. "/dotfiles/wallpapers/**"
 
-config.background = { get_wallpaper(path) }
+-- config.background = { get_wallpaper(path) }
 -- config.colors = {
---   background = "#000000",
+--   background = "#211111",
 -- }
 
 -- config.term = "wezterm"
