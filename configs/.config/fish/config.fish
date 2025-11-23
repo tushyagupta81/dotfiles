@@ -12,7 +12,7 @@ fish_config theme choose vibrant
 # alias ls "eza --icons=always --color=always --oneline"
 alias ls "lsd"
 # alias l "eza --icons=always -la --git --color=always"
-alias l "lsd -l"
+alias l "lsd -la"
 # alias lt "eza --icons=always -Ta -L=2 --git-ignore"
 alias lt "lsd --tree"
 alias e $EDITOR
