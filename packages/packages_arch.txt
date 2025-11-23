@@ -62,3 +62,4 @@ hplip
 silicon
 localsend-bin
 hoppscotch-bin
+lsd

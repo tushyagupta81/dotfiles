@@ -32,3 +32,4 @@ podman
 graphviz
 tldr
 silicon
+lsd
