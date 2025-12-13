@@ -22,6 +22,5 @@ mihon
 read era
 capy reader
 delta
-installer x revived
 url checker
 steam
