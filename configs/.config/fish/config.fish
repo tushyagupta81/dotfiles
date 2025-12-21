@@ -66,6 +66,7 @@ end
 
 if test -n "$HOMEBREW_PREFIX"
   set -gx HOMEBREW_CELLAR "$HOMEBREW_PREFIX/Cellar"
+  set -gx HOMEBREW_NO_AUTO_UPDATE 1
   set -gx HOMEBREW_REPOSITORY "$HOMEBREW_PREFIX/Homebrew"
   set -gx PATH "$HOMEBREW_PREFIX/bin" "$HOMEBREW_PREFIX/sbin" $PATH
   set -q MANPATH; or set MANPATH ''
