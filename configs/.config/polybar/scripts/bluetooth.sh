@@ -12,19 +12,19 @@ if [ "$(systemctl is-active "bluetooth.service")" = "active" ]; then
       device_battery_percent=$(echo "$device_info" | grep "Battery Percentage" | awk -F'[()]' '{print $2}')
 
       if [ -n "$device_battery_percent" ]; then
-        if [ "$device_battery_percent" -gt 90 ]; then
-          device_battery_icon="#25"
-        elif [ "$device_battery_percent" -gt 60 ]; then
-          device_battery_icon="#24"
-        elif [ "$device_battery_percent" -gt 35 ]; then
-          device_battery_icon="#23"
-        elif [ "$device_battery_percent" -gt 10 ]; then
-          device_battery_icon="#22"
-        else
-          device_battery_icon="#21"
-        fi
+        # if [ "$device_battery_percent" -gt 90 ]; then
+        #   device_battery_icon="#25"
+        # elif [ "$device_battery_percent" -gt 60 ]; then
+        #   device_battery_icon="#24"
+        # elif [ "$device_battery_percent" -gt 35 ]; then
+        #   device_battery_icon="#23"
+        # elif [ "$device_battery_percent" -gt 10 ]; then
+        #   device_battery_icon="#22"
+        # else
+        #   device_battery_icon="#21"
+        # fi
 
-        device_output="$device_output $device_battery_icon $device_battery_percent%"
+        device_output="$device_output $device_battery_percent%"
       fi
 
       if [ $counter -gt 0 ]; then
@@ -38,5 +38,5 @@ if [ "$(systemctl is-active "bluetooth.service")" = "active" ]; then
   done
   printf '\n'
 else
-  echo "#2"
+  echo "󰂯 off"
 fi
