@@ -14,6 +14,10 @@
   "modules": [
     // Title
     {
+      "type": "custom",
+      "format": ""
+    },
+    {
       "type": "title",
       "format": "{#1}╭───────────── {#}{user-name-colored}"
     },
