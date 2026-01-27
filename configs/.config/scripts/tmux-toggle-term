@@ -6,7 +6,8 @@ TOX_TEXT_COLOR="$3"
 TOX_BORDER_COLOR="$4"
 TOX_TITLE="$5"
 
-curr_sess=$(tmux list-sessions | grep "attached" | sed -E 's/:.*$//')
+# curr_sess=$(tmux list-sessions | grep "attached" | sed -E 's/:.*$//')
+curr_sess=$(tmux display-message -p '#S')
 if echo "$curr_sess" | grep "popup"; then
   tmux detach-client
 else
