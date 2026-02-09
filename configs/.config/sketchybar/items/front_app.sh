@@ -1,17 +1,20 @@
 #!/usr/bin/env bash
 
-sketchybar --add item front_app.icon center \
-  --set front_app.icon \
-  icon="" \
-  icon.font="$SBAR_APP_ICON_FONT:Regular:$SBAR_APP_ICON_FONT_SIZE" \
-  icon.color="$COLOR_BLACK" \
-  icon.padding_left="$SBAR_ITEM_ICON_PADDING_LEFT" \
-  icon.padding_right="$SBAR_ITEM_ICON_PADDING_RIGHT"
+COLOR="$WHITE"
 
-sketchybar --add item front_app.name center \
-  --set front_app.name \
-  label.color="$COLOR_BLACK" \
-  label.padding_right="$SBAR_ITEM_LABEL_PADDING_RIGHT" \
-  script="$SBAR_PLUGIN_DIR/front_app.sh" \
-  --subscribe front_app.name front_app_switched yabai_window_focus
-
+sketchybar \
+	--add item front_app left \
+	--set front_app script="$PLUGIN_DIR/front_app.sh" \
+	icon.drawing=off \
+	background.height=26 \
+	background.padding_left=0 \
+	background.padding_right=10 \
+	background.border_width="$BORDER_WIDTH" \
+	background.border_color="$COLOR" \
+	background.corner_radius="$CORNER_RADIUS" \
+	background.color="$BAR_COLOR" \
+	label.color="$COLOR" \
+	label.padding_left=10 \
+	label.padding_right=10 \
+	associated_display=active \
+	--subscribe front_app front_app_switched

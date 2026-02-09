@@ -1,20 +1,21 @@
 #!/usr/bin/env bash
 
-source "$CONFIG_DIR/plugins/icon.sh"
+COLOR="$MAGENTA"
 
-CLOCK_ICON=$(get_widget_icon "clock")
-
-sketchybar --add item clock.label right \
-  --set clock.label \
-  label.color="$COLOR_BLACK" \
-  label.padding_right="$SBAR_ITEM_LABEL_PADDING_RIGHT" \
-  update_freq=1 \
-  script="$SBAR_PLUGIN_DIR/clock.sh"
-
-sketchybar --add item clock.icon right \
-  --set clock.icon \
-  icon="$CLOCK_ICON" \
-  icon.font="$SBAR_ICON_FONT_FACE_BOLD:$SBAR_ICON_FONT_SIZE" \
-  icon.color="$COLOR_BLACK" \
-  icon.padding_left="$SBAR_ITEM_ICON_PADDING_LEFT" \
-  icon.padding_right="$SBAR_ITEM_ICON_PADDING_RIGHT"
+sketchybar --add item clock right \
+	--set clock update_freq=1 \
+	icon.padding_left=10 \
+	icon.color="$COLOR" \
+	icon="" \
+	label.color="$COLOR" \
+	label.padding_right=5 \
+	label.width=78 \
+	align=center \
+	background.height=26 \
+	background.corner_radius="$CORNER_RADIUS" \
+	background.padding_right=2 \
+	background.border_width="$BORDER_WIDTH" \
+	background.border_color="$COLOR" \
+	background.color="$BAR_COLOR" \
+	background.drawing=on \
+	script="$PLUGIN_DIR/clock.sh"

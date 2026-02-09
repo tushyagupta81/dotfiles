@@ -1,16 +1,57 @@
 #!/usr/bin/env bash
 
-export SBAR_PLUGIN_DIR="$CONFIG_DIR/plugins"
-export SBAR_ITEM_DIR="$CONFIG_DIR/items"
-export SBAR_EVENT_DIR="$CONFIG_DIR/events"
+source "$HOME/.config/sketchybar/variables.sh" # Loads all defined colors
 
-source "$CONFIG_DIR/core/env.sh"
-source "$CONFIG_DIR/core/init_widgets.sh"
-source "$CONFIG_DIR/core/bar_defaults.sh"
-source "$CONFIG_DIR/core/loader.sh"
-source "$CONFIG_DIR/core/load_widgets.sh"
-source "$CONFIG_DIR/core/styles.sh"
+# General bar and defaults
+
+sketchybar --bar height=32 \
+	color="$BAR_COLOR" \
+	shadow="$SHADOW" \
+	position=top \
+	sticky=on \
+	padding_right=9 \
+	padding_left=9 \
+	corner_radius="$CORNER_RADIUS" \
+	y_offset=0 \
+	margin=0 \
+	blur_radius=20 \
+	notch_width=200 \
+	--default updates=when_shown \
+	icon.font="$FONT:Bold:13.5" \
+	icon.color="$ICON_COLOR" \
+	icon.padding_left="$PADDINGS" \
+	icon.padding_right="$PADDINGS" \
+	label.font="$FONT:Bold:13.0" \
+	label.color="$LABEL_COLOR" \
+	label.padding_left="$PADDINGS" \
+	label.padding_right="$PADDINGS" \
+	background.padding_right="$PADDINGS" \
+	background.padding_left="$PADDINGS" \
+	popup.background.border_width=1 \
+	popup.background.corner_radius=11 \
+	popup.background.border_color="$POPUP_BORDER_COLOR" \
+	popup.background.color="$POPUP_BACKGROUND_COLOR" \
+	popup.background.shadow.drawing="$SHADOW"
+
+# Left
+# source "$ITEM_DIR/apple.sh"
+source "$ITEM_DIR/spaces.sh"
+source "$ITEM_DIR/front_app.sh"
+
+# Center (of notch)
+source "$ITEM_DIR/spotify.sh"
+
+# Right
+source "$ITEM_DIR/clock.sh"
+source "$ITEM_DIR/calendar.sh"
+source "$ITEM_DIR/battery.sh"
+source "$ITEM_DIR/volume.sh"
+source "$ITEM_DIR/cpu.sh"
+
+#################### Finalizing Setup ####################
+
+sketchybar --hotload true
 
 sketchybar --update
 
-source "$CONFIG_DIR/core/events.sh"
+echo "sketchybar configuration loaded.."
