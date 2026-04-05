@@ -33,3 +33,4 @@ graphviz
 tldr
 silicon
 lsd
+tree-sitter-cli
