@@ -13,5 +13,5 @@ rm -rf ./yay
 
 yay -S ${packages_arch[*]}
 
-echo "Swaping ctrl and caps"
-setxkbmap -layout us -option ctrl:swapcaps
+# echo "Swaping ctrl and caps"
+# setxkbmap -layout us -option ctrl:swapcaps
