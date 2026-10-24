@@ -50,3 +50,5 @@ eval "$(zoxide init bash --cmd cd)"
 eval "$(starship init bash)"
 eval "$(fzf --bash)"
 eval "$(uv generate-shell-completion bash)"
+
+. "$HOME/.local/bin/env"
